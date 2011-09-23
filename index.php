@@ -1,0 +1,218 @@
+<?php
+/*
+ * 		file "index.php" - daxosstore-web project
+ * 
+ * 		Copyright (C) 2011 - by Víctor Fernández Rico <vfrico@gmail.com>
+ * 		Released under GPL3 license (See COPYNG file or http://www.gnu.org/copyleft/gpl.html)
+ * 
+ *      This file is the main on the project
+ * 
+ *      This program is free software; you can redistribute it and/or modify
+ *      it under the terms of the GNU General Public License as published by
+ *      the Free Software Foundation; either version 2 of the License, or
+ *      (at your option) any later version.
+ *      
+ *      This program is distributed in the hope that it will be useful,
+ *      but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *      MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *      GNU General Public License for more details.
+ *      
+ *  	You should have received a copy of the GNU General Public License
+ * 	    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *      
+ */
+
+
+?>
+
+<!DOCTYPE HTML>
+<html lang="es">
+<head>
+	<meta http-equiv="Content-Language" content="es-ES" />
+	<meta http-equiv="content-type" content="text/html;charset=UTF-8">
+	<title>Dax OS Store</title>
+	<link href="style.css" rel="stylesheet" type="text/css" media="all">
+</head>
+<body>
+	<header id="header">
+	
+	</header>
+<div style="text-align: center;">
+<table style="width: 1042px; height: 68px; text-align: left; margin-left: auto; margin-right: auto;" border="0" cellpadding="2" cellspacing="2">
+	<tbody>
+		<tr>
+			<td>
+				<br>
+			</td>
+			<td>
+			<table style="text-align: left; width: 1326px; height: 52px;"border="0" cellpadding="2" cellspacing="2">
+				<tbody>
+				<tr>
+					<td>
+						<a href="http://www.socialnet.zobyhost.com/"><img style="border: 0px solid ; width: 35px; height: 35px;" alt="" title="Linux Dax Web" src="imagenes/logo-daxweb.png"></a> &nbsp; <img title="Actualizar Dax OS" style="width: 35px; height: 35px;" alt="Actualizar Dax OS" src="imagenes/software-update-available.png">
+						&nbsp; <a href="http://www.socialnet.zobyhost.com/buscador/site/index_es.html"><img style="border: 0px solid ; width: 35px; height: 35px;" alt="" title="Buscador" src="imagenes/search.png"></a> &nbsp;<a href="version.html"><img style="border: 0px solid ; width: 35px; height: 35px;" alt="" title="Versión 0.3" src="imagenes/process_info.png"></a> &nbsp;&nbsp;</td>
+<td><br>
+</td>
+<td><br>
+</td>
+<td><br>
+</td>
+<td><br>
+</td>
+<td><br>
+</td>
+<td style="text-align: right;"><br>
+</td>
+</tr>
+<tr>
+<td style="text-align: center;">&nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<img
+style="width: 500px; height: 150px;" alt="" src="cabezal.png"></td>
+<td><br>
+</td>
+<td><br>
+</td>
+<td><br>
+</td>
+<td><br>
+</td>
+<td><br>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<br>
+<table
+style="width: 301px; height: 220px; text-align: left; margin-left: auto; margin-right: auto;"
+border="0" cellpadding="2" cellspacing="2">
+<tbody>
+<tr>
+<td><br>
+<br>
+<br>
+<br>
+<br>
+</td>
+<td style="text-align: center;">
+<div style="text-align: left;"><a href="cloudapps.html"><img
+style="border: 0px solid ; width: 262px; height: 208px;" alt=""
+src="imagenes/CloudApp-Icon.png"> </a><br>
+</div>
+Apps in the cloud<br>
+</td>
+<td><br>
+<div style="text-align: center;">
+<div style="text-align: center;">&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; <span style="color: rgb(33, 33, 33);">&nbsp;</span></div>
+<table
+style="width: 659px; height: 88px; text-align: left; margin-left: auto; margin-right: auto;"
+border="0" cellpadding="2" cellspacing="2">
+<tbody>
+<tr>
+<td style="text-align: right;"><a href="accesorios.html"><img
+src="imagenes/applications-accessories.png" alt="Accesorios"
+style="border: 0px solid ; width: 48px; height: 48px;"></a> &nbsp; <span
+style="color: rgb(33, 33, 33);"></span><br>
+<div style="text-align: right;">&nbsp;Accesorios</div>
+</td>
+<td style="text-align: center;"><a href="internet.html"><img
+style="border: 0px solid ; width: 48px; height: 48px;" alt=""
+src="imagenes/applications-internet.png"></a><br>
+&nbsp;Internet</td>
+<td>&nbsp;<a href="graficos.html"><img
+style="border: 0px solid ; width: 48px; height: 48px;" alt=""
+src="imagenes/applications-graphics.png"></a><br>
+Gráficos</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="juegos.html"><img
+src="imagenes/applications-games.png" alt=""
+style="border: 0px solid ; height: 48px; width: 48px;"></a> &nbsp;<br>
+Juegos &nbsp;&nbsp; </td>
+<td style="text-align: center;"><a href="sonido.html"><img
+style="border: 0px solid ; width: 48px; height: 48px;" alt=""
+src="imagenes/applications-multimedia.png"></a><br>
+Sonido y vídeo</td>
+<td>&nbsp;<a href="oficina.html"><img
+style="border: 0px solid ; width: 48px; height: 48px;" alt=""
+src="imagenes/applications-office.png"></a><br>
+Ofimática</td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="educacion.html"><img
+style="border: 0px solid ; width: 48px; height: 48px;" alt=""
+src="imagenes/applications-science.png"></a> &nbsp;<br>
+Educación</td>
+<td style="text-align: center;"><a href="sistema.html"><img
+style="border: 0px solid ; width: 48px; height: 48px;" alt=""
+src="imagenes/application-default-icon.png"></a><br>
+Ajustes</td>
+<td>&nbsp;<a href="otras.html"><img
+style="border: 0px solid ; width: 48px; height: 48px;" alt=""
+src="imagenes/applications-other.png"></a><br>
+&nbsp; Otras</td>
+</tr>
+</tbody>
+</table>
+</div>
+</td>
+<td>
+<div style="text-align: right;"><a href="juegoflash.html"><img
+src="PM512.png" alt=""
+style="border: 0px solid ; width: 216px; height: 216px;"></a><br>
+</div>
+<div style="text-align: center;">Juegos Online</div>
+</td>
+</tr>
+</tbody>
+</table>
+<br>
+<div style="text-align: center;">
+<table style="text-align: left; width: 100%;" border="0" cellpadding="2"
+cellspacing="2">
+<tbody>
+<tr>
+<td><br>
+</td>
+<td style="text-align: center;">&nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; <a href="legal.html">Avisos
+legales</a>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; </td>
+<td><br>
+</td>
+</tr>
+<tr>
+<td><br>
+</td>
+<td style="text-align: right;"><br>
+<div style="text-align: center;">&nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp;<img style="width: 41px; height: 41px;" alt=""
+src="logo-daxweb.png">Dax OS Store es un proyecto de Dax
+Web, está registrado bajo la licencia GPL</div>
+</td>
+<td><br>
+</td>
+</tr>
+</tbody>
+</table>
+<br>
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;</div>
+</div>
+</body>
+</html>

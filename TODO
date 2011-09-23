@@ -1,0 +1,23 @@
+file TODO - daxosstore-web project
+
+Copyright (C) 2011 - by Víctor Fernández Rico <vfrico@gmail.com>
+Released under GPL3 license (See COPYNG file or http://www.gnu.org/copyleft/gpl.html)
+
+This file contains all the features will content the store
+By the moment, only avalible in spanish, a translation will come soon.
+================================================================================================
+
+Spanish
+=================
+La página web será programada en PHP.
+El estilo se aplicará mediante CSS (V3)
+Preferiblemente ha de estar construido todo en HTML5, para mejorar la compatibilidad futura
+Un fichero index.php. Se le podrá llamar con distintos argumentos, para acceder a cada una de las categorías.
+Los programas estarán guardados en una base de datos SQLite, para tener una mayor versatilidad si en algún caso se tuviera que mover la web a otro hosting.
+
+Es *posible* que exista un cliente local en DaxOS, que interactúe y puedas descargar paquetes y programas sin necesidad de abrir el navegador
+
+Guía de estilo propuesta:
+---------------------------
+Los títulos: Comfortaa (http://www.google.com/webfonts/specimen/Comfortaa)
+El texto: Antic (http://www.google.com/webfonts/specimen/Antic)
