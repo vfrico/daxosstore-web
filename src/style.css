@@ -24,3 +24,24 @@
 body {
 	background-color: #212121;
 }
+img.cabezal{
+	display: block;
+	margin: 15px auto 15px auto;
+}
+#table{
+	margin:15px auto 15px auto;
+}
+#navegacion{
+	list-style:none;
+	float: left;
+	margin-bottom: 20px;
+	display: block;
+}
+#navegacion li{
+	float:left;
+	padding: 5px;
+}
+.navigationimages {
+	width: 35px;
+	height: 35px;
+}
