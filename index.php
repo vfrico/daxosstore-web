@@ -43,28 +43,83 @@
 		</ul>
 	</nav>
 	<br>
+	<br>
+	<br>
 	<header>
 		<h1><img class="cabezal" alt="" src="images/header/cabezal.png"></h1>
 	</header> 
 
 	<table id="table">
 		<tr>
-			<td rowspan="3">Campo unificado</td>
-			<td>Aplicacion1</td>
-			<td>Aplicacion2</td>
-			<td>Aplicacion3</td>
-			<td rowspan="3">Campo unificado</td>
+			<td rowspan="3">
+				Campo unificado
+			</td>
+			<td>
+				<a href="#">
+				<img src="images/categories/accesorios.png" alt="Accesorios" class="imgcat"/><br>
+				Accesorios
+				</a>
+			</td>
+			<td>
+				<a href="#">
+				<img src="images/categories/internet.png" alt="Internet" class="imgcat"/><br>
+				Internet
+				</a>
+			</td>
+			<td>
+				<a href="#">
+				<img src="images/categories/graficos.png" alt="graficos" class="imgcat"/><br>
+				Gráficos
+				</a>
+			</td>
+			<td rowspan="3">
+				Campo unificado
+			</td>
 		</tr>
 		<tr>
-			<td>Aplicacion4</td>
-			<td>Aplicacion5</td>
-			<td>Aplicacion6</td>
+			<td>
+				<a href="#">
+				<img src="images/categories/juegos.png" alt="Juegos" class="imgcat"/><br>
+				Juegos
+				</a>
+			</td>
+			<td>
+				<a href="#">
+				<img src="images/categories/sonidoyvideo.png" alt="sonidoyvideo" class="imgcat"/><br>
+				Sonido y Vídeo
+				</a>
+			</td>
+			<td>
+				<a href="#">
+				<img src="images/categories/ofimatica.png" alt="Ofimática" class="imgcat"/><br>
+				Ofimática
+				</a>
+			</td>
 		</tr>
 		<tr>
-			<td>Aplicacion7</td>
-			<td>Aplicacion8</td>
-			<td>Aplicacion9</td>
+			<td>
+				<a href="#">
+				<img src="images/categories/educacion.png" alt="Educación" class="imgcat"/><br>
+				Educación
+				</a>
+			</td>
+			<td>
+				<a href="#">
+				<img src="images/categories/ajustes.png" alt="Ajustes" class="imgcat"/><br>
+				Ajustes
+				</a>
+			</td>
+			<td>
+				<a href="#">
+				<img src="images/categories/otras.png" alt="Otras" class="imgcat"/><br>
+				Otras
+				</a>
+			</td>
 		</tr>
 	</table>
+	<footer>
+		<img src="images/header/logo-daxweb.png" alt="Dax Web" class="navigationimages" style="margin: -10px 0px"/>
+		Dax OS Store es un proyecto de Dax Web, está registrado bajo la licencia GPL
+	</footer>
 </body>
 </html>

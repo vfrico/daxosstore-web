@@ -21,8 +21,15 @@
  *      
  */
 
+@import url(fonts/antic/font.css);
+@import url(fonts/comfortaa/font.css);
+
+
 body {
 	background-color: #212121;
+	font-family: "antic","sans";
+	color: #FDFCFD;
+	font-size: 16px;
 }
 img.cabezal{
 	display: block;
@@ -30,11 +37,39 @@ img.cabezal{
 }
 #table{
 	margin:15px auto 15px auto;
+	text-align: center;
 }
+#table td {
+	padding: 25px;
+	text-align: center;
+}
+
+#table td a:link {
+	text-decoration: none;
+	color: #FDFCFD;
+}
+#table td a:visited {
+	text-decoration: none;
+	color: #FDFCFD;
+}
+#table td a:hover {
+	font-size: 18px;
+	font-family: comfortaa;
+	color: #FDFCFD;
+}
+#table td a:active {
+	text-decoration: none;
+	color: #FDFCFD;
+}
+
+.imgcat {
+	
+}
+
 #navegacion{
 	list-style:none;
 	float: left;
-	margin-bottom: 20px;
+	margin-bottom: 0px;
 	display: block;
 }
 #navegacion li{
@@ -44,4 +79,10 @@ img.cabezal{
 .navigationimages {
 	width: 35px;
 	height: 35px;
+}
+footer {
+	text-align: center;
+	margin: 15px ;
+	
+	
 }
