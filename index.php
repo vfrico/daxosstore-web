@@ -1,205 +1,133 @@
 <?php
-
 /*
- *---------------------------------------------------------------
- * APPLICATION ENVIRONMENT
- *---------------------------------------------------------------
- *
- * You can load different configurations depending on your
- * current environment. Setting the environment also influences
- * things like logging and error reporting.
- *
- * This can be set to anything, but default usage is:
- *
- *     development
- *     testing
- *     production
- *
- * NOTE: If you change these, also change the error_reporting() code below
- *
- */
-	define('ENVIRONMENT', 'development');
-/*
- *---------------------------------------------------------------
- * ERROR REPORTING
- *---------------------------------------------------------------
- *
- * Different environments will require different levels of error reporting.
- * By default development will show errors but testing and live will hide them.
+ * 		file "index.php" - daxosstore-web project
+ * 
+ * 		Copyright (C) 2011 - by Víctor Fernández Rico <vfrico@gmail.com>
+ * 		Released under GPL3 license (See COPYNG file or http://www.gnu.org/copyleft/gpl.html)
+ * 
+ *      This file is the main on the project
+ * 
+ *      This program is free software; you can redistribute it and/or modify
+ *      it under the terms of the GNU General Public License as published by
+ *      the Free Software Foundation; either version 2 of the License, or
+ *      (at your option) any later version.
+ *      
+ *      This program is distributed in the hope that it will be useful,
+ *      but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *      MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *      GNU General Public License for more details.
+ *      
+ *  	You should have received a copy of the GNU General Public License
+ * 	    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *      
  */
 
-if (defined('ENVIRONMENT'))
-{
-	switch (ENVIRONMENT)
-	{
-		case 'development':
-			error_reporting(E_ALL);
-		break;
-	
-		case 'testing':
-		case 'production':
-			error_reporting(0);
-		break;
 
-		default:
-			exit('The application environment is not set correctly.');
-	}
-}
+?>
 
-/*
- *---------------------------------------------------------------
- * SYSTEM FOLDER NAME
- *---------------------------------------------------------------
- *
- * This variable must contain the name of your "system" folder.
- * Include the path if the folder is not in the same  directory
- * as this file.
- *
- */
-	$system_path = 'system';
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="Content-Language" content="es-ES" />
+	<meta http-equiv="content-type" content="text/html;charset=UTF-8">
+	<title>Dax OS Store</title>
+	<link href='src/css/style.css' rel="stylesheet" type="text/css" media="all">
+</head>
+<body>
+	<nav>
+		<ul id="navegacion">
+			<li><a href="http://www.socialnet.zobyhost.com/"><img class="navigationimages" alt="Linux Dax Web" src="images/header/logo-daxweb.png"></a></li>
+			<li><img class="navigationimages" alt="Actualizar Dax OS" src="images/header/daxos-update.png"></li>
+			<li><a href="http://www.socialnet.zobyhost.com/buscador/site/index_es.html"><img class="navigationimages" alt="Buscador" src="images/header/buscador.png"></a></li>
+			<li><a href="version.html"><img class="navigationimages" alt="Versión" title="Versión 0.3" src="images/header/daxosstore-info.png"></a></li>
+		</ul>
+	</nav>
+	<br>
+	<br>
+	<br>
+	<header>
+		<h1><img class="cabezal" alt="" src="images/header/cabezal.png"></h1>
+	</header> 
 
-/*
- *---------------------------------------------------------------
- * APPLICATION FOLDER NAME
- *---------------------------------------------------------------
- *
- * If you want this front controller to use a different "application"
- * folder then the default one you can set its name here. The folder
- * can also be renamed or relocated anywhere on your server.  If
- * you do, use a full server path. For more info please see the user guide:
- * http://codeigniter.com/user_guide/general/managing_apps.html
- *
- * NO TRAILING SLASH!
- *
- */
-	$application_folder = 'application';
-
-/*
- * --------------------------------------------------------------------
- * DEFAULT CONTROLLER
- * --------------------------------------------------------------------
- *
- * Normally you will set your default controller in the routes.php file.
- * You can, however, force a custom routing by hard-coding a
- * specific controller class/function here.  For most applications, you
- * WILL NOT set your routing here, but it's an option for those
- * special instances where you might want to override the standard
- * routing in a specific front controller that shares a common CI installation.
- *
- * IMPORTANT:  If you set the routing here, NO OTHER controller will be
- * callable. In essence, this preference limits your application to ONE
- * specific controller.  Leave the function name blank if you need
- * to call functions dynamically via the URI.
- *
- * Un-comment the $routing array below to use this feature
- *
- */
-	// The directory name, relative to the "controllers" folder.  Leave blank
-	// if your controller is not in a sub-folder within the "controllers" folder
-	// $routing['directory'] = '';
-
-	// The controller class file name.  Example:  Mycontroller
-	// $routing['controller'] = '';
-
-	// The controller function you wish to be called.
-	// $routing['function']	= '';
-
-
-/*
- * -------------------------------------------------------------------
- *  CUSTOM CONFIG VALUES
- * -------------------------------------------------------------------
- *
- * The $assign_to_config array below will be passed dynamically to the
- * config class when initialized. This allows you to set custom config
- * items or override any default config values found in the config.php file.
- * This can be handy as it permits you to share one application between
- * multiple front controller files, with each file containing different
- * config values.
- *
- * Un-comment the $assign_to_config array below to use this feature
- *
- */
-	// $assign_to_config['name_of_config_item'] = 'value of config item';
-
-
-
-// --------------------------------------------------------------------
-// END OF USER CONFIGURABLE SETTINGS.  DO NOT EDIT BELOW THIS LINE
-// --------------------------------------------------------------------
-
-/*
- * ---------------------------------------------------------------
- *  Resolve the system path for increased reliability
- * ---------------------------------------------------------------
- */
-
-	// Set the current directory correctly for CLI requests
-	if (defined('STDIN'))
-	{
-		chdir(dirname(__FILE__));
-	}
-
-	if (realpath($system_path) !== FALSE)
-	{
-		$system_path = realpath($system_path).'/';
-	}
-
-	// ensure there's a trailing slash
-	$system_path = rtrim($system_path, '/').'/';
-
-	// Is the system path correct?
-	if ( ! is_dir($system_path))
-	{
-		exit("Your system folder path does not appear to be set correctly. Please open the following file and correct this: ".pathinfo(__FILE__, PATHINFO_BASENAME));
-	}
-
-/*
- * -------------------------------------------------------------------
- *  Now that we know the path, set the main path constants
- * -------------------------------------------------------------------
- */
-	// The name of THIS file
-	define('SELF', pathinfo(__FILE__, PATHINFO_BASENAME));
-
-	// The PHP file extension
-	// this global constant is deprecated.
-	define('EXT', '.php');
-
-	// Path to the system folder
-	define('BASEPATH', str_replace("\\", "/", $system_path));
-
-	// Path to the front controller (this file)
-	define('FCPATH', str_replace(SELF, '', __FILE__));
-
-	// Name of the "system folder"
-	define('SYSDIR', trim(strrchr(trim(BASEPATH, '/'), '/'), '/'));
-
-
-	// The path to the "application" folder
-	if (is_dir($application_folder))
-	{
-		define('APPPATH', $application_folder.'/');
-	}
-	else
-	{
-		if ( ! is_dir(BASEPATH.$application_folder.'/'))
-		{
-			exit("Your application folder path does not appear to be set correctly. Please open the following file and correct this: ".SELF);
-		}
-
-		define('APPPATH', BASEPATH.$application_folder.'/');
-	}
-
-/*
- * --------------------------------------------------------------------
- * LOAD THE BOOTSTRAP FILE
- * --------------------------------------------------------------------
- *
- * And away we go...
- *
- */
-require_once BASEPATH.'core/CodeIgniter.php';
-
-/* End of file index.php */
-/* Location: ./index.php */
+	<table id="table">
+		<tr>
+			<td rowspan="3">
+				Campo unificado
+			</td>
+			<td>
+				<a href="#">
+				<img src="images/categories/accesorios.png" alt="Accesorios" class="imgcat"/><br>
+				Accesorios
+				</a>
+			</td>
+			<td>
+				<a href="#">
+				<img src="images/categories/internet.png" alt="Internet" class="imgcat"/><br>
+				Internet
+				</a>
+			</td>
+			<td>
+				<a href="#">
+				<img src="images/categories/graficos.png" alt="graficos" class="imgcat"/><br>
+				Gráficos
+				</a>
+			</td>
+			<td rowspan="3">
+				Campo unificado
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<a href="#">
+				<img src="images/categories/juegos.png" alt="Juegos" class="imgcat"/><br>
+				Juegos
+				</a>
+			</td>
+			<td>
+				<a href="#">
+				<img src="images/categories/sonidoyvideo.png" alt="sonidoyvideo" class="imgcat"/><br>
+				Sonido y Vídeo
+				</a>
+			</td>
+			<td>
+				<a href="#">
+				<img src="images/categories/ofimatica.png" alt="Ofimática" class="imgcat"/><br>
+				Ofimática
+				</a>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<a href="#">
+				<img src="images/categories/educacion.png" alt="Educación" class="imgcat"/><br>
+				Educación
+				</a>
+			</td>
+			<td>
+				<a href="#">
+				<img src="images/categories/ajustes.png" alt="Ajustes" class="imgcat"/><br>
+				Ajustes
+				</a>
+			</td>
+			<td>
+				<a href="#">
+				<img src="images/categories/otras.png" alt="Otras" class="imgcat"/><br>
+				Otras
+				</a>
+			</td>
+		</tr>
+	</table>
+	<footer>
+		<img src="images/header/logo-daxweb.png" alt="Dax Web" class="navigationimages" style="margin: -10px 0px"/>
+		Dax OS Store es un proyecto de Dax Web, está registrado bajo la licencia GPL
+        <?
+        include('lib/sqlite3db.php');
+        $base = new dbinter;
+        $base->createapptable();
+        $base->anadirapp("holamundo","Other","http://");
+        $salida =  $base->readapps("Other");
+        echo $salida['name'];
+        ?>
+	</footer>
+</body>
+</html>
