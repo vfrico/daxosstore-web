@@ -38,6 +38,8 @@
                  <option value="Education">Education</option>
                  <option value="System">System</option>
                  <option value="Other">Other</option>
+                 <option value="GOnline">Games Online</option>
+                 <option value="Cloud">Apps en la nube</option>
                 </select>
                 
                 <br>

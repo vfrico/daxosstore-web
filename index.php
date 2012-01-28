@@ -52,7 +52,10 @@
 	<table id="table">
 		<tr>
 			<td rowspan="3">
-				Campo unificado
+				<a href="categories.php?cat=Cloud">
+				<img src="images/categories/cloud.png" alt="Cloudapps" class="bigcat"/><br>
+				Apps en la nube
+				</a>
 			</td>
 			<td>
 				<a href="categories.php?cat=Accesories">
@@ -73,7 +76,10 @@
 				</a>
 			</td>
 			<td rowspan="3">
-				Campo unificado
+				<a href="categories.php?cat=GOnline">
+				<img src="images/categories/games.png" alt="graficos" class="bigcat"/><br>
+				Juegos Online
+				</a>
 			</td>
 		</tr>
 		<tr>
