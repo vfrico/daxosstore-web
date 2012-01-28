@@ -42,15 +42,18 @@ img.cabezal{
 #table td {
 	padding: 25px;
 	text-align: center;
+    font-family: comfortaa;
+    font-size: 18px;
+    color:#949494;
 }
 
 #table td a:link {
 	text-decoration: none;
-	color: #FDFCFD;
+	    color:#949494;
 }
 #table td a:visited {
 	text-decoration: none;
-	color: #FDFCFD;
+    color:#949494;
 }
 #table td a:hover {
 	font-size: 18px;
@@ -59,7 +62,7 @@ img.cabezal{
 }
 #table td a:active {
 	text-decoration: none;
-	color: #FDFCFD;
+    color:#949494;
 }
 
 .imgcat {

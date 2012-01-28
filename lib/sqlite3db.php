@@ -2,29 +2,42 @@
 <?php
 class dbinter {
     
-function abrirbase () {
-    $db = new SQLite3('lib/apps.db');
-    return $db;
-}
+	function abrirbase () {
+		$db = new SQLite3('lib/apps.db');
+		return $db;
+	}
 
-function createapptable() {
-    $base = $this->abrirbase();
-    $base->exec('CREATE TABLE apps (id integer UNIQUE PRIMARY KEY, name TEXT, category TEXT, url TEXT)');
-    $base->close();
-    
-}
-function anadirapp ($nombre, $category, $url) {
-    $base = $this->abrirbase();
-    $base->exec("INSERT INTO apps VALUES (NULL,'".$nombre." ',' ".$category."','".$url."')");
-    $base->close();
-}
+	function createapptable() {
+		$base = $this->abrirbase();
+		$base->exec('CREATE TABLE apps (id integer UNIQUE PRIMARY KEY, name TEXT, category TEXT, url TEXT)');
+		$base->close();
+		
+	}
+	
+	function anadirapp ($nombre, $category, $url) {
+		$base = $this->abrirbase();
+		$base->exec("INSERT INTO apps VALUES (NULL,'".$nombre."','".$category."','".$url."')");
+		$base->close();
+	}
 
-function readapps($category){
-    $base = $this->abrirbase();
-    $resultado = $base->query("SELECT * FROM apps WHERE category = '".$category."'");
-    return $resultado->fetchArray();
-    $base->close();
-}
+	function readapps($category){
+		$base = $this->abrirbase();
+		$resultado = $base->query("SELECT * FROM apps WHERE category='".$category."'");
+		//~ $arrayexit = $resultado->fetchArray(SQLITE3_NUM);
+		$base->close();
+		//~ print_r($arrayexit);
+		echo "<br>";
+		//~ echo "SELECT * FROM apps WHERE category LIKE '%".$category."%'";
+		return $arrayexit;
+	}
+	
+	function query($query) {
+		$base = $this->abrirbase();
+		$resultado = $base->query($query);
+		
+		return $resultado;
+		$base->close();
+	}
 }
 ?>
 <!--

@@ -1,4 +1,4 @@
-<?php
+<?
 /*
  * 		file "index.php" - daxosstore-web project
  * 
@@ -55,19 +55,19 @@
 				Campo unificado
 			</td>
 			<td>
-				<a href="#">
+				<a href="categories.php?cat=Accesories">
 				<img src="images/categories/accesorios.png" alt="Accesorios" class="imgcat"/><br>
 				Accesorios
 				</a>
 			</td>
 			<td>
-				<a href="#">
+				<a href="categories.php?cat=Internet">
 				<img src="images/categories/internet.png" alt="Internet" class="imgcat"/><br>
 				Internet
 				</a>
 			</td>
 			<td>
-				<a href="#">
+				<a href="categories.php?cat=Graphics">
 				<img src="images/categories/graficos.png" alt="graficos" class="imgcat"/><br>
 				Gráficos
 				</a>
@@ -78,19 +78,19 @@
 		</tr>
 		<tr>
 			<td>
-				<a href="#">
+				<a href="categories.php?cat=Games">
 				<img src="images/categories/juegos.png" alt="Juegos" class="imgcat"/><br>
 				Juegos
 				</a>
 			</td>
 			<td>
-				<a href="#">
+				<a href="categories.php?cat=Multimedia">
 				<img src="images/categories/sonidoyvideo.png" alt="sonidoyvideo" class="imgcat"/><br>
 				Sonido y Vídeo
 				</a>
 			</td>
 			<td>
-				<a href="#">
+				<a href="categories.php?cat=Office">
 				<img src="images/categories/ofimatica.png" alt="Ofimática" class="imgcat"/><br>
 				Ofimática
 				</a>
@@ -98,19 +98,19 @@
 		</tr>
 		<tr>
 			<td>
-				<a href="#">
+				<a href="categories.php?cat=Education">
 				<img src="images/categories/educacion.png" alt="Educación" class="imgcat"/><br>
 				Educación
 				</a>
 			</td>
 			<td>
-				<a href="#">
+				<a href="categories.php?cat=System">
 				<img src="images/categories/ajustes.png" alt="Ajustes" class="imgcat"/><br>
 				Ajustes
 				</a>
 			</td>
 			<td>
-				<a href="#">
+				<a href="categories.php?cat=Other">
 				<img src="images/categories/otras.png" alt="Otras" class="imgcat"/><br>
 				Otras
 				</a>
@@ -120,14 +120,7 @@
 	<footer>
 		<img src="images/header/logo-daxweb.png" alt="Dax Web" class="navigationimages" style="margin: -10px 0px"/>
 		Dax OS Store es un proyecto de Dax Web, está registrado bajo la licencia GPL
-        <?
-        include('lib/sqlite3db.php');
-        $base = new dbinter;
-        $base->createapptable();
-        $base->anadirapp("holamundo","Other","http://");
-        $salida =  $base->readapps("Other");
-        echo $salida['name'];
-        ?>
+
 	</footer>
 </body>
 </html>
