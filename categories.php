@@ -1,26 +1,36 @@
+<?
+/*
+ * 		file "categories.php" - daxosstore-web project
+ * 		This file shows the apps by category
+ * 
+ * 		Copyright (C) 2011 - by Víctor Fernández Rico <vfrico@gmail.com>
+ * 		Released under GPL3 license (See COPYNG file or http://www.gnu.org/copyleft/gpl.html)
+ * 
+ *      This file is the main on the project
+ * 
+ *      This program is free software; you can redistribute it and/or modify
+ *      it under the terms of the GNU General Public License as published by
+ *      the Free Software Foundation; either version 2 of the License, or
+ *      (at your option) any later version.
+ *      
+ *      This program is distributed in the hope that it will be useful,
+ *      but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *      MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *      GNU General Public License for more details.
+ *      
+ *  	You should have received a copy of the GNU General Public License
+ * 	    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *      
+ */
+ 
+include('lib/html5.php');
+$html5 = new htmlpage();
+?>
 <!DOCTYPE HTML>
 <html>
-<head>
-	<meta http-equiv="Content-Language" content="es-ES" />
-	<meta http-equiv="content-type" content="text/html;charset=UTF-8">
-	<title>Dax OS Store</title>
-	<link href='src/css/style.css' rel="stylesheet" type="text/css" media="all">
-</head>
+<? $html5->headersection(""); ?>
 <body>
-	<nav>
-		<ul id="navegacion">
-			<li><a href="http://www.socialnet.zobyhost.com/"><img class="navigationimages" alt="Linux Dax Web" src="images/header/logo-daxweb.png"></a></li>
-			<li><img class="navigationimages" alt="Actualizar Dax OS" src="images/header/daxos-update.png"></li>
-			<li><a href="http://www.socialnet.zobyhost.com/buscador/site/index_es.html"><img class="navigationimages" alt="Buscador" src="images/header/buscador.png"></a></li>
-			<li><a href="version.html"><img class="navigationimages" alt="Versión" title="Versión 0.3" src="images/header/daxosstore-info.png"></a></li>
-		</ul>
-	</nav>
-	<br>
-	<br>
-	<br>
-	<header>
-		<h1><img class="cabezal" alt="" src="images/header/cabezal.png"></h1>
-	</header> 
+	<? $html5->heading(); ?>
             <?
 include('lib/sqlite3db.php');
 $varget = $_GET["cat"];
@@ -65,11 +75,7 @@ while ($row = $salida->fetchArray(SQLITE3_ASSOC)) {
     //~ echo $i;
 //~ }
 ?>
-	<footer>
-		<img src="images/header/logo-daxweb.png" alt="Dax Web" class="navigationimages" style="margin: -10px 0px"/>
-		Dax OS Store es un proyecto de Dax Web, está registrado bajo la licencia GPL
-
-	</footer>
+	<? $html5->pagfooter(); ?>
 </body>
 </html>
 

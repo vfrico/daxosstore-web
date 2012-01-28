@@ -21,33 +21,16 @@
  * 	    along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *      
  */
-
+include('lib/html5.php');
+$html5 = new htmlpage();
 
 ?>
 
 <!DOCTYPE HTML>
 <html>
-<head>
-	<meta http-equiv="Content-Language" content="es-ES" />
-	<meta http-equiv="content-type" content="text/html;charset=UTF-8">
-	<title>Dax OS Store</title>
-	<link href='src/css/style.css' rel="stylesheet" type="text/css" media="all">
-</head>
+	<? $html5->headersection("");?>
 <body>
-	<nav>
-		<ul id="navegacion">
-			<li><a href="http://www.socialnet.zobyhost.com/"><img class="navigationimages" alt="Linux Dax Web" src="images/header/logo-daxweb.png"></a></li>
-			<li><img class="navigationimages" alt="Actualizar Dax OS" src="images/header/daxos-update.png"></li>
-			<li><a href="http://www.socialnet.zobyhost.com/buscador/site/index_es.html"><img class="navigationimages" alt="Buscador" src="images/header/buscador.png"></a></li>
-			<li><a href="version.html"><img class="navigationimages" alt="Versión" title="Versión 0.3" src="images/header/daxosstore-info.png"></a></li>
-		</ul>
-	</nav>
-	<br>
-	<br>
-	<br>
-	<header>
-		<h1><img class="cabezal" alt="" src="images/header/cabezal.png"></h1>
-	</header> 
+	<? $html5->heading(); ?>
 
 	<table id="table">
 		<tr>
@@ -123,10 +106,6 @@
 			</td>
 		</tr>
 	</table>
-	<footer>
-		<img src="images/header/logo-daxweb.png" alt="Dax Web" class="navigationimages" style="margin: -10px 0px"/>
-		Dax OS Store es un proyecto de Dax Web, está registrado bajo la licencia GPL
-
-	</footer>
+	<? $html5->pagfooter(); ?>
 </body>
 </html>

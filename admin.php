@@ -1,4 +1,4 @@
-<?php
+<?
 /*
  * 		file "categories.php" - daxosstore-web project
  * 		This file shows the apps by category
@@ -22,26 +22,16 @@
  * 	    along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *      
  */
-//para crear el header, nav y footer 
+ 
 include('lib/html5.php');
 $html5 = new htmlpage();
-
-include('lib/sqlite3db.php');
-//Conectamos base de datos:
-$base = new dbinter;
-//Enviamos datos a la base
-$base->anadirapp($_POST["appname"],$_POST["category"],$_POST["appurl"]);
-
 ?>
-
 <!DOCTYPE HTML>
 <html>
-<? $html5->headersection("Submit app"); ?>
+<? $html5->headersection("Admin page"); ?>
 <body>
-<? $html5->heading(); ?>
-            Aplicación: <? echo $_POST["appname"]; ?> <br>
-            Categoría: <? echo $_POST["category"]; ?> <br>
-            URL de la Aplicación: <? echo $_POST["appurl"]; ?> <br>
-<? $html5->pagfooter(); ?>
+	<? $html5->heading(); ?>
+	Enviar una aplicación: <a href="submit.php">Submit</a>
+	<? $html5->pagfooter(); ?>
 </body>
 </html>
