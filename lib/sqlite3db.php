@@ -9,14 +9,14 @@ class dbinter {
 
 	function createapptable() {
 		$base = $this->abrirbase();
-		$base->exec('CREATE TABLE apps (id integer UNIQUE PRIMARY KEY, name TEXT, category TEXT, url TEXT)');
+		$base->exec('CREATE TABLE apps (id integer UNIQUE PRIMARY KEY, name TEXT, category TEXT, url TEXT, image TEXT)');
 		$base->close();
 		
 	}
 	
-	function anadirapp ($nombre, $category, $url) {
+	function anadirapp ($nombre, $category, $url, $pathimg) {
 		$base = $this->abrirbase();
-		$base->exec("INSERT INTO apps VALUES (NULL,'".$nombre."','".$category."','".$url."')");
+		$base->exec("INSERT INTO apps VALUES (NULL,'".$nombre."','".$category."','".$url."','".$pathimg."')");
 		$base->close();
 	}
 

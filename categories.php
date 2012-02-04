@@ -56,9 +56,19 @@ $salida =  $base->query("SELECT * FROM apps WHERE category='".$varget."'");
 
 //~ for ($i=1; $i <= 10; $i++) {
 while ($row = $salida->fetchArray(SQLITE3_ASSOC)) {
-	
+	?>
+	<table>
+		<tr>
+			<td><? 	echo "<img src='"."uploadedimgs/".$row['image']."' class=logo />"; ?></td>
+			<td>
+			
+			</td>
+		</tr>
+	</table>
+	<?
 	//~ $salida =  $base->query("SELECT * FROM apps WHERE category='".$varget."'");
 	echo "<h1><a href='".$row['url']."'>".$row['name']."</a></h1>";
+	echo "<img src='"."uploadedimgs/".$row['image']."' class=logo />";
 	echo "<h2>Categoria: ".$row['category']."</h2>";
 	//~ $salida = $base->readapps($varget);
 	//~ $arrayexit = $salida->fetchArray(SQLITE3_ASSOC);

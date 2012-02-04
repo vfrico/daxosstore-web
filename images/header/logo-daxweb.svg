@@ -14,7 +14,7 @@
    inkscape:version="0.48.2 r9819"
    width="300"
    height="300"
-   sodipodi:docname="logo-daxweb.png">
+   sodipodi:docname="logo-daxweb.svg">
   <metadata
      id="metadata8">
     <rdf:RDF>
@@ -23,7 +23,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -51,7 +51,7 @@
      inkscape:current-layer="svg2" />
   <g
      id="g2987"
-     transform="matrix(1.1435347,0,0,1.1426647,289.25905,-136.81)">
+     transform="matrix(1.1868634,0,0,1.1789683,299.62034,-150.68919)">
     <path
        style="fill:#eb043a;fill-opacity:1;stroke:none"
        d="m -29.16533,270.925 c -15.889335,-5.59299 -77.16001,-29.67774 -79.81206,-31.37314 -1.42489,-0.91089 25.644406,-31.85765 75.347729,-86.14073 22.403924,-24.46823 22.722931,-24.76504 23.009423,-21.40785 0.313289,3.67141 -6.259283,127.1093 -7.272402,136.58118 -0.336814,3.14895 -0.901817,5.70618 -1.255558,5.68276 -0.353741,-0.0235 -4.861445,-1.52744 -10.017132,-3.34222 z"

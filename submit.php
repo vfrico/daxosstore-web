@@ -32,7 +32,7 @@ $html5 = new htmlpage();
 <body>
 	<? $html5->heading(); ?>
     <div>
-        <form action="appsubmit.php" method="post">
+        <form action="appsubmit.php" method="post" enctype="multipart/form-data"	>
             Aplicación: <input type="text" name="appname" /><br>
 <!--
             <input type="text" name="category" />
@@ -54,6 +54,7 @@ $html5 = new htmlpage();
                 
                 <br>
             URL de la Aplicación: <input type="text" name="appurl" /> <br>
+            <INPUT TYPE=FILE NAME="imagefile" id=imagefile>
             <input type="submit">
         </form>
 	</div>

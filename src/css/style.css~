@@ -71,7 +71,6 @@ img.cabezal{
 
 .bigcat {
 	height: 250px;
-	width:200px;
 }
 
 
@@ -95,3 +94,6 @@ footer {
 	
 	
 }
+.logo {
+	width:125 px;
+	height: 125px;

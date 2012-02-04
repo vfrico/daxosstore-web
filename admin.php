@@ -31,7 +31,8 @@ $html5 = new htmlpage();
 <? $html5->headersection("Admin page"); ?>
 <body>
 	<? $html5->heading(); ?>
-	Enviar una aplicación: <a href="submit.php">Submit</a>
+	Enviar una aplicación: <a href="submit.php">Submit</a> <br>
+	Crear una nueva base de datos: <a href="lib/createdb.php">Create data base</a> <br>
 	<? $html5->pagfooter(); ?>
 </body>
 </html>

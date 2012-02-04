@@ -30,7 +30,20 @@ include('lib/sqlite3db.php');
 //Conectamos base de datos:
 $base = new dbinter;
 //Enviamos datos a la base
-$base->anadirapp($_POST["appname"],$_POST["category"],$_POST["appurl"]);
+$filename = time().$_FILES["imagefile"]["name"];
+echo $filename;
+if (file_exists("uploadedimgs/" . $filename))
+	{
+		echo $filename . " already exists. ";
+	}
+else
+	{
+		move_uploaded_file($_FILES["imagefile"]["tmp_name"],
+		"uploadedimgs/" . $filename);
+		echo "Stored in: " . "upload/" . $filename;
+	}
+
+$base->anadirapp($_POST["appname"],$_POST["category"],$_POST["appurl"],$filename);
 
 ?>
 
@@ -41,7 +54,9 @@ $base->anadirapp($_POST["appname"],$_POST["category"],$_POST["appurl"]);
 <? $html5->heading(); ?>
             Aplicación: <? echo $_POST["appname"]; ?> <br>
             Categoría: <? echo $_POST["category"]; ?> <br>
+            Archivo: <? echo $_FILES["imagefile"]["name"]; ?> <br>
             URL de la Aplicación: <? echo $_POST["appurl"]; ?> <br>
+
 <? $html5->pagfooter(); ?>
 </body>
 </html>
