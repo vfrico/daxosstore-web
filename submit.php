@@ -54,7 +54,9 @@ $html5 = new htmlpage();
                 
                 <br>
             URL de la Aplicación: <input type="text" name="appurl" /> <br>
-            <INPUT TYPE=FILE NAME="imagefile" id=imagefile>
+            <INPUT TYPE=FILE NAME="imagefile" id=imagefile> <br>
+            Tags: <input type="text" name="tags" /> <br>
+            Info: <input type="text" name="info" /> <br>
             <input type="submit">
         </form>
 	</div>

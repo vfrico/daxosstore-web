@@ -27,6 +27,8 @@
 
 body {
 	background-color: #212121;
+	background: -moz-linear-gradient(bottom, rgb(33,33,33) 5%, rgb(54,54,54) 53%, rgb(33,33,33) 77%);
+	background: -webkit-linear-gradient(bottom, rgb(33,33,33) 5%, rgb(54,54,54) 53%, rgb(33,33,33) 77%);
 	font-family: "antic","sans";
 	color: #FDFCFD;
 	font-size: 16px;
@@ -95,6 +97,43 @@ footer {
 	margin: 15px ;
 }
 .logo {
-	width:125 px;
-	height: 125px;
+	width: 90 px;
+	height: 90px;
 }
+.information {
+	margin: 3px 5px;
+}
+
+.applogo {
+	float: left;
+	margin: 10px;
+	text-align: center;
+}
+.applogo a:link {
+	color: #1E1989;
+	text-decoration: none;
+}
+.applogo a:hover {
+	color: #1E1989;
+	text-decoration: none;
+}
+.applogo a:visited {
+	color: #1E1989;
+	text-decoration: none;
+}
+/* Name of the app links */
+.nameapp a:link{
+	color: #808080;
+	text-decoration: none;
+}
+.nameapp a:visited{
+	color: #808080;
+	text-decoration: none;
+}
+.nameapp a:hover{
+	color: #656565;
+	text-decoration: none;
+}
+/* Ends links of the app*/
+
+

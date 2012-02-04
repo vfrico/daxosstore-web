@@ -1,5 +1,10 @@
 <?$base = new SQLite3('apps.db');
-    $base->exec('CREATE TABLE apps (id integer UNIQUE PRIMARY KEY, name TEXT, category TEXT, url TEXT, image TEXT)');
-        $base->exec("INSERT INTO apps VALUES (NULL,'holamundo','Other','url','imagepath')");
+		//~ Crear tabla de aplicaciones
+    	$base->exec('CREATE TABLE apps (id integer UNIQUE PRIMARY KEY, name VARCHAR(30), category VARCHAR(20), url TEXT, image TEXT, tags TEXT, info TEXT)');
+    	$base->exec("INSERT INTO apps VALUES (NULL,'esomismo','Accesories','Esomismo', 'ruta', 'tags,tags2','ejemplo de una aplicación')");
+    	
+    	//~ Crear tabla de usuarios
+    	$base->exec('CREATE TABLE users (id integer UNIQUE PRIMARY KEY, name VARCHAR(30), status INTEGER, password VARCHAR(200), info TEXT)');
+    	$base->exec("INSERT INTO users VALUES (NULL,'admin',0,'pass', 'Administrator')");
         $base->close();
         ?>

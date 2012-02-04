@@ -43,7 +43,7 @@ else
 		echo "Stored in: " . "upload/" . $filename;
 	}
 
-$base->anadirapp($_POST["appname"],$_POST["category"],$_POST["appurl"],$filename);
+$base->anadirapp($_POST["appname"],$_POST["category"],$_POST["appurl"],$filename,$_POST['tags'],$_POST['info']);
 
 ?>
 
@@ -54,6 +54,8 @@ $base->anadirapp($_POST["appname"],$_POST["category"],$_POST["appurl"],$filename
 <? $html5->heading(); ?>
             Aplicación: <? echo $_POST["appname"]; ?> <br>
             Categoría: <? echo $_POST["category"]; ?> <br>
+            Tags: <? echo $_POST["tags"]; ?> <br>
+            Info: <? echo $_POST["info"]; ?> <br>
             Archivo: <? echo $_FILES["imagefile"]["name"]; ?> <br>
             URL de la Aplicación: <? echo $_POST["appurl"]; ?> <br>
 
