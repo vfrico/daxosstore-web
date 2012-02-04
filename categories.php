@@ -58,10 +58,13 @@ $salida =  $base->query("SELECT * FROM apps WHERE category='".$varget."'");
 while ($row = $salida->fetchArray(SQLITE3_ASSOC)) {
 	?>
 	<article>
-			<section class="applogo">
+		<table>
+		<tr>
+			<td class="applogo">
 				<? 	echo "<img src='"."uploadedimgs/".$row['image']."' class=logo />"; ?>
 				<br><a href="">Install</a>
-			</section>
+			</td>
+			<td class="container">
 			<header class="nameapp">
 				<? 	
 				echo "<h1><a href='".$row['url']."'>".$row['name']."</a></h1>";
@@ -71,6 +74,9 @@ while ($row = $salida->fetchArray(SQLITE3_ASSOC)) {
 			<section class="information">
 				<? echo $row['info']; ?>
 			</section>
+			</td>
+		</tr>
+		</table>
 	</article>
 	<?
 	//~ $salida =  $base->query("SELECT * FROM apps WHERE category='".$varget."'");
