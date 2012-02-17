@@ -27,7 +27,7 @@ $html5 = new htmlpage();
 ?>
 
 <!DOCTYPE HTML>
-<html>
+<html lang=es>
 	<? $html5->headersection("");?>
 <body>
 	<? $html5->heading(); ?>

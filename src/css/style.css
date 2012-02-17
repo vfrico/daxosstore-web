@@ -80,7 +80,7 @@ body {
 	list-style:none;
 	float: left;
 	margin-bottom: 0px;
-	display: block;
+	display: float;
 }
 #navegacion li{
 	float:left;
@@ -137,5 +137,8 @@ footer {
 	text-decoration: none;
 }
 /* Ends links of the app*/
-
+#applist {
+	width: 1000px;
+	margin: 0px auto 80px auto;
+}
 

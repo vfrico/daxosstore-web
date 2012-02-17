@@ -54,6 +54,25 @@ class dbinter {
 		return $resultado;
 		$base->close();
 	}
+	function checkuser($user,$pass) {
+		$base = $this->abrirbase();
+		$resultado = $base->query("SELECT password FROM users WHERE name='".$user."'");
+		$times = 0;
+		while ( $row = $resultado->fetchArray(SQLITE3_ASSOC)) {
+			$last = $row['password'];
+			$times++;
+		}
+		if (isset($last) && $times == 2){
+			if($pass == $last) {
+				//~ echo "Usuario válido";
+				return true;
+			}
+			else{
+				//~ echo "Usuario no válido";
+				return false;
+			}
+		}
+	}
 }
 ?>
 <!--

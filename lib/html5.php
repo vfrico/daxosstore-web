@@ -33,8 +33,7 @@ class htmlpage {
 		}
 		?>
 		<head>
-			<meta http-equiv="Content-Language" content="es-ES" />
-			<meta http-equiv="content-type" content="text/html;charset=UTF-8">
+			<meta charset="UTF-8">
 			<title><? echo $title; ?></title>
 			<link href='src/css/style.css' rel="stylesheet" type="text/css" media="all">
 		</head>
@@ -52,6 +51,16 @@ class htmlpage {
 			<li><a href="admin.php"><img class="navigationimages" alt="Versión" title="Versión 0.3" src="images/header/manage.svg"></a></li>
 		</ul>
 		</nav>
+		<div id="login">
+			<?
+				if(isset($_SESION['init'])){
+					echo "si";
+				}
+				else {
+					echo "no";
+				}
+			?>
+		</div>
 		<br>
 		<br>
 		<br>

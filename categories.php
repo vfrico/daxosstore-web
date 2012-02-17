@@ -52,13 +52,15 @@ $base = new SQLite3('lib/apps.db');
 //~ $base = new dbinter;
 //~ $varget = "Accesories";
 $salida =  $base->query("SELECT * FROM apps WHERE category='".$varget."'");
-
+?>
+<div id=applist>
+	<article>
+		<table cellspacing=1px>
+<?
 
 //~ for ($i=1; $i <= 10; $i++) {
 while ($row = $salida->fetchArray(SQLITE3_ASSOC)) {
 	?>
-	<article>
-		<table>
 		<tr>
 			<td class="applogo">
 				<? 	echo "<img src='"."uploadedimgs/".$row['image']."' class=logo />"; ?>
@@ -76,8 +78,7 @@ while ($row = $salida->fetchArray(SQLITE3_ASSOC)) {
 			</section>
 			</td>
 		</tr>
-		</table>
-	</article>
+
 	<?
 	//~ $salida =  $base->query("SELECT * FROM apps WHERE category='".$varget."'");
 	//~ echo "<h1><a href='".$row['url']."'>".$row['name']."</a></h1>";
@@ -98,6 +99,9 @@ while ($row = $salida->fetchArray(SQLITE3_ASSOC)) {
     //~ echo $i;
 //~ }
 ?>
+		</table>
+	</article>
+	</div>
 	<? $html5->pagfooter(); ?>
 </body>
 </html>
