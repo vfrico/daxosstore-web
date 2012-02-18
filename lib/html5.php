@@ -56,8 +56,14 @@ class htmlpage {
 		if (isset($_SESSION['user'])){
 		?>		
 			<form action="session.php" method="post" >
-				<input type="text" name="usuario" placeholder="Usuario" size=7 />
-				<input type="password" name="contrasena" placeholder="Contraseña" size=7 /><br>
+<!--
+				<label for="usuario">Usuario:</label>
+-->
+				<input class="login" id="usuario" type="text" name="usuario" placeholder="Usuario" size=7 />
+<!--
+				<label for="contrasena">Contraseña:</label>
+-->
+				<input class="login" id="contrasena" type="password" name="contrasena" placeholder="Contraseña" size=7 /><br>
 				<center><input type="submit" value="Entrar"> | <a href="#">Registrarse</a></center>
 		</form>
 		<?}
