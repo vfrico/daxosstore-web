@@ -21,9 +21,9 @@
  * 	    along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *      
  */
+ session_start();
 include('lib/html5.php');
 $html5 = new htmlpage();
-
 ?>
 
 <!DOCTYPE HTML>
@@ -106,6 +106,9 @@ $html5 = new htmlpage();
 			</td>
 		</tr>
 	</table>
+<!--
+	Usuario <? 	echo $_SESSION['user']; ?>
+-->
 	<? $html5->pagfooter(); ?>
 </body>
 </html>

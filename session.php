@@ -21,9 +21,26 @@
  * 	    along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *      
  */
+
+session_start();
 include('lib/html5.php');
 include('lib/sqlite3db.php');
 $html5 = new htmlpage();
+$_usuario = $_POST['usuario'];
+$_clave = $_POST['contrasena'];
+
+if (isset($_usuario) && isset($_clave)) {
+    //comprobar que el usuario está autorizado a entrar
+    //se necesita conectar a la base de datos
+	$base = new dbinter();
+	$resultado = $base->checkuser($_usuario,$_clave);
+	if ($resultado){
+		$_SESSION['user'] = $_usuario;
+	}
+
+} else {
+
+}
 
 ?>
 
@@ -32,29 +49,9 @@ $html5 = new htmlpage();
 	<? $html5->headersection("");?>
 <body>
 	<? $html5->heading(); ?>
-	<?
-	$base = new dbinter();
-	
-	$resultado = $base->checkuser($_POST['usuario'],$_POST['contrasena']);
-	echo "<br>";
-	echo "<br>";
-	echo "<br>";
-	echo "<br>";
-	echo "<br>";
-echo $_POST['usuario'];
-echo $_POST['contrasena'];
-	echo "<br>";
-	echo "<br>";
-	if($resultado){
-		echo "si";
-		session_start();
-		$_SESION['init'] = true;
-	}
-	else{
-		echo "no";
-	}
-	?>
-
+<?
+echo $_SESSION["user"];
+?>
 	<? $html5->pagfooter(); ?>
 </body>
 </html>

@@ -141,4 +141,8 @@ footer {
 	width: 1000px;
 	margin: 0px auto 80px auto;
 }
+#login {
+	float: right;
+	margin: 15px 15px 0px 0px;
+}
 

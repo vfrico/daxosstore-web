@@ -22,7 +22,6 @@
  * 	    along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *      
  */
-
 class htmlpage {
 	function headersection($title) {
 		if ($title =="") {
@@ -52,14 +51,20 @@ class htmlpage {
 		</ul>
 		</nav>
 		<div id="login">
-			<?
-				if(isset($_SESION['init'])){
-					echo "si";
-				}
-				else {
-					echo "no";
-				}
-			?>
+			
+		<?
+		if (isset($_SESSION['user'])){
+		?>		
+			<form action="session.php" method="post" >
+				<input type="text" name="usuario" placeholder="Usuario" size=7 />
+				<input type="password" name="contrasena" placeholder="Contraseña" size=7 /><br>
+				<center><input type="submit" value="Entrar"> | <a href="#">Registrarse</a></center>
+		</form>
+		<?}
+		else {
+			echo "Has iniciado sesión como: ".$_SESSION['user'];
+		}
+		?>		
 		</div>
 		<br>
 		<br>
