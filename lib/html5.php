@@ -53,7 +53,7 @@ class htmlpage {
 		<div id="login">
 			
 		<?
-		if (isset($_SESSION['user'])){
+		if (!isset($_SESSION['user'])){
 		?>		
 			<form action="session.php" method="post" >
 <!--
@@ -72,10 +72,8 @@ class htmlpage {
 		}
 		?>		
 		</div>
-		<br>
-		<br>
-		<br>
-		<header>
+
+		<header id="brand">
 			<h1><a href="index.php"><img class="cabezal" alt="Dax OS Store" src="images/header/cabezal.svg"></a></h1>
 		</header> 
 		<?

@@ -32,12 +32,18 @@ $html5 = new htmlpage();
 <body>
 	<? $html5->heading(); ?>
 
-	<div>
-        <form action="session.php" method="post" >
-            Usuario: <input type="text" name="usuario" /><br>
-            Contraseña: <input type="password" name="contrasena" /><br>
-            <input type="submit">
-        </form>
+	<div id="medio">
+			<form action="session.php" method="post" >
+<!--
+				<label for="usuario">Usuario:</label>
+-->
+				<input class="login" id="usuario" type="text" name="usuario" placeholder="Usuario" size=7 />
+<!--
+				<label for="contrasena">Contraseña:</label>
+-->
+				<input class="login" id="contrasena" type="password" name="contrasena" placeholder="Contraseña" size=7 /><br>
+				<center><input type="submit" value="Entrar"> | <a href="#">Registrarse</a></center>
+		</form>
 	</div>
 	<? $html5->pagfooter(); ?>
 </body>
