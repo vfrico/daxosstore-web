@@ -26,8 +26,8 @@ session_start();
 include('lib/html5.php');
 include('lib/sqlite3db.php');
 $html5 = new htmlpage();
-$_usuario = $_POST['usuario'];
-$_clave = $_POST['contrasena'];
+@$_usuario = $_POST['usuario'];
+@$_clave = $_POST['contrasena'];
 
 if (isset($_usuario) && isset($_clave)) {
     //comprobar que el usuario está autorizado a entrar
@@ -39,7 +39,10 @@ if (isset($_usuario) && isset($_clave)) {
 	}
 
 } else {
-
+	echo '<h1>Los datos no eran correctos</h1>
+		<script type="text/javascript">
+            setTimeout(\'location.replace("login.php")\',5500);
+		</script>';
 }
 
 ?>
@@ -50,7 +53,18 @@ if (isset($_usuario) && isset($_clave)) {
 <body>
 	<? $html5->heading(); ?>
 <?
-echo $_SESSION["user"];
+if(!isset($_SESSION['user'])){
+	echo '<h1>Los datos no eran correctos</h1>
+		<script type="text/javascript">
+            setTimeout(\'location.replace("login.php")\',3500);
+		</script>';
+	}
+else {
+		echo '<h1>Has iniciado sesión</h1>
+		<script type="text/javascript">
+            setTimeout(\'location.replace("index.php")\',5500);
+		</script>';
+}
 ?>
 	<? $html5->pagfooter(); ?>
 </body>

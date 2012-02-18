@@ -34,15 +34,11 @@ $html5 = new htmlpage();
 
 	<div id="medio">
 			<form action="session.php" method="post" >
-<!--
 				<label for="usuario">Usuario:</label>
--->
-				<input class="login" id="usuario" type="text" name="usuario" placeholder="Usuario" size=7 />
-<!--
+				<input class="login" id="usuario" type="text" name="usuario" placeholder="Usuario" size=7 /> <br>
 				<label for="contrasena">Contraseña:</label>
--->
 				<input class="login" id="contrasena" type="password" name="contrasena" placeholder="Contraseña" size=7 /><br>
-				<center><input type="submit" value="Entrar"> | <a href="#">Registrarse</a></center>
+				<input type="submit" value="Entrar"> | <a href="#">Registrarse</a>
 		</form>
 	</div>
 	<? $html5->pagfooter(); ?>
