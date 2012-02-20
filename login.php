@@ -1,11 +1,10 @@
 <?
 /*
- * 		file "index.php" - daxosstore-web project
+ * 		file "login.php" - daxosstore-web project
+ * 		This page is for login into the web
  * 
- * 		Copyright (C) 2011 - by Víctor Fernández Rico <vfrico@gmail.com>
+ * 		Copyright (C) 2012 - by Víctor Fernández Rico <vfrico@gmail.com>
  * 		Released under GPL3 license (See COPYNG file or http://www.gnu.org/copyleft/gpl.html)
- * 
- *      This file is the main on the project
  * 
  *      This program is free software; you can redistribute it and/or modify
  *      it under the terms of the GNU General Public License as published by

@@ -6,8 +6,6 @@
  * 		Copyright (C) 2012 - by Víctor Fernández Rico <vfrico@gmail.com>
  * 		Released under GPL3 license (See COPYNG file or http://www.gnu.org/copyleft/gpl.html)
  * 
- *      This file is the main on the project
- * 
  *      This program is free software; you can redistribute it and/or modify
  *      it under the terms of the GNU General Public License as published by
  *      the Free Software Foundation; either version 2 of the License, or
@@ -36,6 +34,7 @@ class htmlpage {
 			<meta charset="UTF-8">
 			<title><? echo $title; ?></title>
 			<link href='src/css/style.css' rel="stylesheet" type="text/css" media="all">
+			<link rel="shortcut icon" href="favicon.ico">
 		</head>
 		<?
 	}
