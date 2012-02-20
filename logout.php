@@ -1,11 +1,10 @@
 <?
 /*
- * 		file "index.php" - daxosstore-web project
+ * 		file "login.php" - daxosstore-web project
+ * 		This page is for login into the web
  * 
- * 		Copyright (C) 2011 - by Víctor Fernández Rico <vfrico@gmail.com>
+ * 		Copyright (C) 2012 - by Víctor Fernández Rico <vfrico@gmail.com>
  * 		Released under GPL3 license (See COPYNG file or http://www.gnu.org/copyleft/gpl.html)
- * 
- *      This file is the main on the project
  * 
  *      This program is free software; you can redistribute it and/or modify
  *      it under the terms of the GNU General Public License as published by
@@ -21,30 +20,12 @@
  * 	    along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *      
  */
-
-session_start();
-include('lib/html5.php');
-include('lib/sqlite3db.php');
+session_start(); 
+include_once('lib/html5.php');
+include_once('lib/forms.php');
 $html5 = new htmlpage();
-@$_usuario = $_POST['usuario'];
-@$_clave = $_POST['contrasena'];
-
-if (isset($_usuario) && isset($_clave)) {
-    //comprobar que el usuario está autorizado a entrar
-    //se necesita conectar a la base de datos
-	$base = new dbinter();
-	$resultado = $base->checkuser($_usuario,$_clave);
-	if ($resultado){
-		$_SESSION['user'] = $_usuario;
-	}
-
-} else {
-	echo '<h1>Los datos no eran correctos</h1>
-		<script type="text/javascript">
-            setTimeout(\'location.replace("login.php")\',5500);
-		</script>';
-}
-
+$usuariosesion = $_SESSION['user'];
+session_destroy();
 ?>
 
 <!DOCTYPE HTML>
@@ -53,21 +34,11 @@ if (isset($_usuario) && isset($_clave)) {
 <body>
 	<? $html5->heading(); ?>
 	<div id=medio>
-<?
-if(!isset($_SESSION['user'])){
-	echo '<h1>Los datos que has introducidos no eran correctos</h1>
-		<script type="text/javascript">
-            setTimeout(\'location.replace("login.php")\',3500);
-		</script>';
-	}
-else {
-		echo '<h1>Has iniciado sesión como '.$_SESSION["user"].'</h1>
+		<? echo '<h1>El usuario '.$usuariosesion.' ha cerrado la sesión.</h1>
 		<script type="text/javascript">
             setTimeout(\'location.replace("index.php")\',5500);
-		</script>';
-}
-?>
-</div>
+		</script>';;?>
+	</div>
 	<? $html5->pagfooter(); ?>
 </body>
 </html>

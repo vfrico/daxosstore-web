@@ -20,6 +20,7 @@
  * 	    along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *      
  */
+session_start();
 include_once('lib/html5.php');
 include_once('lib/forms.php');
 $html5 = new htmlpage();

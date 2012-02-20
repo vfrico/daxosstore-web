@@ -58,6 +58,7 @@ class htmlpage {
 		}
 		else {
 			echo "Has iniciado sesión como: ".$_SESSION['user'];
+			echo "<br><center><a href=\"logout.php\">Cerrar sesión</a></center>";
 		}
 		?>		
 		</div>
