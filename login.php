@@ -21,7 +21,8 @@
  * 	    along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *      
  */
-include('lib/html5.php');
+include_once('lib/html5.php');
+include_once('lib/forms.php');
 $html5 = new htmlpage();
 
 ?>
@@ -31,15 +32,8 @@ $html5 = new htmlpage();
 	<? $html5->headersection("");?>
 <body>
 	<? $html5->heading(); ?>
-
-	<div id="medio">
-			<form action="session.php" method="post" >
-				<label for="usuario">Usuario:</label>
-				<input class="login" id="usuario" type="text" name="usuario" placeholder="Usuario" size=7 /> <br>
-				<label for="contrasena">Contraseña:</label>
-				<input class="login" id="contrasena" type="password" name="contrasena" placeholder="Contraseña" size=7 /><br>
-				<input type="submit" value="Entrar"> | <a href="#">Registrarse</a>
-		</form>
+	<div id=medio>
+		<? loginform(true);?>
 	</div>
 	<? $html5->pagfooter(); ?>
 </body>

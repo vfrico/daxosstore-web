@@ -22,6 +22,7 @@
  * 	    along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *      
  */
+include_once('forms.php');
 class htmlpage {
 	function headersection($title) {
 		if ($title =="") {
@@ -54,19 +55,8 @@ class htmlpage {
 			
 		<?
 		if (!isset($_SESSION['user'])){
-		?>		
-			<form action="session.php" method="post" >
-<!--
-				<label for="usuario">Usuario:</label>
--->
-				<input class="login" id="usuario" type="text" name="usuario" placeholder="Usuario" size=7 />
-<!--
-				<label for="contrasena">Contraseña:</label>
--->
-				<input class="login" id="contrasena" type="password" name="contrasena" placeholder="Contraseña" size=7 /><br>
-				<center><input type="submit" value="Entrar"> | <a href="#">Registrarse</a></center>
-		</form>
-		<?}
+			loginform(false);
+		}
 		else {
 			echo "Has iniciado sesión como: ".$_SESSION['user'];
 		}
