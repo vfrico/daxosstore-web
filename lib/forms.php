@@ -80,4 +80,8 @@ function appform() {
         </form>
 	<?
 }
+
+function registro(){
+	
+}
 ?>

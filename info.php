@@ -1,7 +1,7 @@
 <?
 /*
- * 		file "submit.php" - daxosstore-web project
- * 		With this file you can submit a new app to the "store"
+ * 		file "info.php" - daxosstore-web project
+ * 		This file provides information
  * 
  * 		Copyright (C) 2012 - by Víctor Fernández Rico <vfrico@gmail.com>
  * 		Released under GPL3 license (See COPYNG file or http://www.gnu.org/copyleft/gpl.html)
@@ -22,23 +22,29 @@
  * 	    along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *      
  */
- session_start();
-include_once('lib/html5.php');
-include_once('lib/forms.php');
-$html5 = new htmlpage();
 
+session_start();
+include_once('lib/html5.php');
+$html5 = new htmlpage();
+$version = "0.1.2-alpha";
+$varget = $_GET['id'];
+
+switch ($varget) {
+    case "version":
+        $toprint = "<h1>La versión de DaxOs Store es: $version</h1>";
+        break;
+	}
 ?>
+
 <!DOCTYPE HTML>
-<html>
-<? $html5->headersection(""); ?>
+<html lang=es>
+	<? $html5->headersection("");?>
 <body>
 	<? $html5->heading(); ?>
-    <div id=medio>
-		<?
-		if (@$_SESSION['isadmin']) appform();
-		else notadmin();
-		?>
+	<div id=medio>
+		<? echo $toprint ?>
 	</div>
-<? $html5->pagfooter(); ?>
+	<? $html5->pagfooter(); ?>
 </body>
 </html>
+

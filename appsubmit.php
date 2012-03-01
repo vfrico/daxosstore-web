@@ -3,7 +3,7 @@
  * 		file "categories.php" - daxosstore-web project
  * 		This file shows the apps by category
  * 
- * 		Copyright (C) 2011 - by Víctor Fernández Rico <vfrico@gmail.com>
+ * 		Copyright (C) 2012 - by Víctor Fernández Rico <vfrico@gmail.com>
  * 		Released under GPL3 license (See COPYNG file or http://www.gnu.org/copyleft/gpl.html)
  * 
  *      This file is the main on the project
