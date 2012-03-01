@@ -43,9 +43,10 @@ class htmlpage {
 		?>
 		<nav>
 		<ul id="navegacion">
+<!--
 			<li><a href="http://www.socialnet.zobyhost.com/"><img class="navigationimages" alt="Linux Dax Web" src="images/header/logo-daxweb.svg"></a></li>
-			<li><img class="navigationimages" alt="Actualizar Dax OS" src="images/header/update.svg"></li>
-			<li><a href="http://www.socialnet.zobyhost.com/buscador/site/index_es.html"><img class="navigationimages" alt="Buscador" src="images/header/search.svg"></a></li>
+-->
+			<li><a href="http://www.daxos.org/buscador/site/index_es.html"><img class="navigationimages" alt="Buscador" src="images/header/search.svg"></a></li>
 			<li><a href="info.php?id=version"><img class="navigationimages" alt="Versión" title="Versión 0.3" src="images/header/engine.svg"></a></li>
 			<li><a href="admin.php"><img class="navigationimages" alt="Versión" title="Versión 0.3" src="images/header/manage.svg"></a></li>
 		</ul>
