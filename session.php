@@ -23,8 +23,8 @@
  */
 
 session_start();
-include('lib/html5.php');
-include('lib/sqlite3db.php');
+include_once('lib/html5.php');
+include_once('lib/sqlite3db.php');
 $html5 = new htmlpage();
 @$_usuario = $_POST['usuario'];
 @$_clave = $_POST['contrasena'];

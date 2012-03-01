@@ -23,7 +23,8 @@
  *      
  */
  session_start();
-include('lib/html5.php');
+include_once('lib/html5.php');
+include_once('lib/forms.php');
 $html5 = new htmlpage();
 
 ?>
@@ -32,34 +33,8 @@ $html5 = new htmlpage();
 <? $html5->headersection(""); ?>
 <body>
 	<? $html5->heading(); ?>
-    <div>
-        <form action="appsubmit.php" method="post" enctype="multipart/form-data"	>
-            Aplicación: <input type="text" name="appname" /><br>
-<!--
-            <input type="text" name="category" />
--->
-            Categoría: 
-                <select name=category>
-                 <option value="Accesories">Accesories</option>
-                 <option value="Internet">Internet</option>
-                 <option value="Graphics">Graphics</option>                 
-                 <option value="Games">Games</option>
-                 <option value="Multimedia">Multimedia</option>
-                 <option value="Office">Office</option>
-                 <option value="Education">Education</option>
-                 <option value="System">System</option>
-                 <option value="Other">Other</option>
-                 <option value="GOnline">Games Online</option>
-                 <option value="Cloud">Apps en la nube</option>
-                </select>
-                
-                <br>
-            URL de la Aplicación: <input type="text" name="appurl" /> <br>
-            <INPUT TYPE=FILE NAME="imagefile" id=imagefile> <br>
-            Tags: <input type="text" name="tags" /> <br>
-            Info: <input type="text" name="info" /> <br>
-            <input type="submit">
-        </form>
+    <div id=medio>
+		appform();
 	</div>
 <? $html5->pagfooter(); ?>
 </body>

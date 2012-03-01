@@ -24,15 +24,16 @@
  */
 session_start();
 //para crear el header, nav y footer 
-include('lib/html5.php');
+include_once('lib/html5.php');
 $html5 = new htmlpage();
 
 include('lib/sqlite3db.php');
 //Conectamos base de datos:
 $base = new dbinter;
 //Enviamos datos a la base
+		// Para la imagen //
 $filename = time().$_FILES["imagefile"]["name"];
-echo $filename;
+//~ echo $filename;
 if (file_exists("uploadedimgs/" . $filename))
 	{
 		echo $filename . " already exists. ";
@@ -43,9 +44,10 @@ else
 		"uploadedimgs/" . $filename);
 		echo "Stored in: " . "upload/" . $filename;
 	}
-
+	// Termina la imagen //
+if ($_SESSION['isadmin']) { //Sólo si eres administrador envías una app
 $base->anadirapp($_POST["appname"],$_POST["category"],$_POST["appurl"],$filename,$_POST['tags'],$_POST['info']);
-
+}
 ?>
 
 <!DOCTYPE HTML>

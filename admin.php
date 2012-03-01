@@ -23,7 +23,7 @@
  *      
  */
 session_start();
-include('lib/html5.php');
+include_once('lib/html5.php');
 $html5 = new htmlpage();
 ?>
 <!DOCTYPE HTML>
