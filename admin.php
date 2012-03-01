@@ -22,7 +22,7 @@
  * 	    along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *      
  */
- 
+session_start();
 include('lib/html5.php');
 $html5 = new htmlpage();
 ?>
@@ -31,8 +31,20 @@ $html5 = new htmlpage();
 <? $html5->headersection("Admin page"); ?>
 <body>
 	<? $html5->heading(); ?>
-	Enviar una aplicación: <a href="submit.php">Submit</a> <br>
-	Crear una nueva base de datos: <a href="lib/createdb.php">Create data base</a> <br>
+	<? // Comprueba si el usuario es administrador
+	if ($_SESSION['isadmin']) {
+		?>
+			Enviar una aplicación: <a href="submit.php">Submit</a> <br>
+			
+			<!--
+				Crear una nueva base de datos: <a href="lib/createdb.php">Create data base</a> <br>
+			-->
+		<?
+	}
+	else {
+		notadmin();
+	}
+	?>
 	<? $html5->pagfooter(); ?>
 </body>
 </html>

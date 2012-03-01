@@ -1,3 +1,4 @@
 <?
-session_destroy();
+echo $_SERVER["SERVER_NAME"];
+phpinfo();
 ?>

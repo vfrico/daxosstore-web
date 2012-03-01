@@ -58,7 +58,7 @@ class htmlpage {
 		}
 		else {
 			echo "Has iniciado sesión como: ".$_SESSION['user'];
-			echo "<br><center><a href=\"logout.php\">Cerrar sesión</a></center>";
+			echo "<br><center><a href=\"logout.php\">Cerrar sesión</a>";
 		}
 		?>		
 		</div>
@@ -77,5 +77,14 @@ class htmlpage {
 		</footer>
 		<?
 	}
+} // Close class
+
+function notadmin() {
+	?>
+	<h1>No estás autorizado a ver esta página</h1>
+	<script type="text/javascript">
+		setTimeout('location.replace("index.php")',5500);
+	</script>
+	<?
 }
 ?>

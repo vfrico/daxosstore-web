@@ -22,6 +22,7 @@
  * 	    along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *      
  */
+session_start();
 //para crear el header, nav y footer 
 include('lib/html5.php');
 $html5 = new htmlpage();
@@ -52,13 +53,21 @@ $base->anadirapp($_POST["appname"],$_POST["category"],$_POST["appurl"],$filename
 <? $html5->headersection("Submit app"); ?>
 <body>
 <? $html5->heading(); ?>
+	<? // Comprueba si el usuario es administrador
+	if ($_SESSION['isadmin']) {
+		?>
             Aplicación: <? echo $_POST["appname"]; ?> <br>
             Categoría: <? echo $_POST["category"]; ?> <br>
             Tags: <? echo $_POST["tags"]; ?> <br>
             Info: <? echo $_POST["info"]; ?> <br>
             Archivo: <? echo $_FILES["imagefile"]["name"]; ?> <br>
             URL de la Aplicación: <? echo $_POST["appurl"]; ?> <br>
-
+		<?
+	}
+	else {
+		notadmin();
+	}
+	?>
 <? $html5->pagfooter(); ?>
 </body>
 </html>
