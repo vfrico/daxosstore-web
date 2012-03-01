@@ -32,7 +32,7 @@ $html5 = new htmlpage();
 <body>
 	<? $html5->heading(); ?>
 	<? // Comprueba si el usuario es administrador
-	if ($_SESSION['isadmin']) {
+	if (@$_SESSION['isadmin']) {
 		?>
 			Enviar una aplicación: <a href="submit.php">Submit</a> <br>
 			

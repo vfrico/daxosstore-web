@@ -34,7 +34,7 @@ function loginform($label) {
 			echo '<label for="contrasena">Contraseña:</label>';
 		}
 		?>
-	<input class="inputxt id="contrasena" type="password" name="contrasena" placeholder="Contraseña" size=7 /><br>
+	<input class=inputxt id="contrasena" type="password" name="contrasena" placeholder="Contraseña" size=7 /><br>
 	<center><input class=inputbut type="submit" value="Entrar"> | <a href="login.php"><input class=inputbut type=button  value="Registrar"></a></center>
 	</form>
 	<?
@@ -43,7 +43,8 @@ function loginform($label) {
 function appform() {
 	?>
 	        <form action="appsubmit.php" method="post" enctype="multipart/form-data"	>
-            Aplicación: <input type="text" name="appname" /><br>
+				<label for="appname">Aplicación:</label>
+				<input class=inputxt type="text" name="appname" /><br>
 <!--
             <input type="text" name="category" />
 -->
@@ -61,13 +62,21 @@ function appform() {
                  <option value="GOnline">Games Online</option>
                  <option value="Cloud">Apps en la nube</option>
                 </select>
-                
                 <br>
-            URL de la Aplicación: <input type="text" name="appurl" /> <br>
-            <INPUT TYPE=FILE NAME="imagefile" id=imagefile> <br>
-            Tags: <input type="text" name="tags" /> <br>
-            Info: <input type="text" name="info" /> <br>
-            <input type="submit">
+                
+                <label for="appurl">URL de la aplicación:</label>
+                <input class=inputxt type="text" name="appurl" /> 
+                <br>
+                <label for="appname">Imagen de la Aplicación:</label>
+                <input  class=inputxt type=FILE name="imagefile" id=imagefile> 
+                <br>
+                <label for="appname">Etiquetas:</label>
+                <input class=inputxt type="text" name="tags" /> 
+                <br>
+                <label for="appname">Información:</label>
+                <input class=inputxt type="text" name="info" /> 
+                <br>
+            <input class=inputbut type="submit" value=Enviar>
         </form>
 	<?
 }
