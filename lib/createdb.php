@@ -5,6 +5,6 @@
     	
     	//~ Crear tabla de usuarios
     	$base->exec('CREATE TABLE users (id integer UNIQUE PRIMARY KEY, name VARCHAR(30), status INTEGER, password VARCHAR(200), info TEXT)');
-    	$base->exec("INSERT INTO users VALUES (NULL,'admin',0,'pass', 'Administrator')");
+    	$base->exec("INSERT INTO users VALUES (NULL,'admin',0,'21232f297a57a5a743894a0e4a801fc3', 'Administrator')");
         $base->close();
         ?>

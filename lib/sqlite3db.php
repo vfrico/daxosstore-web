@@ -55,14 +55,17 @@ class dbinter {
 		$base->close();
 	}
 	function checkuser($user,$pass) {
+		$pass = md5($pass);
+		//~ print $pass;
 		$base = $this->abrirbase();
 		$resultado = $base->query("SELECT password FROM users WHERE name='".$user."'");
 		$times = 0;
 		while ( $row = $resultado->fetchArray(SQLITE3_ASSOC)) {
 			$last = $row['password'];
+			//~ echo $last;
 			$times++;
 		}
-		if (isset($last) && $times == 2){
+		if (isset($last) && $times <= 2){
 			if($pass == $last) {
 				//~ echo "Usuario válido";
 				return true;
