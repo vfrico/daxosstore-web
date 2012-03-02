@@ -46,7 +46,7 @@ else
 	}
 	// Termina la imagen //
 if ($_SESSION['isadmin']) { //Sólo si eres administrador envías una app
-$base->anadirapp($_POST["appname"],$_POST["category"],$_POST["appurl"],$filename,$_POST['tags'],$_POST['info']);
+$base->anadirapp($_POST["appname"],$_POST["category"],$_POST["appurl"],$filename,$_POST['tags'],$_POST['info'],$_SESSION['user']);
 }
 ?>
 
