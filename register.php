@@ -1,12 +1,10 @@
 <?
 /*
- * 		file "categories.php" - daxosstore-web project
+ * 		file "register.php" - daxosstore-web project
  * 		This file shows the apps by category
  * 
  * 		Copyright (C) 2012 - by Víctor Fernández Rico <vfrico@gmail.com>
  * 		Released under GPL3 license (See COPYNG file or http://www.gnu.org/copyleft/gpl.html)
- * 
- *      This file is the main on the project
  * 
  *      This program is free software; you can redistribute it and/or modify
  *      it under the terms of the GNU General Public License as published by
@@ -31,12 +29,12 @@ $html5 = new htmlpage();
 <? $html5->headersection("Admin page"); ?>
 <body>
 	<? $html5->heading(); ?>
-	<? // Comprueba si el usuario es administrador
-if (isset($_SESSION['user'])) {
-	echo "Usuario: ".$_SESSION['user'];
-	echo "<br>". $_SESSION['isadmin'];
-}
-	?>
+<?
+echo $_POST['username']."<br>";
+echo $_POST['userinfo']."<br>";
+echo $_POST['passwd']."<br>";
+
+?>
 	<? $html5->pagfooter(); ?>
 </body>
 </html>

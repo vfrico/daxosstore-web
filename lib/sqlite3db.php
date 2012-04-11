@@ -76,6 +76,27 @@ class dbinter {
 			}
 		}
 	}
+	
+	function isanadmin($user){
+		$base = $this->abrirbase();
+		$resultado = $base->query("SELECT status FROM users WHERE name='".$user."'");
+		$times = 0;
+		while ( $row = $resultado->fetchArray(SQLITE3_ASSOC)) {
+			$last = $row['password'];
+			//~ echo $last;
+			$times++;
+		}
+		if (isset($last) && $times <= 2){
+			if($last == 0) {
+				//~ echo "Es admin";
+				return true;
+			}
+			else{
+				//~ echo "Usuario no válido";
+				return false;
+			}
+		}
+	}
 }
 ?>
 <!--

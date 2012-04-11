@@ -24,7 +24,7 @@ session_start();
 include_once('lib/html5.php');
 include_once('lib/forms.php');
 $html5 = new htmlpage();
-
+$option = $_GET['opt'];
 ?>
 
 <!DOCTYPE HTML>
@@ -33,7 +33,14 @@ $html5 = new htmlpage();
 <body>
 	<? $html5->heading(); ?>
 	<div id=medio>
-		<? loginform(true);?>
+		<? 
+		if($option == 'register'){
+			registro();
+		}
+		else{
+			loginform(true);
+		}
+		?>
 	</div>
 	<? $html5->pagfooter(); ?>
 </body>

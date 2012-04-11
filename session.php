@@ -36,12 +36,7 @@ if (isset($_usuario) && isset($_clave)) {
 	$resultado = $base->checkuser($_usuario,$_clave);
 	if ($resultado){
 		$_SESSION['user'] = $_usuario;
-		if ($_usuario== "admin") {
-			$_SESSION['isadmin'] = true;
-		}
-		else {
-			$_SESSION['isadmin'] = false;
-		}
+		$_SESSION['isadmin'] = isanadmin($_usuario);
 	}
 
 } else {

@@ -82,6 +82,21 @@ function appform() {
 }
 
 function registro(){
-	
+		?>
+	        <center>
+	        <form action="register.php" method="post">
+				<label for="username">Nombre de Usuario:</label>
+				<input class=inputxt type="text" name="username" />
+				<br>
+                <label for="passwd">Contraseña:</label>
+                <input class=inputxt type="password" name="passwd" /> 
+                <br>
+                <label for="userinfo">Información adicional:</label>
+				<input class=inputxt type="text" name="userinfo" />
+				<br>
+            <input class=inputbut type="submit" value=Enviar>
+        </form>
+        <b>Nota: Está en pleno desarrollo, por favor, no lo use, puesto que en el siguiente paso se podría mostrar la contraseña</b></center>
+	<?
 }
 ?>
