@@ -22,6 +22,7 @@
  */
 session_start();
 include_once('lib/html5.php');
+include_once('lib/sqlite3db.php');
 $html5 = new htmlpage();
 ?>
 <!DOCTYPE HTML>
@@ -30,9 +31,42 @@ $html5 = new htmlpage();
 <body>
 	<? $html5->heading(); ?>
 <?
-echo $_POST['username']."<br>";
-echo $_POST['userinfo']."<br>";
-echo $_POST['passwd']."<br>";
+if(@$_POST['passwd'] == @$_POST['passwd2'] && @$_POST['passwd'] != "" && @$_POST['passwd2'] != "")
+{
+	$_PRG_passwd = true;
+}
+else{
+	$_PRG_passwd = false;
+}
+
+if(comprobar_email(@$_POST['usermail'])){
+	$_PRG_mail = true;
+}
+else{
+	$_PRG_mail = false;
+}
+
+if ($_PRG_passwd && $_PRG_mail){
+	$base = new dbinter();
+	$base->anadiruser($_POST['username'],$_POST['passwd'],$_POST['userinfo'],$_POST['usermail']);
+	messagereplace("Te has registrado correctamente","index.php",0);
+}
+else {
+	?>
+	<div style="text-align: center;">
+	<?
+	messagereplace("Has hecho algo mal. Revisa lo siguiente:","login.php?opt=register",10000);
+	if($_PRG_mail == false):
+		echo "El correo no está bien<br>";
+	endif;
+	if($_PRG_passwd == false):
+		echo "Las contraseñas no coinciden<br>";
+	endif;
+	echo "En 10 segundos volverás a poder rellenar el formulario<br><br><br>";
+	?>
+	</div>
+	<?
+}
 
 ?>
 	<? $html5->pagfooter(); ?>

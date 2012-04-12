@@ -26,14 +26,8 @@
 session_start();
 include_once('lib/html5.php');
 $html5 = new htmlpage();
-$version = "0.1.2-alpha";
-$varget = $_GET['id'];
-
-switch ($varget) {
-    case "version":
-        $toprint = "<h1>La versión de DaxOs Store es: $version</h1>";
-        break;
-	}
+$version = "0.1.3-alpha";
+@$varget = $_GET['id'];
 ?>
 
 <!DOCTYPE HTML>
@@ -41,8 +35,28 @@ switch ($varget) {
 	<? $html5->headersection("");?>
 <body>
 	<? $html5->heading(); ?>
-	<div id=medio>
-		<? echo $toprint ?>
+	<div style="width: 600px; margin: 50px auto;">
+		<? echo "<h1>La versión de DaxOs Store es: $version</h1>"; ?>
+		<h1>Cambios</h1>
+		<h2>0.1.3-alpha</h2>
+		<p>
+			<ul>
+				<li>Se añade soporte para registro de usuarios</li>
+				<li>Se modifica la base de datos para definir si una aplicación está activa o no</li>
+				<li>Se modifica la base de datos para introducir el campo email en la tabla de usuarios</li>
+				<li>Este página de información</li>
+			</ul>
+		</p>
+		<h1>Tareas pendientes</h1>
+		<p>
+			<ul>
+				<li>Crear página de usuario (Cambiar contraseña, email, ¿enviar aplicaciones?)</li>
+				<li>Permitir gestionar las aplicaciones (cambiar datos)</li>
+				<li>Crear una tabla en la base de datos para intercambiar estilos css</li>
+				<li>Impedir el registro de un usuario que a exista</li>
+				<li>Separar info(secciones: versión, información técnica, información para el usuario...)</li>
+			</ul>
+		</p>
 	</div>
 	<? $html5->pagfooter(); ?>
 </body>

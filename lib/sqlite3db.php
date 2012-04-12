@@ -9,30 +9,32 @@ class dbinter {
 
 	function createapptable() {
 		$base = $this->abrirbase();
-		$base->exec('CREATE TABLE apps (id integer UNIQUE PRIMARY KEY, name VARCHAR(30), category VARCHAR(20), url TEXT, image TEXT, tags TEXT, info TEXT, byuser VARCHAR(30))');
+		$base->exec('CREATE TABLE apps (id integer UNIQUE PRIMARY KEY, name VARCHAR(30), category VARCHAR(20), url TEXT, image TEXT, tags TEXT, info TEXT, byuser VARCHAR(30), active INTEGER)');
 		$base->close();
 		
 	}
 	
 	function createuserstable() {
 		$base = $this->abrirbase();
-		$base->exec('CREATE TABLE users (id integer UNIQUE PRIMARY KEY, name VARCHAR(30), status INTEGER, password VARCHAR(250), info TEXT)');
+		$base->exec('CREATE TABLE users (id integer UNIQUE PRIMARY KEY, name VARCHAR(30), status INTEGER, password VARCHAR(250), info TEXT, email TEXT)');
 		$base->close();
 		
 	}
 	
 	function anadirapp ($nombre, $category, $url, $pathimg, $tags, $info) {
+		$active = 1;
 		$base = $this->abrirbase();
-		$base->exec("INSERT INTO apps VALUES (NULL,'".$nombre."','".$category."','".$url."','".$pathimg."', '".$tags."' , '".$info."' , '".$byuser."' )");
+		$base->exec("INSERT INTO apps VALUES (NULL,'".$nombre."','".$category."','".$url."','".$pathimg."', '".$tags."' , '".$info."' , '".$byuser."' , '".$active."')");
 		$base->close();
 	}
 	
-	function anadiruser ($nombre, $password, $info) {
+	function anadiruser ($nombre, $password, $info, $email) {
 		//The status of user is 1, admin is 0
 		//The new users aren't administrator
 		$status = 1;
+		$password = md5($password);
 		$base = $this->abrirbase();
-		$base->exec("INSERT INTO users VALUES (NULL,'".$nombre."',".$status.",'".$password."', '".$info."')");
+		$base->exec("INSERT INTO users VALUES (NULL,'".$nombre."',".$status.",'".$password."', '".$info."','".$email."')");
 		$base->close();
 	}
 

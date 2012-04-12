@@ -35,7 +35,7 @@ function loginform($label) {
 		}
 		?>
 	<input class=inputxt id="contrasena" type="password" name="contrasena" placeholder="Contraseña" size=7 /><br>
-	<center><input class=inputbut type="submit" value="Entrar"> | <a href="login.php"><input class=inputbut type=button  value="Registrar"></a></center>
+	<center><input class=inputbut type="submit" value="Entrar"> | <a href="login.php?opt=register"><input class=inputbut type=button  value="Registrar"></a></center>
 	</form>
 	<?
 }
@@ -91,12 +91,18 @@ function registro(){
                 <label for="passwd">Contraseña:</label>
                 <input class=inputxt type="password" name="passwd" /> 
                 <br>
-                <label for="userinfo">Información adicional:</label>
-				<input class=inputxt type="text" name="userinfo" />
+                <label for="passwd2">Repita contraseña:</label>
+                <input class=inputxt type="password" name="passwd2" /> 
+                <br>
+                <label for="usermail">Correo Electrónico:</label>
+				<input class=inputxt type="text" name="usermail" />
+				<br>
+                <label for="userinfo">Información:</label>
+				<textarea class=inputxt style="display:block; height: 60px; width: 230px; " name="userinfo"> </textarea>
 				<br>
             <input class=inputbut type="submit" value=Enviar>
         </form>
-        <b>Nota: Está en pleno desarrollo, por favor, no lo use, puesto que en el siguiente paso se podría mostrar la contraseña</b></center>
+        <b>Nota: Está en pleno desarrollo, por favor, no lo uses, podría ocurrir que tu contraseña no se guardara encriptada.</b></center>
 	<?
 }
 ?>

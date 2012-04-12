@@ -60,6 +60,7 @@ $salida =  $base->query("SELECT * FROM apps WHERE category='".$varget."'");
 
 //~ for ($i=1; $i <= 10; $i++) {
 while ($row = $salida->fetchArray(SQLITE3_ASSOC)) {
+if($row['active'] == 1){
 	?>
 		<tr>
 			<td class="applogo">
@@ -89,6 +90,7 @@ while ($row = $salida->fetchArray(SQLITE3_ASSOC)) {
 	//~ print_r($row);
 	//~ var_dump($row);
 	echo "<br>";
+}
 }
 //~ $base->close();
 //~ $base->close();

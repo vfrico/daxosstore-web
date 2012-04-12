@@ -24,7 +24,7 @@ session_start();
 include_once('lib/html5.php');
 include_once('lib/forms.php');
 $html5 = new htmlpage();
-$option = $_GET['opt'];
+@$option = $_GET['opt'];
 ?>
 
 <!DOCTYPE HTML>

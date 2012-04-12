@@ -32,9 +32,18 @@ $html5 = new htmlpage();
 <body>
 	<? $html5->heading(); ?>
 	<? // Comprueba si el usuario es administrador
-if (isset($_SESSION['user'])) {
+	
+if (isset($_SESSION['user'])) { //Si ha iniciado sesión
 	echo "Usuario: ".$_SESSION['user'];
 	echo "<br>". $_SESSION['isadmin'];
+	if ($_SESSION['isadmin']){
+		echo "admin";
+	}else{
+		echo "noadmin";
+	}
+}
+else{//Si no ha iniciado sesión
+	messagereplace("No has iniciado sesión", "index.php",6000);
 }
 	?>
 	<? $html5->pagfooter(); ?>
