@@ -47,6 +47,11 @@ $version = "0.1.4-alpha";
 				<li>Este página de información</li>
 			</ul>
 		</p>
+		<h2>0.1.4-alpha</h2>
+			<ul>
+				<li>Arreglar errores</li>
+				<li>Cambiar estilos de h1, h2, ul en style.css</li>
+			</ul>
 		<h1>Tareas pendientes</h1>
 		<p>
 			<ul>
