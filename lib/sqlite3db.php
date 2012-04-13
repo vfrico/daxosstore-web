@@ -81,7 +81,7 @@ class dbinter {
 	
 	function isanadmin($user){
 		$base = $this->abrirbase();
-		$resultado = $base->query("SELECT status FROM users WHERE name='".$user."'");
+		$resultado = $base->query("SELECT status,password FROM users WHERE name='".$user."'");
 		$times = 0;
 		while ( $row = $resultado->fetchArray(SQLITE3_ASSOC)) {
 			$last = $row['password'];

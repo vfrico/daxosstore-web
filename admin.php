@@ -31,13 +31,28 @@ $html5 = new htmlpage();
 <? $html5->headersection("Admin page"); ?>
 <body>
 	<? $html5->heading(); ?>
+	<div id=medio>
 	<? // Comprueba si el usuario es administrador
 	
 if (isset($_SESSION['user'])) { //Si ha iniciado sesión
-	echo "Usuario: ".$_SESSION['user'];
-	echo "<br>". $_SESSION['isadmin'];
-	if ($_SESSION['isadmin']){
-		echo "admin";
+	echo "<h2>Usuario: ".$_SESSION['user']."</h2>";
+	echo "<br>";
+	if ($_SESSION['isadmin'] == 0){
+		echo "Tienes permisos de administrador";
+		?>
+		<ul>
+			<li><h2>Aplicaciones</h2></li>
+			<li><a href="submit.php">Enviar una aplicación</a></li>
+			<li><a href="#">Administrar aplicaciones</a></li> <!-- No funciona-->
+			
+			<li><h2>Usuarios</h2></li>
+			<li><a href="users.php">Ver usuarios</a></li> <!-- No funciona-->
+			<li><a href="users.php?opt=mod">Administrar usuarios</a></li>
+			
+			<li><h2>Información del usuario</h2></li>
+			<li><a href="admin.php?opt=user">Cambiar datos de información</a></li>
+		</ul>
+		<?
 	}else{
 		echo "noadmin";
 	}
@@ -46,6 +61,7 @@ else{//Si no ha iniciado sesión
 	messagereplace("No has iniciado sesión", "index.php",6000);
 }
 	?>
+	</div>
 	<? $html5->pagfooter(); ?>
 </body>
 </html>

@@ -26,7 +26,7 @@
 session_start();
 include_once('lib/html5.php');
 $html5 = new htmlpage();
-$version = "0.1.3-alpha";
+$version = "0.1.4-alpha";
 @$varget = $_GET['id'];
 ?>
 
@@ -55,6 +55,7 @@ $version = "0.1.3-alpha";
 				<li>Crear una tabla en la base de datos para intercambiar estilos css</li>
 				<li>Impedir el registro de un usuario que a exista</li>
 				<li>Separar info(secciones: versión, información técnica, información para el usuario...)</li>
+				<li>Separar las bases de datos de Usuarios y aplicaciones, así como la del sistema</li>
 			</ul>
 		</p>
 	</div>

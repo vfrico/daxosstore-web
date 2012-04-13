@@ -23,7 +23,6 @@
 @import url(../fonts/antic/font.css);
 @import url(../fonts/comfortaa/font.css);
 
-
 body {
 	background-color: #212121;
 	background: -moz-linear-gradient(bottom, rgb(33,33,33) 5%, rgb(54,54,54) 53%, rgb(33,33,33) 77%);
@@ -31,6 +30,23 @@ body {
 	font-family: "antic","sans";
 	color: #FDFCFD;
 	font-size: 16px;
+}
+
+ul {
+	list-style-type: none;
+}
+
+h2 {
+	font-family: "antic","sans";
+	font-weight: lighter;
+	color: #ddd;
+}
+
+h1 {
+	font-family: "comfortaa","sans";
+	font-weight: normal;
+	color: #fff;
+	font-size: 34px;
 }
 
 a:link {
@@ -225,7 +241,7 @@ footer {
 
 #medio {
 	margin: 100px auto;
-	width: 400px;
+	width: 500px;
 }
 #brand {
 	margin: 10px auto 0px auto;
