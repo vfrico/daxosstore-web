@@ -54,7 +54,18 @@ if (isset($_SESSION['user'])) { //Si ha iniciado sesión
 		</ul>
 		<?
 	}else{
-		echo "noadmin";
+		//Usuario normal 
+	?>
+	
+	<ul>
+			<li><h2>Aplicaciones</h2></li>
+			<li><a href="submit.php">Enviar una aplicación</a></li>
+			
+			<li><h2>Información del usuario</h2></li>
+			<li><a href="admin.php?opt=user">Cambiar datos de información</a></li>
+		</ul>
+	
+	<?
 	}
 }
 else{//Si no ha iniciado sesión
