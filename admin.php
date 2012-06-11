@@ -49,7 +49,7 @@ if (isset($_SESSION['user'])) { //Si ha iniciado sesión
 		<?
 	}
 	else{
-		if ($_SESSION['isadmin'] == 0){
+		if ($_SESSION['isadmin']){
 			echo "Tienes permisos de administrador";
 			?>
 			<ul>

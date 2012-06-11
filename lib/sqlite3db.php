@@ -4,13 +4,13 @@ class dbinter {
     
 	function abrirbase () {
 		//abre base de datos de aplicaciones y usuarios	
-		$db = new SQLite3('lib/apps.db') or die ("NO se puede abrir la base de datos");
+		$db = new SQLite3('lib/apps.db') or die ("NO se puede abrir la base de datos aplicaciones");
 		return $db;
 	}
 	
-	function abrirbasetxt () {
+	function abrirbaseuser () {
 		//Abre base de datos para info
-		$db = new SQLite3('lib/textos.db') or die ("NO se puede abrir la base de datos");
+		$db = new SQLite3('lib/users.db') or die ("NO se puede abrir la base de datos usuario");
 		return $db;
 	}
 	
@@ -24,7 +24,7 @@ class dbinter {
 	
 	function createuserstable() {
 		//Crea tabla de usuarios en apps.db
-		$base = $this->abrirbase();
+		$base = $this->abrirbaseuser();
 		$base->exec('CREATE TABLE users (id integer UNIQUE PRIMARY KEY, name VARCHAR(30), status INTEGER, password VARCHAR(250), info TEXT, email TEXT)');
 		$base->close();
 		
@@ -34,8 +34,8 @@ class dbinter {
 		//Añade a la tabla apps de apps.db una nueva aplicación		
 		$active = 1;
 		$base = $this->abrirbase();
-		echo "<br>";
-		echo "INSERT INTO apps VALUES (NULL,'".$nombre."','".$category."','".$url."','".$pathimg."', '".$tags."' , '".$info."' , '".$byuser."' , 1)";
+		//~ echo "<br>";
+		//~ echo "INSERT INTO apps VALUES (NULL,'".$nombre."','".$category."','".$url."','".$pathimg."', '".$tags."' , '".$info."' , '".$byuser."' , 1)";
 		$base->exec("INSERT INTO apps VALUES (NULL,'".$nombre."','".$category."','".$url."','".$pathimg."', '".$tags."' , '".$info."' , '".$byuser."' , 1)") or die ("<br>Fallo en sqlite3db.php");
 		$base->close();
 	}
@@ -45,14 +45,14 @@ class dbinter {
 		//The new users aren't administrator
 		$status = 1;
 		$password = md5($password);
-		$base = $this->abrirbase();
+		$base = $this->abrirbaseuser();
 		$base->exec("INSERT INTO users VALUES (NULL,'".$nombre."',".$status.",'".$password."', '".$info."','".$email."')");
 		$base->close();
 	}
 	function edituseremail ($nombre, $email) {
 		//Cambia el email de un usuario
 		$password = md5($password);
-		$base = $this->abrirbase();
+		$base = $this->abrirbaseuser();
 		$base->exec("UPDATE users SET password='".$email."' WHERE user='".$nombre."'");
 		$base->close();
 	}
@@ -60,7 +60,7 @@ class dbinter {
 	function edituserinfo ($nombre, $info) {
 		//cambia la información de un usuario
 		$password = md5($password);
-		$base = $this->abrirbase();
+		$base = $this->abrirbaseuser();
 		$base->exec("UPDATE users SET info='".$info."' WHERE user='".$nombre."'");
 		$base->close();
 	}
@@ -96,7 +96,7 @@ class dbinter {
 		//Comprueba si la contraseña de un usuario es correcta
 		$pass = md5($pass);
 		//~ print $pass;
-		$base = $this->abrirbase();
+		$base = $this->abrirbaseuser();
 		$resultado = $base->query("SELECT password FROM users WHERE name='".$user."'");
 		$times = 0;
 		while ( $row = $resultado->fetchArray(SQLITE3_ASSOC)) {
@@ -119,7 +119,7 @@ class dbinter {
 	
 	function isanadmin($user){
 		//Devuelve boleano según si el usuario sea admin o no
-		$base = $this->abrirbase();
+		$base = $this->abrirbaseuser();
 		$resultado = $base->query("SELECT status,password FROM users WHERE name='".$user."'");
 		$times = 0;
 		while ( $row = $resultado->fetchArray(SQLITE3_ASSOC)) { //Comprobamos que el usuario no exista varias veces
@@ -127,9 +127,10 @@ class dbinter {
 			//~ echo $last;
 			$times++;
 		}
-		if (isset($last) && $times <= 2){ 
+		if (isset($last) && $times == 1){ 
 			if($last == 0) {
 				//~ echo "Es admin";
+				echo $last;
 				return true;
 			}
 			else{
@@ -140,16 +141,3 @@ class dbinter {
 	}
 }
 ?>
-<!--
-$db = new SQLite3('apps.db');
-
-//~ $db->exec('CREATE TABLE foo (bar STRING)');
-$db->exec("INSERT INTO foo (bar) VALUES ('This is a test')");
-
-$result = $db->query('SELECT bar FROM foo');
-echo "\n";
-echo $result->fetchArray();
-//~ var_dump($result->fetchArray());
-$db->close();
--->
-

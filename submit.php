@@ -35,7 +35,7 @@ $html5 = new htmlpage();
 	<? $html5->heading(); ?>
     <div id=medio>
 		<?
-		if (@$_SESSION['isadmin']==0) appform();
+		if (@$_SESSION['isadmin']) appform();
 		else notadmin();
 		?>
 	</div>
