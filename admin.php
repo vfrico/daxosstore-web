@@ -24,6 +24,7 @@
  */
 session_start();
 include_once('lib/html5.php');
+include_once('lib/sqlite3db.php');
 $html5 = new htmlpage();
 ?>
 <!DOCTYPE HTML>
@@ -37,35 +38,49 @@ $html5 = new htmlpage();
 if (isset($_SESSION['user'])) { //Si ha iniciado sesión
 	echo "<h2>Usuario: ".$_SESSION['user']."</h2>";
 	echo "<br>";
-	if ($_SESSION['isadmin'] == 0){
-		echo "Tienes permisos de administrador";
+	//Editar opciones usuario
+	if(@$_GET['opt']=="user"){
+		$dbuser = new dbinter();
+		?>
+		cambiar
+		<form>
+		
+		</form>	
+		<?
+	}
+	else{
+		if ($_SESSION['isadmin'] == 0){
+			echo "Tienes permisos de administrador";
+			?>
+			<ul>
+				<li><h2>Aplicaciones</h2></li>
+				<li><a href="submit.php">Enviar una aplicación</a></li>
+				<li><a href="#">Administrar aplicaciones</a></li> <!-- No funciona-->
+				
+				<li><h2>Usuarios</h2></li>
+				<li><a href="users.php">Ver usuarios</a></li> <!-- No funciona-->
+				<li><a href="users.php?opt=mod">Administrar usuarios</a></li>
+				
+				<li><h2>Información del usuario</h2></li>
+				<li><a href="admin.php?opt=user">Cambiar datos de información</a></li>
+				
+				<li><h2>Opciones del sitio web</h2></li>
+				<li><a href="#">Cambiar tema predeterminado</a></li>
+			</ul>
+			<?
+		}else{
+			//Usuario normal 
 		?>
 		<ul>
-			<li><h2>Aplicaciones</h2></li>
-			<li><a href="submit.php">Enviar una aplicación</a></li>
-			<li><a href="#">Administrar aplicaciones</a></li> <!-- No funciona-->
-			
-			<li><h2>Usuarios</h2></li>
-			<li><a href="users.php">Ver usuarios</a></li> <!-- No funciona-->
-			<li><a href="users.php?opt=mod">Administrar usuarios</a></li>
-			
-			<li><h2>Información del usuario</h2></li>
-			<li><a href="admin.php?opt=user">Cambiar datos de información</a></li>
-		</ul>
+				<li><h2>Aplicaciones</h2></li>
+				<li><a href="submit.php">Enviar una aplicación</a></li>
+				
+				<li><h2>Información del usuario</h2></li>
+				<li><a href="admin.php?opt=user">Cambiar datos de información</a></li>
+			</ul>
+		
 		<?
-	}else{
-		//Usuario normal 
-	?>
-	
-	<ul>
-			<li><h2>Aplicaciones</h2></li>
-			<li><a href="submit.php">Enviar una aplicación</a></li>
-			
-			<li><h2>Información del usuario</h2></li>
-			<li><a href="admin.php?opt=user">Cambiar datos de información</a></li>
-		</ul>
-	
-	<?
+		}
 	}
 }
 else{//Si no ha iniciado sesión

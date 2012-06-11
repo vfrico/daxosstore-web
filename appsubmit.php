@@ -42,11 +42,11 @@ else
 	{
 		move_uploaded_file($_FILES["imagefile"]["tmp_name"],
 		"uploadedimgs/" . $filename);
-		echo "Stored in: " . "upload/" . $filename;
+		echo "Imagen guardada en: " . "upload/" . $filename;
 	}
 	// Termina la imagen //
-if ($_SESSION['isadmin']) { //Sólo si eres administrador envías una app
-$base->anadirapp($_POST["appname"],$_POST["category"],$_POST["appurl"],$filename,$_POST['tags'],$_POST['info'],$_SESSION['user']);
+if ($_SESSION['isadmin']==0) { //Sólo si eres administrador envías una app
+$base->anadirapp($_POST["appname"],$_POST["category"],$_POST["appurl"],$filename,$_POST['tags'],$_POST['info'],$_SESSION['user']) or die ("<br>Fallo al enviar consulta");
 }
 ?>
 
@@ -56,7 +56,7 @@ $base->anadirapp($_POST["appname"],$_POST["category"],$_POST["appurl"],$filename
 <body>
 <? $html5->heading(); ?>
 	<? // Comprueba si el usuario es administrador
-	if ($_SESSION['isadmin']) {
+	if ($_SESSION['isadmin']==0) {
 		?>
             Aplicación: <? echo $_POST["appname"]; ?> <br>
             Categoría: <? echo $_POST["category"]; ?> <br>

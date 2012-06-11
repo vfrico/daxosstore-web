@@ -102,7 +102,35 @@ function registro(){
 				<br>
             <input class=inputbut type="submit" value=Enviar>
         </form>
-        <b>Nota: Está en pleno desarrollo, por favor, no lo uses, podría ocurrir que tu contraseña no se guardara encriptada.</b></center>
+<!--
+        <b>Nota: Está en pleno desarrollo, por favor, no lo uses, podría ocurrir que tu contraseña no se guardara encriptada.</b>
+-->
+        </center>
+	<?
+}
+
+function actualizaremail(){
+		?>
+		<center>
+	        <form action="register.php?opt=editmail" method="post">
+				<label for="username">Nombre de Usuario:</label>
+				<input class=inputxt type="text" name="username" />
+				<br>
+                <label for="passwd">Contraseña:</label>
+                <input class=inputxt type="password" name="passwd" /> 
+                <br>
+                <label for="passwd2">Repita contraseña:</label>
+                <input class=inputxt type="password" name="passwd2" /> 
+                <br>
+                <label for="usermail">Correo Electrónico:</label>
+				<input class=inputxt type="text" name="usermail" />
+				<br>
+                <label for="userinfo">Información:</label>
+				<textarea class=inputxt style="display:block; height: 60px; width: 230px; " name="userinfo"> </textarea>
+				<br>
+            <input class=inputbut type="submit" value=Enviar>
+        </form>
+        </center>
 	<?
 }
 ?>
