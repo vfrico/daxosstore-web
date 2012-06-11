@@ -30,23 +30,29 @@ $html5 = new htmlpage();
 include('lib/sqlite3db.php');
 //Conectamos base de datos:
 $base = new dbinter;
-//Enviamos datos a la base
-		// Para la imagen //
-$filename = time().$_FILES["imagefile"]["name"];
-//~ echo $filename;
-if (file_exists("uploadedimgs/" . $filename))
+// Para la imagen //
+	$filename = time().$_FILES["imagefile"]["name"];
+	//~ echo $filename;
+	if (file_exists("uploadedimgs/" . $filename))
 	{
 		echo $filename . " already exists. ";
 	}
-else
+	else
 	{
 		move_uploaded_file($_FILES["imagefile"]["tmp_name"],
 		"uploadedimgs/" . $filename);
 		echo "Imagen guardada en: " . "upload/" . $filename;
 	}
-	// Termina la imagen //
-if ($_SESSION['isadmin']) { //Sólo si eres administrador envías una app
-$base->anadirapp($_POST["appname"],$_POST["category"],$_POST["appurl"],$filename,$_POST['tags'],$_POST['info'],$_SESSION['user']);
+// Termina la imagen //
+if (isset($_GET['edit']) && $_SESSION['isadmin'])
+{
+	echo "Hello world";
+	$base->updateapp($_POST["appname"],$_POST["category"],$_POST["appurl"],$filename,$_POST['tags'],$_POST['info'],$_SESSION['user'],$_GET['edit']);
+}
+
+else if($_SESSION['isadmin']) {
+	//Enviamos datos a la base  //Sólo si eres administrador envías una app
+	$base->anadirapp($_POST["appname"],$_POST["category"],$_POST["appurl"],$filename,$_POST['tags'],$_POST['info'],$_SESSION['user']);
 }
 ?>
 

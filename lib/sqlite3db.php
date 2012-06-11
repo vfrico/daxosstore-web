@@ -40,6 +40,15 @@ class dbinter {
 		$base->close();
 	}
 	
+	function updateapp ($nombre, $category, $url, $pathimg, $tags, $info, $byuser, $id) {
+		//Añade a la tabla apps de apps.db una nueva aplicación		
+		$active = 1;
+		$base = $this->abrirbase();
+		//~ echo "<br>";	
+		$base->exec("UPDATE apps SET name='".$nombre."' , category='".$category."'  , url='".$url."' , image='".$pathimg."', tags='".$tags."' , info='".$info."', byuser='".$byuser."' WHERE id=".$id) or die ("<br>Fallo en sqlite3db.php");
+		$base->close();
+	}
+	
 	function anadiruser ($nombre, $password, $info, $email) {
 		//The status of user is 1, admin is 0
 		//The new users aren't administrator

@@ -92,7 +92,11 @@ footer {
 }
 .logo {
 	width: 90 px;
-	height: 90px;
+	height: 90 px;
+}
+.logo1 {
+	width: 20 px;
+	height: 20 px;
 }
 
 /* Inicio estilo tabla principal*/

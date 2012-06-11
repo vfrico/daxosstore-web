@@ -26,7 +26,7 @@
 session_start();
 include_once('lib/html5.php');
 $html5 = new htmlpage();
-$version = "0.1.4-alpha";
+$version = "0.2-alpha";
 @$varget = $_GET['id'];
 ?>
 
@@ -38,31 +38,35 @@ $version = "0.1.4-alpha";
 	<div style="width: 600px; margin: 50px auto;">
 		<? echo "<h1>La versión de DaxOs Store es: $version</h1>"; ?>
 		<h1>Cambios</h1>
-		<h2>0.1.3-alpha</h2>
-		<p>
-			<ul>
-				<li>Se añade soporte para registro de usuarios</li>
-				<li>Se modifica la base de datos para definir si una aplicación está activa o no</li>
-				<li>Se modifica la base de datos para introducir el campo email en la tabla de usuarios</li>
-				<li>Este página de información</li>
-			</ul>
-		</p>
+		<h2>0.2-alpha</h2>
+		<ul>
+			<li>Bases de datos en lugares separados: users.db y apps.db</li>
+			<li>Listado de aplicaciones en apps.php para administradores</li>
+			<li>Editar datos de aplicaciones (Administradores)</li>
+		</ul>
 		<h2>0.1.4-alpha</h2>
-			<ul>
-				<li>Arreglar errores</li>
-				<li>Cambiar estilos de h1, h2, ul en style.css</li>
-			</ul>
+		<ul>
+			<li>Arreglar errores</li>
+			<li>Cambiar estilos de h1, h2, ul en style.css</li>
+		</ul>
+		<h2>0.1.3-alpha</h2>
+		<ul>
+			<li>Se añade soporte para registro de usuarios</li>
+			<li>Se modifica la base de datos para definir si una aplicación está activa o no</li>
+			<li>Se modifica la base de datos para introducir el campo email en la tabla de usuarios</li>
+			<li>Este página de información</li>
+		</ul>
+
+		<br><br>
 		<h1>Tareas pendientes</h1>
-		<p>
-			<ul>
-				<li>Crear página de usuario (Cambiar contraseña, email, ¿enviar aplicaciones?)</li>
-				<li>Permitir gestionar las aplicaciones (cambiar datos)</li>
-				<li>Crear una tabla en la base de datos para intercambiar estilos css</li>
-				<li>Impedir el registro de un usuario que a exista</li>
-				<li>Separar info(secciones: versión, información técnica, información para el usuario...)</li>
-				<li>Separar las bases de datos de Usuarios y aplicaciones, así como la del sistema</li>
-			</ul>
-		</p>
+		<ul>
+			<li>Crear página de usuario (Cambiar contraseña, email, ¿enviar aplicaciones?)</li>
+			<li><strike>Permitir gestionar las aplicaciones (cambiar datos) </strike></li>
+			<li>Crear una tabla en la base de datos para intercambiar estilos css</li>
+			<li>Impedir el registro de un usuario que ya exista</li>
+			<li>Separar info(secciones: versión, información técnica, información para el usuario...)</li>
+			<li><strike>Separar las bases de datos de Usuarios y aplicaciones,</strike> así como la del sistema</li>
+		</ul>
 	</div>
 	<? $html5->pagfooter(); ?>
 </body>
