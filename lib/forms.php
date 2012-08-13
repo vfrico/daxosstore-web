@@ -35,7 +35,7 @@ function loginform($label) {
 		}
 		?>
 	<input class=inputxt id="contrasena" type="password" name="contrasena" placeholder="Contraseña" size=7 /><br>
-	<center><input class=inputbut type="submit" value="Entrar"> | <a href="login.php?opt=register"><input class=inputbut type=button  value="Registrar"></a></center>
+	<div style="text-align: center;"><input class=inputbut type="submit" value="Entrar"> | <div class="inputbut" style="display:inline-block;padding:4px 0 0px 0;height: 20px;color:#FDFCFD;"><a href="login.php?opt=register">Registrar</a></div></div>
 	</form>
 	<?
 }

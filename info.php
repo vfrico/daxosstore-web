@@ -54,7 +54,11 @@ $version = "0.2-alpha";
 			<li>Se añade soporte para registro de usuarios</li>
 			<li>Se modifica la base de datos para definir si una aplicación está activa o no</li>
 			<li>Se modifica la base de datos para introducir el campo email en la tabla de usuarios</li>
-			<li>Este página de información</li>
+			<li>Esta página de información</li>
+		</ul>
+		<h2>0.1.4-alpha</h2>
+		<ul>
+			<li>Ajustando etiquetas para validar correctamente el html.</li>
 		</ul>
 
 		<br><br>
