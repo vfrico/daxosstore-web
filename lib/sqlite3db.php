@@ -13,6 +13,12 @@ class dbinter {
 		$db = new SQLite3('lib/users.db') or die ("NO se puede abrir la base de datos usuario");
 		return $db;
 	}
+
+	function abrirbasetxt () {
+		//Abre base de datos para info
+		$db = new SQLite3('lib/textos.db') or die ("NO se puede abrir la base de datos Textos");
+		return $db;
+	}
 	
 	function createapptable() {
 		//Crea la tabla en la base de datos apps.db
@@ -30,6 +36,14 @@ class dbinter {
 		
 	}
 	
+	function createtextotable() {
+		//Crea tabla de usuarios en apps.db
+		$base = $this->abrirbasetxt();
+		$base->exec('CREATE TABLE users (id integer UNIQUE PRIMARY KEY, category VARCHAR(70), fecha VARCHAR(30), titulo VARCHAR(200), texto TEXT)');
+		$base->close();
+		
+	}
+
 	function anadirapp ($nombre, $category, $url, $pathimg, $tags, $info, $byuser) {
 		//Añade a la tabla apps de apps.db una nueva aplicación		
 		$active = 1;
