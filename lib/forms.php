@@ -109,28 +109,47 @@ function registro(){
 	<?
 }
 
-function actualizaremail(){
+function actualizarpass(){
 		?>
-		<center>
-	        <form action="register.php?opt=editmail" method="post">
-				<label for="username">Nombre de Usuario:</label>
-				<input class=inputxt type="text" name="username" />
-				<br>
-                <label for="passwd">Contraseña:</label>
+		<article style="text-align: center;">
+	        <form action="register.php?opt=editpass" method="post">
+                <label for="passwdact">Contraseña actual:</label>
+                <input class=inputxt type="password" name="passwdact" /> 
+                <br>
+                <br>
+                <label for="passwd">Nueva contraseña:</label>
                 <input class=inputxt type="password" name="passwd" /> 
                 <br>
-                <label for="passwd2">Repita contraseña:</label>
+                <label for="passwd2">Repite la contraseña:</label>
                 <input class=inputxt type="password" name="passwd2" /> 
                 <br>
-                <label for="usermail">Correo Electrónico:</label>
-				<input class=inputxt type="text" name="usermail" />
-				<br>
-                <label for="userinfo">Información:</label>
-				<textarea class=inputxt style="display:block; height: 60px; width: 230px; " name="userinfo"> </textarea>
-				<br>
-            <input class=inputbut type="submit" value=Enviar>
+            <input class=inputbut type="submit" value=Cambiar>
         </form>
-        </center>
+        </article>
 	<?
+}
+function actualizaremail($old){
+        ?>
+        <article style="text-align: center;">
+            <form action="register.php?opt=editmail" method="post">
+                <label for="usermail">Correo Electrónico:</label>
+                <input class=inputxt type="text" style="width: 140px;" placeholder="<? echo $old; ?>"name="usermail" />
+                <br>
+            <input class=inputbut type="submit" value=Cambiar>
+        </form>
+        </article>
+    <?
+}
+function actualizarinfo($old){
+        ?>
+        <article style="text-align: center;">
+            <form action="register.php?opt=editinfo" method="post">
+                <label for="userinfo">Información:</label>
+                <textarea class=inputxt style="display:block; height: 60px; width: 230px; margin: 10px auto; " name="userinfo"> <? echo $old;?></textarea>
+                <br>
+            <input class=inputbut type="submit" value=Cambiar>
+        </form>
+        </article>
+    <?
 }
 ?>

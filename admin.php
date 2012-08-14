@@ -25,6 +25,7 @@
 session_start();
 include_once('lib/html5.php');
 include_once('lib/sqlite3db.php');
+include_once('lib/forms.php');
 $html5 = new htmlpage();
 ?>
 <!DOCTYPE HTML>
@@ -33,19 +34,35 @@ $html5 = new htmlpage();
 <body>
 	<? $html5->heading(); ?>
 	<div id=medio>
-	<? // Comprueba si el usuario es administrador
+<? // Comprueba si el usuario es administrador
 	
-if (isset($_SESSION['user'])) { //Si ha iniciado sesión
+if (isset($_SESSION['user'])) { //si ha iniciado sesión
 	echo "<h2>Usuario: ".$_SESSION['user']."</h2>";
 	echo "<br>";
 	//Editar opciones usuario
 	if(@$_GET['opt']=="user"){
 		$dbuser = new dbinter();
 		?>
-		cambiar
-		<form>
-		
-		</form>	
+		<section>
+			<header>
+				<h2>Cambiar datos de usuario</h2>
+			</header>
+		Cambiar E-Mail
+		<? 
+		$old = $dbuser->getemail($_SESSION['user']); //Email almacenado en la base de datos
+		actualizaremail($old); 
+		?>
+		<br>
+		<br>
+		Cambiar la contraseña
+		<? actualizarpass(); ?>
+		<br>
+		<br>
+		Cambiar la información del usuario
+		<?
+		$old = $dbuser->getinfo($_SESSION['user']); //Información almacenada en la base de datos
+		actualizarinfo($old); ?>
+		</section>
 		<?
 	}
 	else{

@@ -26,7 +26,7 @@
 session_start();
 include_once('lib/html5.php');
 $html5 = new htmlpage();
-$version = "0.2-alpha";
+$version = "0.2.1-alpha";
 @$varget = $_GET['id'];
 ?>
 
@@ -38,27 +38,32 @@ $version = "0.2-alpha";
 	<div style="width: 600px; margin: 50px auto;">
 		<? echo "<h1>La versión de DaxOs Store es: $version</h1>"; ?>
 		<h1>Cambios</h1>
+
+		<h2>0.2.1-alpha</h2>
+		<ul>
+			<li>Ajustando etiquetas para validar correctamente el html.</li>
+			<li>Los usuarios pueden cambiar la información personal: Correo electrónico, información del usuario y contraseña</li>
+		</ul>
+
 		<h2>0.2-alpha</h2>
 		<ul>
 			<li>Bases de datos en lugares separados: users.db y apps.db</li>
 			<li>Listado de aplicaciones en apps.php para administradores</li>
 			<li>Editar datos de aplicaciones (Administradores)</li>
 		</ul>
+
 		<h2>0.1.4-alpha</h2>
 		<ul>
 			<li>Arreglar errores</li>
 			<li>Cambiar estilos de h1, h2, ul en style.css</li>
 		</ul>
+
 		<h2>0.1.3-alpha</h2>
 		<ul>
 			<li>Se añade soporte para registro de usuarios</li>
 			<li>Se modifica la base de datos para definir si una aplicación está activa o no</li>
 			<li>Se modifica la base de datos para introducir el campo email en la tabla de usuarios</li>
 			<li>Esta página de información</li>
-		</ul>
-		<h2>0.1.4-alpha</h2>
-		<ul>
-			<li>Ajustando etiquetas para validar correctamente el html.</li>
 		</ul>
 
 		<br><br>

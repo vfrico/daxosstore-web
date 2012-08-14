@@ -62,7 +62,7 @@ if(!isset($_SESSION['user'])){
 		</script>';
 	}
 else {
-		echo '<h1>Has iniciado sesión como '.$_SESSION["user"].'</h1>
+		echo '<h1>Has iniciado sesión como <b>'.$_SESSION["user"].'</b></h1>
 		<script type="text/javascript">
             setTimeout(\'location.replace("index.php")\',5500);
 		</script>';

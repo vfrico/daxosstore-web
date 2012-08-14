@@ -72,27 +72,43 @@ class dbinter {
 		$base->exec("INSERT INTO users VALUES (NULL,'".$nombre."',".$status.",'".$password."', '".$info."','".$email."')");
 		$base->close();
 	}
-	function edituseremail ($nombre, $email) {
+	function edituseremail($nombre, $email) {
 		//Cambia el email de un usuario
-		$password = md5($password);
 		$base = $this->abrirbaseuser();
-		$base->exec("UPDATE users SET password='".$email."' WHERE user='".$nombre."'");
+		$Accion = $base->exec("UPDATE users SET email='".$email."' WHERE name='".$nombre."'");
+		if ($Accion){
+			return true;
+		}
+		else {
+			return false;
+		}
 		$base->close();
 	}
 	
-	function edituserinfo ($nombre, $info) {
+	function edituserinfo($nombre, $info) {
 		//cambia la información de un usuario
-		$password = md5($password);
 		$base = $this->abrirbaseuser();
-		$base->exec("UPDATE users SET info='".$info."' WHERE user='".$nombre."'");
+		$Accion = $base->exec("UPDATE users SET info='".$info."' WHERE name='".$nombre."'");
+		if ($Accion){
+			return true;
+		}
+		else {
+			return false;
+		}
 		$base->close();
 	}
 	
-	function editpassword ($nombre, $password) {
+	function editpassword($nombre, $password) {
 		//Cambia la contraseña de un usuario
 		$password = md5($password);
-		$base = $this->abrirbase();
-		$base->exec("UPDATE users SET password='".$password."' WHERE user='".$nombre."'");
+		$base = $this->abrirbaseuser();
+		$Accion = $base->exec("UPDATE users SET password='".$password."' WHERE name='".$nombre."'");
+		if ($Accion){
+			return true;
+		}
+		else {
+			return false;
+		}
 		$base->close();
 	}
 
@@ -138,8 +154,35 @@ class dbinter {
 				return false;
 			}
 		}
+		else {
+			return false;
+		}
 	}
-	
+
+	function getinfo($user){
+		//Obtener el campo información del usuario seleccionado
+		$base = $this->abrirbaseuser();
+		$resultado = $base->query("SELECT info FROM users WHERE name='".$user."'");
+		$times = 0;
+		while ( $row = $resultado->fetchArray(SQLITE3_ASSOC)) { 
+			$last = $row['info'];
+			$times++;
+		}
+		return $last;
+	}
+
+	function getemail($user){
+		//Obtener el campo email del usuario seleccionado
+		$base = $this->abrirbaseuser();
+		$resultado = $base->query("SELECT email FROM users WHERE name='".$user."'");
+		$times = 0;
+		while ( $row = $resultado->fetchArray(SQLITE3_ASSOC)) { 
+			$last = $row['email'];
+			$times++;
+		}
+		return $last;
+	}
+
 	function isanadmin($user){
 		//Devuelve boleano según si el usuario sea admin o no
 		$base = $this->abrirbaseuser();
@@ -153,7 +196,7 @@ class dbinter {
 		if (isset($last) && $times == 1){ 
 			if($last == 0) {
 				//~ echo "Es admin";
-				echo $last;
+				//echo $last;
 				return true;
 			}
 			else{

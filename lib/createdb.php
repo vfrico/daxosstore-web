@@ -1,4 +1,5 @@
-<?$base = new SQLite3('apps.db');
+<?
+$base = new SQLite3('apps.db');
 		//~ Crear tabla de aplicaciones
     	$base->exec('CREATE TABLE apps (id integer UNIQUE PRIMARY KEY, name VARCHAR(30), category VARCHAR(20), url TEXT, image TEXT, tags TEXT, info TEXT, byuser VARCHAR(30), active INTEGER)');
     	$base->exec("INSERT INTO apps VALUES (NULL,'esomismo','Accesories','Esomismo', 'ruta', 'tags,tags2','ejemplo de una aplicación', 'admin', 1)");
