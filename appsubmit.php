@@ -31,6 +31,7 @@ include('lib/sqlite3db.php');
 //Conectamos base de datos:
 $base = new dbinter;
 // Para la imagen //
+if ($_FILES["imagefile"]["name"] != ''){
 	$filename = time().$_FILES["imagefile"]["name"];
 	//~ echo $filename;
 	if (file_exists("uploadedimgs/" . $filename))
@@ -43,16 +44,44 @@ $base = new dbinter;
 		"uploadedimgs/" . $filename);
 		echo "Imagen guardada en: " . "upload/" . $filename;
 	}
+}
+else {
+	$filename = false;
+}
 // Termina la imagen //
-if (isset($_GET['edit']) && $_SESSION['isadmin'])
-{
-	echo "Hello world";
-	$base->updateapp($_POST["appname"],$_POST["category"],$_POST["appurl"],$filename,$_POST['tags'],$_POST['info'],$_SESSION['user'],$_GET['edit']);
+
+
+if (isset($_GET['edit']))
+{ //Edita la aplicación 
+	if ($_SESSION['isadmin']){
+		if ($_POST['active'] == 'Yes' || $_POST['active'] == 'On' || $_POST['active'] == 'on'){
+			$active = 1;
+		}
+		else $active = 0;
+	}
+	else $active = 0;
+
+	// if(isset($_POST['active']) && @$_POST['active']=='Yes') echo "TRUE";
+	// else echo "FALSE";
+
+	if ($filename == false){
+		$base->updateapp($_POST["appname"],$_POST["category"],$_POST["appurl"],false,$_POST['tags'],$_POST['info'],$_SESSION['user'],$_GET['edit'],$active);
+	}
+	else{
+		$base->updateapp($_POST["appname"],$_POST["category"],$_POST["appurl"],$filename,$_POST['tags'],$_POST['info'],$_SESSION['user'],$_GET['edit'],$active);
+	}
+	
 }
 
-else if($_SESSION['isadmin']) {
-	//Enviamos datos a la base  //Sólo si eres administrador envías una app
-	$base->anadirapp($_POST["appname"],$_POST["category"],$_POST["appurl"],$filename,$_POST['tags'],$_POST['info'],$_SESSION['user']);
+else {
+	if ($_SESSION['isadmin']){
+		if ($_POST['active'] == 'Yes' || $_POST['active'] == 'on' || $_POST['active'] == 'On'){
+			$active = 1;
+		}
+		else $active = 0;
+	}
+	else $active = 0;
+	$base->anadirapp($_POST["appname"],$_POST["category"],$_POST["appurl"],$filename,$_POST['tags'],$_POST['info'],$_SESSION['user'],$active);
 }
 ?>
 
@@ -61,8 +90,9 @@ else if($_SESSION['isadmin']) {
 <? $html5->headersection("Submit app"); ?>
 <body>
 <? $html5->heading(); ?>
-	<? // Comprueba si el usuario es administrador
-	if ($_SESSION['isadmin']) {
+	<? 
+	// Comprueba si el usuario es administrador
+	// if ($_SESSION['isadmin']) {
 		?>
             Aplicación: <? echo $_POST["appname"]; ?> <br>
             Categoría: <? echo $_POST["category"]; ?> <br>
@@ -70,11 +100,12 @@ else if($_SESSION['isadmin']) {
             Info: <? echo $_POST["info"]; ?> <br>
             Archivo: <? echo $_FILES["imagefile"]["name"]; ?> <br>
             URL de la Aplicación: <? echo $_POST["appurl"]; ?> <br>
+            Active: <? echo @$_POST['active']; ?> <br>
 		<?
-	}
-	else {
-		notadmin();
-	}
+	// }
+	// else {
+	// 	notadmin();
+	// }
 	?>
 <? $html5->pagfooter(); ?>
 </body>

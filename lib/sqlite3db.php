@@ -44,22 +44,27 @@ class dbinter {
 		
 	}
 
-	function anadirapp ($nombre, $category, $url, $pathimg, $tags, $info, $byuser) {
+	function anadirapp ($nombre, $category, $url, $pathimg, $tags, $info, $byuser,$active) {
 		//Añade a la tabla apps de apps.db una nueva aplicación		
-		$active = 1;
+		// $active = 1;
 		$base = $this->abrirbase();
 		//~ echo "<br>";
 		//~ echo "INSERT INTO apps VALUES (NULL,'".$nombre."','".$category."','".$url."','".$pathimg."', '".$tags."' , '".$info."' , '".$byuser."' , 1)";
-		$base->exec("INSERT INTO apps VALUES (NULL,'".$nombre."','".$category."','".$url."','".$pathimg."', '".$tags."' , '".$info."' , '".$byuser."' , 1)") or die ("<br>Fallo en sqlite3db.php");
+		$base->exec("INSERT INTO apps VALUES (NULL,'".$nombre."','".$category."','".$url."','".$pathimg."', '".$tags."' , '".$info."' , '".$byuser."' , ".$active.")") or die ("<br>Fallo en sqlite3db.php");
 		$base->close();
 	}
 	
-	function updateapp ($nombre, $category, $url, $pathimg, $tags, $info, $byuser, $id) {
+	function updateapp ($nombre, $category, $url, $pathimg, $tags, $info, $byuser, $id, $active) {
 		//Añade a la tabla apps de apps.db una nueva aplicación		
-		$active = 1;
+		// $active = 1;
 		$base = $this->abrirbase();
 		//~ echo "<br>";	
-		$base->exec("UPDATE apps SET name='".$nombre."' , category='".$category."'  , url='".$url."' , image='".$pathimg."', tags='".$tags."' , info='".$info."', byuser='".$byuser."' WHERE id=".$id) or die ("<br>Fallo en sqlite3db.php");
+		if ($pathimg == false){
+			$base->exec("UPDATE apps SET name='".$nombre."' , category='".$category."'  , url='".$url."' , tags='".$tags."' , info='".$info."', byuser='".$byuser."' , active='".$active."' WHERE id=".$id) or die ("<br>Fallo en sqlite3db.php");		
+		}
+		else {
+			$base->exec("UPDATE apps SET name='".$nombre."' , category='".$category."'  , url='".$url."' , image='".$pathimg."', tags='".$tags."' , info='".$info."', byuser='".$byuser."' , active='".$active."' WHERE id=".$id) or die ("<br>Fallo en sqlite3db.php");	
+		}	
 		$base->close();
 	}
 	
@@ -69,19 +74,17 @@ class dbinter {
 		$status = 1;
 		$password = md5($password);
 		$base = $this->abrirbaseuser();
-		$base->exec("INSERT INTO users VALUES (NULL,'".$nombre."',".$status.",'".$password."', '".$info."','".$email."')");
+		$Accion = $base->exec("INSERT INTO users VALUES (NULL,'".$nombre."',".$status.",'".$password."', '".$info."','".$email."')");
+		if ($Accion) return true;
+		else return false;
 		$base->close();
 	}
 	function edituseremail($nombre, $email) {
 		//Cambia el email de un usuario
 		$base = $this->abrirbaseuser();
 		$Accion = $base->exec("UPDATE users SET email='".$email."' WHERE name='".$nombre."'");
-		if ($Accion){
-			return true;
-		}
-		else {
-			return false;
-		}
+		if ($Accion) return true;
+		else return false;
 		$base->close();
 	}
 	
@@ -89,12 +92,8 @@ class dbinter {
 		//cambia la información de un usuario
 		$base = $this->abrirbaseuser();
 		$Accion = $base->exec("UPDATE users SET info='".$info."' WHERE name='".$nombre."'");
-		if ($Accion){
-			return true;
-		}
-		else {
-			return false;
-		}
+		if ($Accion) return true;
+		else return false;
 		$base->close();
 	}
 	
@@ -103,12 +102,8 @@ class dbinter {
 		$password = md5($password);
 		$base = $this->abrirbaseuser();
 		$Accion = $base->exec("UPDATE users SET password='".$password."' WHERE name='".$nombre."'");
-		if ($Accion){
-			return true;
-		}
-		else {
-			return false;
-		}
+		if ($Accion) return true;
+		else return false;
 		$base->close();
 	}
 

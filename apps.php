@@ -81,6 +81,10 @@ if ($_SESSION['isadmin'])
             echo '<label for="Info">Información:</label>';
             echo '<textarea class=inputxt type="text" name="info">'.$row['info'].'</textarea> ';
             echo '<br>';
+            if ($_SESSION['isadmin']){
+            echo '<label for="active">¿Activa?:</label>';
+            echo '<input class=inputxt type="checkbox" name="active" />';
+            echo '<br>';}
             echo '<input class=inputbut type="submit" value=Enviar>';
 		}
 		echo "</form></div>";

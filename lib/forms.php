@@ -76,6 +76,13 @@ function appform() {
                 <label for="appname">Información:</label>
                 <input class=inputxt type="text" name="info" /> 
                 <br>
+
+                <? if($_SESSION['isadmin']) { ?>
+                <label for="active">Información:</label>
+                <input class=inputxt type="checkbox" name="active" /> 
+                <br>
+                <? } ?>
+                
             <input class=inputbut type="submit" value=Enviar>
         </form>
 	<?

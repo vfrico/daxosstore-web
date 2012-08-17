@@ -35,8 +35,7 @@ $html5 = new htmlpage();
 	<? $html5->heading(); ?>
     <div id=medio>
 		<?
-		if (@$_SESSION['isadmin']) appform();
-		else notadmin();
+			appform();
 		?>
 	</div>
 <? $html5->pagfooter(); ?>
