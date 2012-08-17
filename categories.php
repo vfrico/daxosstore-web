@@ -89,7 +89,6 @@ if($row['active'] == 1){
 	//~ $arrayexit = $salida->fetchArray(SQLITE3_ASSOC);
 	//~ print_r($row);
 	//~ var_dump($row);
-	echo "<br>";
 }
 }
 //~ $base->close();
