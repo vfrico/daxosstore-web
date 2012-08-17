@@ -26,7 +26,7 @@
 session_start();
 include_once('lib/html5.php');
 $html5 = new htmlpage();
-$version = "0.2.1-alpha";
+$version = "0.2.2-alpha";
 @$varget = $_GET['id'];
 ?>
 
@@ -38,6 +38,14 @@ $version = "0.2.1-alpha";
 	<div style="width: 600px; margin: 50px auto;">
 		<? echo "<h1>La versión de DaxOs Store es: $version</h1>"; ?>
 		<h1>Cambios</h1>
+
+		<h2>0.2.2-alpha</h2>
+		<ul>
+			<li>Permite que un usuario normal pueda subir una aplicación, pero no será visible hasta que un administrador lo revise.</li>
+			<li>En la edición de aplicaciones, se ha arreglado un error que hacía que la imagen puesta, si no se cambia, se perdía.</li>
+			<li>Al editar aplicaciones, el checkbox de activa se ajusta a lo puesto en la base de datos.</li>
+			<li>El estilo de las listas ha sido cambiado a 'circle'</li>
+		</ul>
 
 		<h2>0.2.1-alpha</h2>
 		<ul>
