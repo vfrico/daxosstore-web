@@ -83,7 +83,12 @@ if ($_SESSION['isadmin'])
             echo '<br>';
             if ($_SESSION['isadmin']){
             echo '<label for="active">¿Activa?:</label>';
-            echo '<input class=inputxt type="checkbox" name="active" />';
+          	if ($row['active'] == 1){
+            		echo '<input class=inputxt type="checkbox" checked="checked" name="active" />';		
+            	}
+            	else{
+            		echo '<input class=inputxt type="checkbox" name="active" />';		
+            	}
             echo '<br>';}
             echo '<input class=inputbut type="submit" value=Enviar>';
 		}
