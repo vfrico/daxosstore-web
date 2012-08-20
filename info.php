@@ -85,12 +85,13 @@ $version = "0.3 - beta";
 		<br><br>
 		<h1>Tareas pendientes</h1>
 		<ul>
-			<li>Crear página de usuario (Cambiar contraseña, email, ¿enviar aplicaciones?)</li>
+			<li><strike>Crear página de usuario (Cambiar contraseña, email, ¿enviar aplicaciones?)</strike></li>
 			<li><strike>Permitir gestionar las aplicaciones (cambiar datos) </strike></li>
 			<li>Crear una tabla en la base de datos para intercambiar estilos css</li>
 			<li>Impedir el registro de un usuario que ya exista</li>
 			<li>Separar info(secciones: versión, información técnica, información para el usuario...)</li>
 			<li><strike>Separar las bases de datos de Usuarios y aplicaciones,</strike> así como la del sistema</li>
+			<li>Cambios en la tabla de apps: añadir campos: web del autor, información (corta y larga), ¿ppa? o repositorio principal, pantallazo del programa en dax OS, licencia</li>
 		</ul>
 	</div>
 	<? $html5->pagfooter(); ?>
