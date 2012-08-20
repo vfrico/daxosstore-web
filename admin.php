@@ -70,18 +70,18 @@ if (isset($_SESSION['user'])) { //si ha iniciado sesión
 			echo "Tienes permisos de administrador";
 			?>
 			<ul>
-				<li><h2>Aplicaciones</h2></li>
+				<h2>Aplicaciones</h2>
 				<li><a href="submit.php">Enviar una aplicación</a></li>
-				<li><a href="apps.php?table">Administrar aplicaciones</a></li> <!-- No funciona-->
+				<li><a href="apps.php?table">Administrar aplicaciones</a></li>
 				
-				<li><h2>Usuarios</h2></li>
+				<h2>Usuarios</h2>
 				<li><a href="users.php">Ver usuarios</a></li> <!-- No funciona-->
 				<li><a href="users.php?opt=mod">Administrar usuarios</a></li>
 				
-				<li><h2>Información del usuario</h2></li>
+				<h2>Información del usuario</h2>
 				<li><a href="admin.php?opt=user">Cambiar datos de información</a></li>
 				
-				<li><h2>Opciones del sitio web</h2></li>
+				<h2>Opciones del sitio web</h2>
 				<li><a href="#">Cambiar tema predeterminado</a></li>
 			</ul>
 			<?
@@ -89,10 +89,11 @@ if (isset($_SESSION['user'])) { //si ha iniciado sesión
 			//Usuario normal 
 		?>
 		<ul>
-				<li><h2>Aplicaciones</h2></li>
+				<h2>Aplicaciones</h2>
 				<li><a href="submit.php">Enviar una aplicación</a></li>
+				<li><a href="apps.php?table">Administrar mis aplicaciones subidas</a></li>
 				
-				<li><h2>Información del usuario</h2></li>
+				<h2>Información del usuario</h2>
 				<li><a href="admin.php?opt=user">Cambiar datos de información</a></li>
 			</ul>
 		

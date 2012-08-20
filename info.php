@@ -26,7 +26,7 @@
 session_start();
 include_once('lib/html5.php');
 $html5 = new htmlpage();
-$version = "0.2.2-alpha";
+$version = "0.3 - beta";
 @$varget = $_GET['id'];
 ?>
 
@@ -38,6 +38,14 @@ $version = "0.2.2-alpha";
 	<div style="width: 600px; margin: 50px auto;">
 		<? echo "<h1>La versión de DaxOs Store es: $version</h1>"; ?>
 		<h1>Cambios</h1>
+
+		<h2>0.3 - beta</h2>
+		<ul>
+			<li>Cambiado el texto de "install" a Instalar.</li>
+			<li>Puedes ahora entrar a ver la información de cada una de las aplicaciones. En versiones posteriores vendrá más información.</li>
+			<li>Un usuario normal puede cambiar la información de su aplicación</li>
+			<li>Ha sido retirado el elemento li en los títulos de cada sección de la página de administración</li>
+		</ul>
 
 		<h2>0.2.2-alpha</h2>
 		<ul>

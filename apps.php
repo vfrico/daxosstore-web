@@ -88,7 +88,8 @@ if (isset($_GET['edit']))
         	else{
         		echo '<input class=inputxt type="checkbox" name="active" />';		
         	}
-        echo '<br>';}
+        echo '<br>';
+    	}
         echo '<input class=inputbut type="submit" value=Enviar>';
 	}
 	echo "</form></div>";
@@ -134,6 +135,11 @@ else if (isset($_GET['table']))
 	//~ for ($i=1; $i <= 10; $i++) {
 	while ($row = $salida->fetchArray(SQLITE3_ASSOC)) 
 	{
+	if (!$_SESSION['isadmin']){
+		if ($row['byuser'] != $_SESSION['user']){
+			continue; //Si el usuario no es el que ha enviado la aplicación, se salta
+		}
+	}
 	?>
 		<tr>
 			<td>
