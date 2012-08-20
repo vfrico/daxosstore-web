@@ -72,7 +72,7 @@ if (isset($_SESSION['user'])) { //si ha iniciado sesión
 			<ul>
 				<li><h2>Aplicaciones</h2></li>
 				<li><a href="submit.php">Enviar una aplicación</a></li>
-				<li><a href="apps.php">Administrar aplicaciones</a></li> <!-- No funciona-->
+				<li><a href="apps.php?table">Administrar aplicaciones</a></li> <!-- No funciona-->
 				
 				<li><h2>Usuarios</h2></li>
 				<li><a href="users.php">Ver usuarios</a></li> <!-- No funciona-->

@@ -65,12 +65,13 @@ if($row['active'] == 1){
 		<tr>
 			<td class="applogo">
 				<? 	echo "<img src='"."uploadedimgs/".$row['image']."' class=logo />"; ?>
-				<br><a href="">Install</a>
+				<br>
+				<? echo "<a href='".$row['url']."'>Instalar</a>"; ?>
 			</td>
 			<td class="container">
 			<header class="nameapp">
 				<? 	
-				echo "<h1><a href='".$row['url']."'>".$row['name']."</a></h1>";
+				echo "<h1><a href='apps.php?id=".$row['id']."'>".$row['name']."</a></h1>";
 				//~ echo "<h2>Categoria: ".$row['category']."</h2>";
 				?>
 			</header>

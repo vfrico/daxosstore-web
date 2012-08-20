@@ -23,6 +23,7 @@ class dbinter {
 	function createapptable() {
 		//Crea la tabla en la base de datos apps.db
 		$base = $this->abrirbase();
+		//Propuesta: añadir campos de: web del autor, información corta, ¿ppa? o repositorio principal
 		$base->exec('CREATE TABLE apps (id integer UNIQUE PRIMARY KEY, name VARCHAR(30), category VARCHAR(20), url TEXT, image TEXT, tags TEXT, info TEXT, byuser VARCHAR(30), active INTEGER)');
 		$base->close();
 		
@@ -152,6 +153,37 @@ class dbinter {
 		else {
 			return false;
 		}
+	}
+
+	function getAppFromId($id){
+		//Obtener el campo información del usuario seleccionado
+		$base = $this->abrirbase();
+		$resultado = $base->query("SELECT * FROM apps WHERE id='".$id."'");
+		$times = 0;
+		while ( $row = $resultado->fetchArray(SQLITE3_ASSOC)) { 
+			$id = $row['id'];
+			$name = $row['name'];
+			$category = $row['category'];
+			$url = $row['url'];
+			$image = $row['image'];
+			$tags = $row['tags'];
+			$info = $row['info'];
+			$byuser = $row['byuser'];
+			$active = $row['active'];
+			$times++;
+		}
+		$salida = array(
+			"id" => $id,
+			"name"=>$name,
+			"category"=>$category,
+			"url"=>$url,
+			"image"=>$image,
+			"tags"=>$tags,
+			"info"=>$info,
+			"byuser"=>$byuser,
+			"active"=>$active
+			);
+		return $salida;
 	}
 
 	function getinfo($user){

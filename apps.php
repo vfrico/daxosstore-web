@@ -25,6 +25,7 @@
 session_start();
 //para crear el header, nav y footer 
 include_once('lib/html5.php');
+include_once('lib/sqlite3db.php');
 $html5 = new htmlpage();
 
 ?>
@@ -36,143 +37,181 @@ $html5 = new htmlpage();
 <? $html5->heading(); ?>
 <center>
 <?
-if ($_SESSION['isadmin'])
-{	
-	$base = new SQLite3('lib/apps.db');
-	if (isset($_GET['edit']))
+$base = new SQLite3('lib/apps.db');
+if (isset($_GET['edit']))
+{
+	$_id = $_GET['edit'];
+	echo "<br><br>";
+	echo "Editar aplicación con ID:".$_id;
+	$salida = $base->query("SELECT * FROM apps WHERE id='".$_id."'");
+	echo "<br><br><div style=\"width: 800px;\">";
+	echo "<form action=\"appsubmit.php?edit=".$_id."\" method=\"post\" enctype=\"multipart/form-data\"	>";
+	while ($row = $salida->fetchArray(SQLITE3_ASSOC)) 
 	{
-		$_id = $_GET['edit'];
-		echo "<br><br>";
-		echo "Editar aplicación con ID:".$_id;
-		$salida = $base->query("SELECT * FROM apps WHERE id='".$_id."'");
-		echo "<br><br><div style=\"width: 800px;\">";
-		echo "<form action=\"appsubmit.php?edit=".$_id."\" method=\"post\" enctype=\"multipart/form-data\"	>";
-		while ($row = $salida->fetchArray(SQLITE3_ASSOC)) 
-		{
-			echo '<label for="appname">Nombre de la aplicación: </label>';
-			echo "<input class=inputxt type=\"text\" name=\"appname\" value=\"".$row['name']."\"/><br>";
-            echo "Categoría:";
-            echo '<select name=category>';
-            echo '<option value="Accesories">Accesories</option>';
-            echo '<option value="Internet">Internet</option>';
-            echo '<option value="Graphics">Graphics</option>';               
-            echo '<option value="Games">Games</option>';
-			echo '<option value="Multimedia">Multimedia</option>';
-			echo '<option value="Office">Office</option>';
-			echo '<option value="Education">Education</option>';
-			echo '<option value="System" selected="selected">System</option>';
-			echo '<option value="Other">Other</option>';
-			echo '<option value="GOnline">Games Online</option>';
-			echo '<option value="Cloud">Apps en la nube</option>';
-			echo '</select>';
-			echo '  ('.$row['category'].")";
-			echo '<br>';
-			
-			echo '<label for="appurl">URL de la aplicación:</label>';
-			echo '<input class=inputxt type="text" name="appurl" value="'.$row['url'].'" />';
-			echo '<br>';
-			echo '<label for="appname">Imagen de la Aplicación:</label>';
-			echo "<img src='uploadedimgs/".$row['image']."' style=\"width:24px;height:24px; margin: 0px 4px -6px 4px\" />";
-			echo '<input  class=inputxt type=FILE name="imagefile" id=imagefile> ';
-			echo '<br>';
-            echo '<label for="tags">Etiquetas:</label>';
-            echo '<input class=inputxt type="text" name="tags" value="'.$row['tags'].'" />';
-            echo '<br>';
-            echo '<label for="Info">Información:</label>';
-            echo '<textarea class=inputxt type="text" name="info">'.$row['info'].'</textarea> ';
-            echo '<br>';
-            if ($_SESSION['isadmin']){
-            echo '<label for="active">¿Activa?:</label>';
-          	if ($row['active'] == 1){
-            		echo '<input class=inputxt type="checkbox" checked="checked" name="active" />';		
-            	}
-            	else{
-            		echo '<input class=inputxt type="checkbox" name="active" />';		
-            	}
-            echo '<br>';}
-            echo '<input class=inputbut type="submit" value=Enviar>';
-		}
-		echo "</form></div>";
-		echo "<br>";
+		echo '<label for="appname">Nombre de la aplicación: </label>';
+		echo "<input class=inputxt type=\"text\" name=\"appname\" value=\"".$row['name']."\"/><br>";
+        echo "Categoría:";
+        echo '<select name=category>';
+        echo '<option value="Accesories">Accesories</option>';
+        echo '<option value="Internet">Internet</option>';
+        echo '<option value="Graphics">Graphics</option>';               
+        echo '<option value="Games">Games</option>';
+		echo '<option value="Multimedia">Multimedia</option>';
+		echo '<option value="Office">Office</option>';
+		echo '<option value="Education">Education</option>';
+		echo '<option value="System" selected="selected">System</option>';
+		echo '<option value="Other">Other</option>';
+		echo '<option value="GOnline">Games Online</option>';
+		echo '<option value="Cloud">Apps en la nube</option>';
+		echo '</select>';
+		echo '  ('.$row['category'].")";
+		echo '<br>';
+		
+		echo '<label for="appurl">URL de la aplicación:</label>';
+		echo '<input class=inputxt type="text" name="appurl" value="'.$row['url'].'" />';
+		echo '<br>';
+		echo '<label for="appname">Imagen de la Aplicación:</label>';
+		echo "<img src='uploadedimgs/".$row['image']."' style=\"width:24px;height:24px; margin: 0px 4px -6px 4px\" />";
+		echo '<input  class=inputxt type=FILE name="imagefile" id=imagefile> ';
+		echo '<br>';
+        echo '<label for="tags">Etiquetas:</label>';
+        echo '<input class=inputxt type="text" name="tags" value="'.$row['tags'].'" />';
+        echo '<br>';
+        echo '<label for="Info">Información:</label>';
+        echo '<textarea class=inputxt type="text" name="info">'.$row['info'].'</textarea> ';
+        echo '<br>';
+        if ($_SESSION['isadmin']){
+        echo '<label for="active">¿Activa?:</label>';
+      	if ($row['active'] == 1){
+        		echo '<input class=inputxt type="checkbox" checked="checked" name="active" />';		
+        	}
+        	else{
+        		echo '<input class=inputxt type="checkbox" name="active" />';		
+        	}
+        echo '<br>';}
+        echo '<input class=inputbut type="submit" value=Enviar>';
 	}
-	
-	else
-	{
-		echo "<div style=\"width: 1000px;\">";
-		$salida =  $base->query("SELECT * FROM apps");
-		?>
-		<table>
-			<tr>
-				<td>
-					id
-				</td>
-				<td>
-					img
-				</td>
-				<td>
-					Nombre
-				</td>
-				<td>
-					Información
-				</td>
-				<td>
-					Dirección
-				</td>	
-				<td>
-					Categotía
-				</td>
-				<td>
-					Usuario
-				</td>
-				<td>
-					Tags
-				</td>
-				<td>
-					¿Activa?
-				</td>					
-			</tr>
-		<?
-		//~ for ($i=1; $i <= 10; $i++) {
-		while ($row = $salida->fetchArray(SQLITE3_ASSOC)) 
-		{
-		?>
-			<tr>
-				<td>
-					<? echo $row['id']; ?>
-				</td>
-				<td>
-					<? 	echo "<img src='"."uploadedimgs/".$row['image']."' style=\"width:30px;height:30px; \" />"; ?>
-				</td>
-				<td>
-					<? echo $row['name']; ?>
-				</td>
-				<td>
-					<? echo $row['info']; ?>
-				</td>
-				<td>
-					<? echo $row['url']; ?>
-				</td>
-				<td>
-					<? echo $row['category']; ?>
-				</td>
-				<td>
-					<? echo $row['byuser']; ?>
-				</td>
-				<td>
-					<? echo $row['tags']; ?>
-				</td>
-				<td>
-					<? echo $row['active']; ?>
-				</td>
-				<td>
-					<? echo "<a href=\"apps.php?edit=".$row['id']."\">Editar</a>"; ?>
-				</td>						
-			</tr>
-		<?
-		}
-		echo "</table></div>";
-	}
+	echo "</form></div>";
+	echo "<br>";
 }
+
+else if (isset($_GET['table']))
+{
+	echo "<div style=\"width: 1000px;\">";
+	$salida =  $base->query("SELECT * FROM apps");
+	?>
+	<table>
+		<tr>
+			<td>
+				id
+			</td>
+			<td>
+				img
+			</td>
+			<td>
+				Nombre
+			</td>
+			<td>
+				Información
+			</td>
+			<td>
+				Dirección
+			</td>	
+			<td>
+				Categotía
+			</td>
+			<td>
+				Usuario
+			</td>
+			<td>
+				Tags
+			</td>
+			<td>
+				¿Activa?
+			</td>					
+		</tr>
+	<?
+	//~ for ($i=1; $i <= 10; $i++) {
+	while ($row = $salida->fetchArray(SQLITE3_ASSOC)) 
+	{
+	?>
+		<tr>
+			<td>
+				<? echo $row['id']; ?>
+			</td>
+			<td>
+				<? 	echo "<img src='"."uploadedimgs/".$row['image']."' style=\"width:30px;height:30px; \" />"; ?>
+			</td>
+			<td>
+				<? echo $row['name']; ?>
+			</td>
+			<td>
+				<? echo $row['info']; ?>
+			</td>
+			<td>
+				<? echo $row['url']; ?>
+			</td>
+			<td>
+				<? echo $row['category']; ?>
+			</td>
+			<td>
+				<? echo $row['byuser']; ?>
+			</td>
+			<td>
+				<? echo $row['tags']; ?>
+			</td>
+			<td>
+				<? echo $row['active']; ?>
+			</td>
+			<td>
+				<? echo "<a href=\"apps.php?edit=".$row['id']."\">Editar</a>"; ?>
+			</td>						
+		</tr>
+	<?
+	}
+	echo "</table></div>";
+}
+else if (isset($_GET['id']))
+{
+	$_id = $_GET['id'];
+	// echo "Ver información de aplicación con ID: $_id";
+	$base1 = new dbinter();
+	$app = $base1->getAppFromId($_id);
+	echo "<br>";
+
+	?>
+	<table>
+		<tr>
+			<td class="applogo">
+				<? 	echo "<img src='"."uploadedimgs/".$app['image']."' class=logo />"; ?>
+			</td>
+			<td class="container1">
+			<header class="nameapp">
+				<? 	
+				echo "<h1>".$app['name']."</h1>";
+				//~ echo "<h2>Categoria: ".$app['category']."</h2>";
+				?>
+			</header>
+			<section class="information">
+				<? echo $app['info']; ?>
+			</section>
+			</td>
+		</tr>
+		<tr>
+			<td align="center" colspan="2" style="padding-top:20px;padding-bottom:20px;">
+			<h2><a href="<?echo $app['url'] ?>">Descargar <i><?echo $app['name']?></i></a></h2>
+			</td>
+		</tr>
+		<tr>
+			<td><b>Etiquetas:</b></td>
+			<td><?echo $app['tags']?></td>
+		</tr>
+	</table>
+	<?
+
+	echo "<br>";
+}
+
 	?>	
 			</center>
 <? $html5->pagfooter(); ?>
