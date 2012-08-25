@@ -28,13 +28,13 @@ function loginform($label) {
 			echo '<label for="usuario">Usuario:</label>';
 		}
 		?>
-	<input class="inputxt" id="usuario" type="text" name="usuario" placeholder="Usuario" size=7 />
+	<input class="inputxt" id="usuario" type="text" style="text-align:center;" name="usuario" placeholder="Usuario" size=7 />
 		<?
 		if ($label) {
 			echo '<label for="contrasena">Contraseña:</label>';
 		}
 		?>
-	<input class=inputxt id="contrasena" type="password" name="contrasena" placeholder="Contraseña" size=7 /><br>
+	<input class=inputxt id="contrasena" style="text-align:center;" type="password" name="contrasena" placeholder="Contraseña" size=7 /><br>
 	<div style="text-align: center;"><input class=inputbut type="submit" value="Entrar"> | <div class="inputbut" style="display:inline-block;padding:4px 0 0px 0;height: 20px;color:#FDFCFD;"><a href="login.php?opt=register">Registrar</a></div></div>
 	</form>
 	<?
@@ -42,13 +42,29 @@ function loginform($label) {
 
 function appform() {
 	?>
-	        <form action="appsubmit.php" method="post" enctype="multipart/form-data"	>
-				<label for="appname">Aplicación:</label>
-				<input class=inputxt type="text" name="appname" /><br>
-<!--
-            <input type="text" name="category" />
+	        <section style="text-align:center;">
+            <header>
+                <h1>Enviar una aplicación</h1>
+            </header>
+            <p>Poder de usuario:
+                <? 
+                if ($_SESSION['isadmin']) echo "Administrador<br>La aplicación que envíes será visible en cuanto la publiques";
+                else echo "Usuario <b>sin permisos de administrador</b>. <br>Necesitarás que un administrador te apruebe la aplicación antes de poder verla disponible para descarga en la tienda. No obstante, podrás cambiar sus datos cuando quieras.";
+                ?>
+            </p>
+            <br>
+            
+            <form action="appsubmit.php" method="post" enctype="multipart/form-data"	>
+				<table style="margin: 0px auto; text-align:left;" id="tablesubmit" >
+                    <tr>
+                        <td><label for="appname">Aplicación:</label></td>
+        				<td><input class=inputxt style="width:150px;" type="text" name="appname" /><br></td>
+                    </tr>
+            <!--<input type="text" name="category" />
 -->
-            Categoría: 
+            <tr>
+            <td>Categoría: </td>
+            <td>
                 <select name=category>
                  <option value="Accesories">Accesories</option>
                  <option value="Internet">Internet</option>
@@ -62,57 +78,70 @@ function appform() {
                  <option value="GOnline">Games Online</option>
                  <option value="Cloud">Apps en la nube</option>
                 </select>
-                <br>
-                
-                <label for="appurl">URL de la aplicación:</label>
-                <input class=inputxt type="text" name="appurl" /> 
-                <br>
-                <label for="appname">Imagen de la Aplicación:</label>
-                <input  class=inputxt type=FILE name="imagefile" id=imagefile> 
-                <br>
-                <label for="appname">Etiquetas:</label>
-                <input class=inputxt type="text" name="tags" /> 
-                <br>
-                <label for="appname">Información:</label>
-                <input class=inputxt type="text" name="info" /> 
-                <br>
+            </td>
+            </tr>
+            <tr>
+                <td><label for="appurl">URL de la aplicación:</label></td>
+                <td><input class=inputxt style="width:300px;" type="text" name="appurl" /> </td>
+            </tr>
+            <tr>
+                <td><label for="appname">Imagen de la Aplicación:</label></td>
+                <td><input  class=inputxt type=FILE name="imagefile" id='imagefile'> </td>
+            </tr>
+            <tr>
+                <td><label for="appname">Etiquetas:</label></td>
+                <td><input class=inputxt type="text" style="width:120px;" name="tags" /></td>
+            </tr>
+            <tr>
+                <td><label for="appname">Información:</label></td>
+                <td><input class=inputxt type="text" style="width:200px;" name="info" /> </td>
+            </tr>
 
                 <? if($_SESSION['isadmin']) { ?>
-                <label for="active">Información:</label>
-                <input class=inputxt type="checkbox" name="active" /> 
-                <br>
+                <tr><td><label for="active">¿Activa?:</label></td>
+                <td class="squaredThree">
+                    <input id='squaredThree' type="checkbox" name="active" />
+                </td>
+                </tr>
                 <? } ?>
                 
-            <input class=inputbut type="submit" value=Enviar>
+            <tr><td colspan="2" align="center"><input style="margin-top: 20px" class=inputbut type="submit" value="Enviar datos"></td></tr>
+        </table>
         </form>
+        </section>
 	<?
 }
 
 function registro(){
 		?>
-	        <center>
 	        <form action="register.php" method="post">
-				<label for="username">Nombre de Usuario:</label>
-				<input class=inputxt type="text" name="username" />
-				<br>
-                <label for="passwd">Contraseña:</label>
-                <input class=inputxt type="password" name="passwd" /> 
-                <br>
-                <label for="passwd2">Repita contraseña:</label>
-                <input class=inputxt type="password" name="passwd2" /> 
-                <br>
-                <label for="usermail">Correo Electrónico:</label>
-				<input class=inputxt type="text" name="usermail" />
-				<br>
-                <label for="userinfo">Información:</label>
-				<textarea class=inputxt style="display:block; height: 60px; width: 230px; " name="userinfo"> </textarea>
-				<br>
-            <input class=inputbut type="submit" value=Enviar>
+                <table style="margin: 0px auto; text-align:left;" id="tableregistro" >
+                    <tr>
+        				<td><label for="username" >Nombre de Usuario:</label></td>
+        				<td><input class=inputxt style="width:150px;" type="text" name="username" /></td>
+    				</tr>
+                    <tr>
+                        <td><label for="passwd">Contraseña:</label>
+                        <td><input class=inputxt type="password" name="passwd" /> </td>
+                    <tr>
+                        <td><label for="passwd2">Repita contraseña:</label></td>
+                        <td><input class=inputxt type="password" name="passwd2" /> </td>
+                    </tr>
+                    <tr>
+                        <td><label for="usermail">Correo Electrónico:</label></td>
+        				<td><input class=inputxt type="email" style="width:200px;" name="usermail" /></td>
+                    </tr>
+                    <tr>
+                        <td><label for="userinfo">Información:</label></td>
+        				<td><textarea class=inputxt style="display:block; height: 70px; width: 300px; " name="userinfo"> </textarea></td>
+    				</tr>
+                    <tr><td colspan="2" align="center"><input style="margin-top: 20px" class=inputbut type="submit" value="Registrarme"></td></tr>
+                </table>
+            
         </form>
 <!--
         <b>Nota: Está en pleno desarrollo, por favor, no lo uses, podría ocurrir que tu contraseña no se guardara encriptada.</b>
 -->
-        </center>
 	<?
 }
 

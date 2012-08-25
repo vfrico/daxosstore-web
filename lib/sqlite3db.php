@@ -23,7 +23,6 @@ class dbinter {
 	function createapptable() {
 		//Crea la tabla en la base de datos apps.db
 		$base = $this->abrirbase();
-		//Propuesta: añadir campos de: web del autor, información corta, ¿ppa? o repositorio principal
 		$base->exec('CREATE TABLE apps (id integer UNIQUE PRIMARY KEY, name VARCHAR(30), category VARCHAR(20), url TEXT, image TEXT, tags TEXT, info TEXT, byuser VARCHAR(30), active INTEGER)');
 		$base->close();
 		
