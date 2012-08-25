@@ -45,8 +45,9 @@ if (isset($_SESSION['user'])) { //si ha iniciado sesión
 		?>
 		<section>
 			<header>
-				<h2>Cambiar datos de usuario</h2>
+				<h2 style="text-align:center;">Cambiar datos de usuario</h2>
 			</header>
+			<br>
 		Cambiar E-Mail
 		<? 
 		$old = $dbuser->getemail($_SESSION['user']); //Email almacenado en la base de datos

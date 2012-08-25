@@ -263,3 +263,17 @@ footer {
 #tableregistro td {
 	padding: 2px 14px;
 }
+.appadmin thead {
+	height: 35px;
+	background: -moz-linear-gradient(top, rgba(99, 99, 99, 0) 40%, #454545 80%); /* firefox */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop40%,rgba(99, 99, 99, 0)), color-stop(80%,#454545));  /* webkit */
+ 	font-size: 15px;
+ 	text-align: center;
+ 	font-family:'antic';
+}
+.appadmin td {
+    border: 1px solid rgb(99,99,99);
+}
+.appadmin {
+	border: 0px;
+}

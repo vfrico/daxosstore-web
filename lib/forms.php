@@ -94,7 +94,7 @@ function appform() {
             </tr>
             <tr>
                 <td><label for="appname">Información:</label></td>
-                <td><input class=inputxt type="text" style="width:200px;" name="info" /> </td>
+                <td><input class=inputxt type="text" style="width:250px;" name="info" /> </td>
             </tr>
 
                 <? if($_SESSION['isadmin']) { ?>
