@@ -40,10 +40,7 @@ if (isset($_usuario) && isset($_clave)) {
 	}
 
 } else {
-	echo '<h1>Los datos no eran correctos</h1>
-		<script type="text/javascript">
-            setTimeout(\'location.replace("login.php")\',5500);
-		</script>';
+	messagereplace("Los datos introducidos no eran correctos","login.php",3000);
 }
 
 ?>
@@ -56,16 +53,10 @@ if (isset($_usuario) && isset($_clave)) {
 	<div id=medio>
 <?
 if(!isset($_SESSION['user'])){
-	echo '<h1>Los datos que has introducidos no eran correctos</h1>
-		<script type="text/javascript">
-            setTimeout(\'location.replace("login.php")\',3500);
-		</script>';
+	messagereplace("Los datos introducidos no eran correctos","login.php",3000);
 	}
 else {
-		echo '<h1>Has iniciado sesión como <b>'.$_SESSION["user"].'</b></h1>
-		<script type="text/javascript">
-            setTimeout(\'location.replace("index.php")\',5500);
-		</script>';
+		messagereplace('Has iniciado sesión como <b>'.$_SESSION["user"].'</b>',"admin.php",3000);
 }
 ?>
 </div>

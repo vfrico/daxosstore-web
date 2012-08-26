@@ -114,7 +114,7 @@ function appform() {
 
 function registro(){
 		?>
-	        <form action="register.php" method="post">
+	        <form action="register.php" method="post" style="fondogeneral">
                 <table style="margin: 0px auto; text-align:left;" id="tableregistro" >
                     <tr>
         				<td><label for="username" >Nombre de Usuario:</label></td>

@@ -34,10 +34,9 @@ session_destroy();
 <body>
 	<? $html5->heading(); ?>
 	<div id=medio>
-		<? echo '<h1>El usuario <b>'.$usuariosesion.'</b> ha cerrado la sesión.</h1>
-		<script type="text/javascript">
-            setTimeout(\'location.replace("index.php")\',5500);
-		</script>';;?>
+		<? 
+		messagereplace('El usuario <b>'.$usuariosesion.'</b> ha cerrado la sesión',"index.php",3000);
+		?>
 	</div>
 	<? $html5->pagfooter(); ?>
 </body>

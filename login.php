@@ -32,7 +32,8 @@ $html5 = new htmlpage();
 	<? $html5->headersection("");?>
 <body>
 	<? $html5->heading(); ?>
-	<div id=medio>
+	<div class=medio>
+		<h1 style="text-align:center;">Registrarse como usuario</h1>
 		<? 
 		if($option == 'register'){
 			registro();

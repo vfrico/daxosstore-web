@@ -33,7 +33,7 @@ $html5 = new htmlpage();
 <? $html5->headersection(""); ?>
 <body>
 	<? $html5->heading(); ?>
-    <div id=medio>
+    <div class=medio>
 		<?
 			appform();
 		?>

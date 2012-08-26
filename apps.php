@@ -35,21 +35,21 @@ $html5 = new htmlpage();
 <? $html5->headersection("Apps"); ?>
 <body>
 <? $html5->heading(); ?>
-<center>
+
 <?
 $base = new SQLite3('lib/apps.db');
 if (isset($_GET['edit']))
 {
 	$_id = $_GET['edit'];
-	echo "<br><br>";
-	echo "Editar aplicación con ID:".$_id;
+	echo "<div class=\"medio\"><br><br>";
+	echo "<p style=\"text-align:center\">Editar aplicación con ID:".$_id."</p>";
 	$salida = $base->query("SELECT * FROM apps WHERE id='".$_id."'");
-	echo "<br><br><div style=\"width: 800px;\">";
+	echo "<br>";
 	echo "<form action=\"appsubmit.php?edit=".$_id."\" method=\"post\" enctype=\"multipart/form-data\"	>";
 	while ($row = $salida->fetchArray(SQLITE3_ASSOC)) 
 	{
 		?>
-		<img src='<? echo "uploadedimgs/".$row['image']; ?>' style="width:90px;height:90px; margin: 10px auto" />
+		<div style="text-align:center;"><img src='<? echo "uploadedimgs/".$row['image']; ?>' style="width:90px;height:90px;" /></div>
 		<table style="margin: 0px auto; text-align:left;" id="tablesubmit" >
                     <tr>
                         <td><label for="appname">Aplicación:</label></td>
@@ -110,17 +110,16 @@ if (isset($_GET['edit']))
         </table>
 	<?
 	}
-	echo "</form></div>";
-	echo "<br>";
+	echo "</form>";
+	echo "<br></div>"; //cierra div class=medio
 }
 
 else if (isset($_GET['table']))
 {
-	echo "<div style=\"width: 1000px;\">";
 	$salida =  $base->query("SELECT * FROM apps");
 	?>
-	<table class="appadmin" border="1" cellspacing=0 cellpadding=2>
-		<thead>
+	<div style="width: 1000px;margin: 0px auto;">
+	<table class="appadmin" border="0" cellspacing=0 cellpadding=2>
 		<tr>
 			<td>
 				id
@@ -153,7 +152,6 @@ else if (isset($_GET['table']))
 				Editar
 			</td>					
 		</tr>
-		</thead>
 	<?
 	//~ for ($i=1; $i <= 10; $i++) {
 	while ($row = $salida->fetchArray(SQLITE3_ASSOC)) 
@@ -172,7 +170,7 @@ else if (isset($_GET['table']))
 				<? 	echo "<img src='"."uploadedimgs/".$row['image']."' style=\"width:30px;height:30px; \" />"; ?>
 			</td>
 			<td>
-				<? echo $row['name']; ?>
+				<a href="apps.php?id=<? echo $row['id']; ?>"><? echo $row['name']; ?></a>
 			</td>
 			<td>
 				<? echo $row['info']; ?>
@@ -198,7 +196,7 @@ else if (isset($_GET['table']))
 		</tr>
 	<?
 	}
-	echo "</table></div>";
+	echo "</table></div>"; //cierra capa div
 }
 else if (isset($_GET['id']))
 {
@@ -206,10 +204,10 @@ else if (isset($_GET['id']))
 	// echo "Ver información de aplicación con ID: $_id";
 	$base1 = new dbinter();
 	$app = $base1->getAppFromId($_id);
-	echo "<br>";
+	echo "<div class=\"medio\"><br>";
 
 	?>
-	<table>
+	<div><table style="margin: 0px auto;">
 		<tr>
 			<td class="applogo">
 				<? 	echo "<img src='"."uploadedimgs/".$app['image']."' class=logo />"; ?>
@@ -235,14 +233,13 @@ else if (isset($_GET['id']))
 			<td><b>Etiquetas:</b></td>
 			<td><?echo $app['tags']?></td>
 		</tr>
-	</table>
+	</table></div>
 	<?
 
-	echo "<br>";
+	echo "<br></div>"; //cierra div class=medio
 }
 
 	?>	
-			</center>
 <? $html5->pagfooter(); ?>
 </body>
 </html>

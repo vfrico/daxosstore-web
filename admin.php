@@ -33,12 +33,12 @@ $html5 = new htmlpage();
 <? $html5->headersection("Admin page"); ?>
 <body>
 	<? $html5->heading(); ?>
-	<div id=medio>
+	
 <? // Comprueba si el usuario es administrador
 	
 if (isset($_SESSION['user'])) { //si ha iniciado sesión
-	echo "<h2>Usuario: ".$_SESSION['user']."</h2>";
-	echo "<br>";
+	echo '<div class=medio-inv style="width: 450px;">';
+	echo "<h2 style=\"text-align:center;\">Usuario: ".$_SESSION['user']."</h2>";
 	//Editar opciones usuario
 	if(@$_GET['opt']=="user"){
 		$dbuser = new dbinter();
@@ -68,7 +68,7 @@ if (isset($_SESSION['user'])) { //si ha iniciado sesión
 	}
 	else{
 		if ($_SESSION['isadmin']){
-			echo "Tienes permisos de administrador";
+			echo "<p style=\"text-align:center;\">Tienes permisos de administrador</p>";
 			?>
 			<ul>
 				<h2>Aplicaciones</h2>
@@ -101,12 +101,12 @@ if (isset($_SESSION['user'])) { //si ha iniciado sesión
 		<?
 		}
 	}
+	echo '</div>';
 }
 else{//Si no ha iniciado sesión
-	messagereplace("No has iniciado sesión", "index.php",6000);
+	messagereplace("No has iniciado sesión", "index.php",3000);
 }
 	?>
-	</div>
 	<? $html5->pagfooter(); ?>
 </body>
 </html>

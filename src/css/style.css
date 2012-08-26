@@ -1,7 +1,7 @@
  /*
  * 		file "src/css/style.css" - daxosstore-web project
  * 
- * 		Copyright (C) 2011 - by Víctor Fernández Rico <vfrico@gmail.com>
+ * 		Copyright (C) 2011 -2012 - by Víctor Fernández Rico <vfrico@gmail.com>
  * 		Released under GPL3 license (See COPYNG file or http://www.gnu.org/copyleft/gpl.html)
  * 
  *      This file contains the style of the page using CSS3
@@ -246,9 +246,27 @@ footer {
     border: 0px;
 }
 
-#medio {
+.medio {
 	margin: 100px auto;
-	width: 600px;
+	width: 800px;
+	border: 2px solid rgb(99,99,99);
+	border-radius: 60px 30px;
+	background: -moz-linear-gradient(top, rgba(120, 120, 120, 0) 40%, rgb(99,99,99) 100%); /* firefox */
+	/*border-bottom-left-radius: 30px;
+	border-bottom-right-radius: 30px;
+	border-top-left-radius: 60px 30px;
+	border-top-right-radius: 60px 30px;*/
+}
+.medio-inv {
+	margin: 100px auto;
+	width: 800px;
+	border: 2px solid rgb(99,99,99);
+	border-radius: 60px 30px;
+	background: -moz-linear-gradient(top, rgb(99,99,99) 5%, rgba(120, 120, 120, 0.3) 40%, rgba(120,120,120,0) 80%); /* firefox */
+	/*border-bottom-left-radius: 30px;
+	border-bottom-right-radius: 30px;
+	border-top-left-radius: 60px 30px;
+	border-top-right-radius: 60px 30px;*/
 }
 #brand {
 	margin: 10px auto 0px auto;
@@ -263,17 +281,57 @@ footer {
 #tableregistro td {
 	padding: 2px 14px;
 }
-.appadmin thead {
+.appadmin tr:first-child {
 	height: 35px;
-	background: -moz-linear-gradient(top, rgba(99, 99, 99, 0) 40%, #454545 80%); /* firefox */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop40%,rgba(99, 99, 99, 0)), color-stop(80%,#454545));  /* webkit */
+	/*background: -moz-linear-gradient(top, rgba(99, 99, 99, 0) 40%, #454545 80%); 
+	background: -webkit-gradient(linear, left top, left bottom, color-stop40%,rgba(99, 99, 99, 0)), color-stop(80%,#454545));  */
  	font-size: 15px;
  	text-align: center;
  	font-family:'antic';
+}
+.appadmin tr:first-child td {
+	padding: 0px 16px;
 }
 .appadmin td {
     border: 1px solid rgb(99,99,99);
 }
 .appadmin {
 	border: 0px;
+	border-top-right-radius: 30px;
+}
+
+.appadmin tr:first-child td:first-child {
+	border-top-left-radius: 60px;
+}
+.appadmin tr:last-child td:first-child {
+	border-bottom-left-radius: 30px;
+}
+.appadmin tr:first-child td:last-child {
+	border-top-right-radius: 30px;
+}
+.appadmin tr:last-child td:last-child {
+	border-bottom-right-radius: 60px;
+}
+
+.messystem {
+	border: 2px solid rgb(99,99,99);
+	border-radius: 60px 30px;
+	background: -moz-linear-gradient(top, rgba(120, 120, 120, 0) 20%, rgb(99,99,99) 100%); /* firefox */
+	width: 500px;
+	margin: 50px auto;
+	/*border-bottom-left-radius: 30px;
+	border-bottom-right-radius: 30px;
+	border-top-left-radius: 60px 30px;
+	border-top-right-radius: 60px 30px;*/
+}
+.fondogeneral {
+	margin: 0px auto;
+	width: 800px;
+	border: 2px solid rgb(99,99,99);
+	border-radius: 60px 30px;
+	background: -moz-linear-gradient(top, rgba(120, 120, 120, 0) 20%, rgb(99,99,99) 100%); /* firefox */
+	/*border-bottom-left-radius: 30px;
+	border-bottom-right-radius: 30px;
+	border-top-left-radius: 60px 30px;
+	border-top-right-radius: 60px 30px;*/
 }

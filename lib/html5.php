@@ -90,9 +90,9 @@ function notadmin() {
 }
 function messagereplace($mensaje,$pagina,$tiempo) {
 	?>
-	<div style="text-align: center;">
+	<div style="text-align: center;" class="messystem">
 	<h1><? echo $mensaje;?></h1>
-	<? if ($tiempo != 0 || $tiempo > 0){ //El mensaje no se quita si pones tiempo 0 ?> 
+	<? if ($tiempo != 0 || $tiempo > 0){  ?> 
 	<script type="text/javascript">
 		setTimeout('location.replace("<? echo $pagina;?>")',<? echo $tiempo;?>);
 	</script>

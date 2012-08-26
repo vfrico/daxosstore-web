@@ -26,7 +26,7 @@
 session_start();
 include_once('lib/html5.php');
 $html5 = new htmlpage();
-$version = "0.3 - beta";
+$version = "0.3.1 - beta";
 @$varget = $_GET['id'];
 ?>
 
@@ -39,6 +39,10 @@ $version = "0.3 - beta";
 		<? echo "<h1>La versión de DaxOs Store es: $version</h1>"; ?>
 		<h1>Cambios</h1>
 
+		<h2>0.3.1 - beta</h2>
+		<ul>
+			<li>Renovando interfaz de algunos formularios</li>
+		</ul>
 		<h2>0.3 - beta</h2>
 		<ul>
 			<li>Cambiado el texto de "install" a Instalar.</li>
