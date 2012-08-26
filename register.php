@@ -30,6 +30,7 @@ $html5 = new htmlpage();
 <? $html5->headersection("Admin page"); ?>
 <body>
 	<? $html5->heading(); ?>
+	<div>
 <?
 // switch (@$_GET['opt']) {
 // 	case "editmail":
@@ -109,7 +110,7 @@ elseif (@$_GET['opt']=='editinfo')
 		{
 			echo "<br>";
 			echo "<br>";
-			message2("Has cambiado la información del usuario ".$_SESSION['user']." a ".$_POST['userinfo'],"admin.php?opt=user",5000);
+			message2("Has cambiado la información del usuario ".$_SESSION['user']." a <br><p>".$_POST['userinfo']."</p>","admin.php?opt=user",5000);
 			echo "<br>";	
 		}
 		else{
@@ -203,6 +204,7 @@ else
 	}
 }
 ?>
+	</div>
 	<? $html5->pagfooter(); ?>
 </body>
 </html>

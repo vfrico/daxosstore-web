@@ -267,6 +267,7 @@ footer {
 	border-bottom-right-radius: 30px;
 	border-top-left-radius: 60px 30px;
 	border-top-right-radius: 60px 30px;*/
+	padding:10px 20px;
 }
 #brand {
 	margin: 10px auto 0px auto;
@@ -286,6 +287,7 @@ footer {
 	/*background: -moz-linear-gradient(top, rgba(99, 99, 99, 0) 40%, #454545 80%); 
 	background: -webkit-gradient(linear, left top, left bottom, color-stop40%,rgba(99, 99, 99, 0)), color-stop(80%,#454545));  */
  	font-size: 15px;
+ 	font-weight: bold;
  	text-align: center;
  	font-family:'antic';
 }
@@ -295,11 +297,6 @@ footer {
 .appadmin td {
     border: 1px solid rgb(99,99,99);
 }
-.appadmin {
-	border: 0px;
-	border-top-right-radius: 30px;
-}
-
 .appadmin tr:first-child td:first-child {
 	border-top-left-radius: 60px;
 }
@@ -312,6 +309,14 @@ footer {
 .appadmin tr:last-child td:last-child {
 	border-bottom-right-radius: 60px;
 }
+.appadmin{
+	text-align: center;
+	border: 1px solid rgb(99,99,99);
+	border-bottom-right-radius: 60px;
+	border-bottom-left-radius: 30px;
+	border-top-right-radius: 30px;
+	border-top-left-radius: 60px;
+}
 
 .messystem {
 	border: 2px solid rgb(99,99,99);
@@ -319,6 +324,18 @@ footer {
 	background: -moz-linear-gradient(top, rgba(120, 120, 120, 0) 20%, rgb(99,99,99) 100%); /* firefox */
 	width: 500px;
 	margin: 50px auto;
+	/*border-bottom-left-radius: 30px;
+	border-bottom-right-radius: 30px;
+	border-top-left-radius: 60px 30px;
+	border-top-right-radius: 60px 30px;*/
+}
+.messystem2 {
+	border: 1px solid rgb(99,99,99);
+	border-radius: 60px 30px;
+	background: -moz-linear-gradient(top, rgb(99,99,99) 20%,  rgba(120, 120, 120, 0.1) 80%); /* firefox */
+	width: 600px;
+	margin: 50px auto;
+	padding: 40px 30px;
 	/*border-bottom-left-radius: 30px;
 	border-bottom-right-radius: 30px;
 	border-top-left-radius: 60px 30px;

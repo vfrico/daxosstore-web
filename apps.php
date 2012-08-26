@@ -115,11 +115,14 @@ if (isset($_GET['edit']))
 }
 
 else if (isset($_GET['table']))
-{
-	$salida =  $base->query("SELECT * FROM apps");
+{	
+	$_page = $_GET['table'];
+	$primero = $_page * 20;
+	$salida =  $base->query("SELECT * FROM apps LIMIT ".$primero.", 20"); 
+	// 											LIMIT inicio, items por pagina
 	?>
-	<div style="width: 1000px;margin: 0px auto;">
-	<table class="appadmin" border="0" cellspacing=0 cellpadding=2>
+	<div style="width: 1000px;margin: 60px auto 40px auto;">
+	<table class="appadmin" border="0" cellspacing=0 cellpadding=2 style="margin:0px auto;">
 		<tr>
 			<td>
 				id
@@ -137,7 +140,7 @@ else if (isset($_GET['table']))
 				Dirección
 			</td>	
 			<td>
-				Categotía
+				Categoría
 			</td>
 			<td>
 				Usuario
@@ -196,7 +199,13 @@ else if (isset($_GET['table']))
 		</tr>
 	<?
 	}
-	echo "</table></div>"; //cierra capa div
+	$Siguiente = $_page + 1;
+	$anterior = $_page - 1;
+	echo "</table><p style=\"text-align:center;\">
+	<a style=\"text-align:center;\" href=\"apps.php?table=$anterior\">Anterior</a>
+	<a style=\"text-align:center;\" href=\"apps.php?table=$Siguiente\">Siguiente</a>
+	</p>
+	</div>"; //cierra capa div
 }
 else if (isset($_GET['id']))
 {

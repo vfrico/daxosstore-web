@@ -102,7 +102,7 @@ function messagereplace($mensaje,$pagina,$tiempo) {
 }
 function message2($mensaje,$pagina,$tiempo) {
 	?>
-	<div style="text-align: center;">
+	<div style="text-align: center;" class="messystem2">
 	<h2><? echo $mensaje;?></h2>
 	<? if ($tiempo != 0 || $tiempo > 0){ //El mensaje no se quita si pones tiempo 0 ?> 
 	<script type="text/javascript">
