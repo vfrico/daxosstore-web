@@ -66,6 +66,34 @@ if (isset($_SESSION['user'])) { //si ha iniciado sesión
 		</section>
 		<?
 	}
+	elseif(@isset($_GET['css'])) {
+		if ($_SESSION['isadmin']){
+			?>
+			<form action="admin.php?sheetcss" method="post">
+				<table>
+					             <tr>
+            <td>Categoría: </td>
+            <td>
+                <select name=css>
+                 <option value="src/css/style-azul.css">Estilo Azul</option>
+                 <option value="src/css/style.css">Estilo clásico</option>
+                </select>
+            </td>
+            </tr>
+            <tr><td colspan="2" align="center"><input style="margin-top: 20px" class=inputbut type="submit" value="Enviar datos"></td></tr>
+				</table>
+			</form>
+			<?
+		}
+		else {
+			messagereplace("No eres administrador.", "admin.php",3000);
+		}
+	}
+	elseif(@isset($_GET['sheetcss'])) {
+		$dbuser = new dbinter();
+		echo "La hoja de estilo se ha cambiado a: ".$_POST['css'];
+		$dbuser->setcss($_POST['css']);
+	}
 	else{
 		if ($_SESSION['isadmin']){
 			echo "<p style=\"text-align:center;\">Tienes permisos de administrador</p>";
@@ -83,7 +111,7 @@ if (isset($_SESSION['user'])) { //si ha iniciado sesión
 				<li><a href="admin.php?opt=user">Cambiar datos de información</a></li>
 				
 				<h2>Opciones del sitio web</h2>
-				<li><a href="#">Cambiar tema predeterminado</a></li>
+				<li><a href="admin.php?css">Cambiar tema predeterminado</a></li>
 			</ul>
 			<?
 		}else{

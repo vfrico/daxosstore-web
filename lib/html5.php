@@ -21,6 +21,7 @@
  *      
  */
 include_once('forms.php');
+include_once('sqlite3db.php');
 class htmlpage {
 	function headersection($title) {
 		if ($title =="") {
@@ -33,7 +34,10 @@ class htmlpage {
 		<head>
 			<meta charset="UTF-8">
 			<title><? echo $title; ?></title>
-			<link href='src/css/style.css' rel="stylesheet" type="text/css" media="all">
+			<link href='			<? 
+			$dbuser = new dbinter();
+			echo $dbuser->getcss();
+			 ?>' rel="stylesheet" type="text/css" media="all">
 			<link rel="shortcut icon" href="favicon.ico">
 		</head>
 		<?

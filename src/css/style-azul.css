@@ -22,10 +22,20 @@
 */
 @import url(../fonts/antic/font.css);
 @import url(../fonts/comfortaa/font.css);
+@import url(checkbox.css);
 
 body {
+	background-image: url(../img/fondoazul.jpg);
+	background-position: center;
+	background-attachment: fixed;
+	background-repeat:repeat-xy;
+	overflow:auto;
+/*
 	background-color: #212121;
-	background: -moz-linear-gradient(bottom, rgb(33,33,33) 5%, rgb(54,54,54) 53%, rgb(33,33,33) 77%);
+*/
+/*
+	background: -moz-linear-gradient(bottom, #62A9E1 5%, #447EAD 53%, #62A9E1 77%);
+*/
 	background: -webkit-linear-gradient(bottom, rgb(33,33,33) 5%, rgb(54,54,54) 53%, rgb(33,33,33) 77%);
 	font-family: "antic","sans";
 	color: #FDFCFD;
@@ -51,18 +61,18 @@ h1 {
 
 a:link {
 	text-decoration: none;
-	    color:#949494;
+	    color:#FDFCFD;
 }
 a:visited {
 	text-decoration: none;
-    color:#949494;
+    color:#FDFCFD;
 }
 a:hover {
-	color: #FDFCFD;
+	color: #859BD2;
 }
 a:active {
 	text-decoration: none;
-    color:#949494;
+    color:#FDFCFD;
 }
 
 .cabezal{
@@ -113,20 +123,20 @@ footer {
 }
 #table td a:link {
 	text-decoration: none;
-	    color:#949494;
+	    color:#FDFDFD;
 }
 #table td a:visited {
 	text-decoration: none;
-    color:#949494;
+    color:#FDFDFD;
 }
 #table td a:hover {
 	font-size: 18px;
 	font-family: comfortaa;
-	color: #FDFCFD;
+	color: #85B1D2;
 }
 #table td a:active {
 	text-decoration: none;
-    color:#949494;
+    color:#FDFDFD;
 }
 /* Fin estilo tabla inicial */
 .imgcat {
@@ -212,13 +222,12 @@ footer {
 .inputxt {
 	width: 100px; height: 25px; padding: 1px 10px 0px 10px; margin: 0 0 7px 0;
 	background: #6C6C6C;
-	background: -moz-linear-gradient(top, #636363 20%, #9C9C9C 90%); 
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#545454), color-stop(20%,#7E7E7E)); 
-	border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px;
-	-moz-box-shadow: 0px 1px 0px #6F6F6F;-webkit-box-shadow: 0px 1px 0px #6F6F6F;
+	background: -moz-linear-gradient(top,  #4F86C7 0%, #589BC7 20%); /* firefox */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#4F86C7), color-stop(20%,#589BC7));  /* webkit */
+	-moz-box-shadow: 0px 1px 0px #578FAC;-webkit-box-shadow: 0px 1px 0px #578FAC;
     font-size: 13px; color: #f2f2f2; text-shadow: 0px -1px 0px #A4A4A4;
     font-family: antic;
-    border: 1px solid #6C6C6C;
+    border: 1px solid #53A4D9;
     border-radius: 30px 15px;
 }
 /*.inputxt2 {
@@ -236,14 +245,15 @@ footer {
 .inputbut {
 	width: 90px; height: 24px; padding: 0px 0px 0px 0px; margin: 0 0 5px 0;
 	background: #6C6C6C;
-	background: -moz-linear-gradient(top, #9C9C9C 15%, #636363 90%); /* firefox */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#636363), color-stop(20%,#454545));  /* webkit */
-	-moz-box-shadow: 0px 1px 0px #6F6F6F;-webkit-box-shadow: 0px 1px 0px #6F6F6F;
+	background: -moz-linear-gradient(top, #53A4D9 0%, #3B81D4 20%); /* firefox */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#53A4D9), color-stop(20%,#3B81D4));  /* webkit */
+	-moz-box-shadow: 0px 1px 0px #578FAC;-webkit-box-shadow: 0px 1px 0px #578FAC;
     font-size: 13px; color: #f2f2f2; text-shadow: 0px -1px 0px #A4A4A4;
     font-family: antic;
     /*border-top: 1px solid #c7c7c7;*/
-    border: 1px solid #6C6C6C;
+    border: 1px solid #53A4D9;
     border-radius: 30px 15px;
+    color: #fff;
 }
 .inputbut a {
 	color: #fff;
@@ -251,9 +261,9 @@ footer {
 .medio {
 	margin: 100px auto;
 	width: 800px;
-	border: 2px solid rgb(99,99,99);
+	border: 2px solid #094A72;
 	border-radius: 60px 30px;
-	background: -moz-linear-gradient(top, rgba(120, 120, 120, 0) 40%, rgb(99,99,99) 100%); /* firefox */
+	background: -moz-linear-gradient(top, #3F6ADB 40%, #1C43A7 100%); /* firefox */
 	/*border-bottom-left-radius: 30px;
 	border-bottom-right-radius: 30px;
 	border-top-left-radius: 60px 30px;
@@ -262,9 +272,9 @@ footer {
 .medio-inv {
 	margin: 100px auto;
 	width: 800px;
-	border: 2px solid rgb(99,99,99);
+	border: 2px solid #094A72;
 	border-radius: 60px 30px;
-	background: -moz-linear-gradient(top, rgb(99,99,99) 5%, rgba(120, 120, 120, 0.3) 40%, rgba(120,120,120,0) 80%); /* firefox */
+	background: -moz-linear-gradient(top, rgb(36,99,138) 5%, rgba(68, 136, 179, 0.3) 40%, rgba(95,154,192,0) 80%); /* firefox */
 	/*border-bottom-left-radius: 30px;
 	border-bottom-right-radius: 30px;
 	border-top-left-radius: 60px 30px;
@@ -297,7 +307,7 @@ footer {
 	padding: 0px 16px;
 }
 .appadmin td {
-    border: 1px solid rgb(99,99,99);
+    border: 1px solid #094A72;
 }
 .appadmin tr:first-child td:first-child {
 	border-top-left-radius: 60px;
@@ -313,7 +323,7 @@ footer {
 }
 .appadmin{
 	text-align: center;
-	border: 1px solid rgb(99,99,99);
+	border: 1px solid #094A72;
 	border-bottom-right-radius: 60px;
 	border-bottom-left-radius: 30px;
 	border-top-right-radius: 30px;
@@ -321,20 +331,21 @@ footer {
 }
 
 .messystem {
-	border: 2px solid rgb(99,99,99);
+	border: 2px solid #094A72;
 	border-radius: 60px 30px;
-	background: -moz-linear-gradient(top, rgba(120, 120, 120, 0) 20%, rgb(99,99,99) 100%); /* firefox */
+	background: -moz-linear-gradient(top, rgba(95,154,192,0) 20%, rgb(36,99,138) 100%); /* firefox */
 	width: 500px;
 	margin: 50px auto;
+	padding: 20px 50px;
 	/*border-bottom-left-radius: 30px;
 	border-bottom-right-radius: 30px;
 	border-top-left-radius: 60px 30px;
 	border-top-right-radius: 60px 30px;*/
 }
 .messystem2 {
-	border: 1px solid rgb(99,99,99);
+	border: 1px solid #094A72;
 	border-radius: 60px 30px;
-	background: -moz-linear-gradient(top, rgb(99,99,99) 20%,  rgba(120, 120, 120, 0.1) 80%); /* firefox */
+	background: -moz-linear-gradient(top, rgb(36,99,138) 20%, rgba(95,154,192,0.1) 80%); /* firefox */
 	width: 600px;
 	margin: 50px auto;
 	padding: 40px 30px;
@@ -346,9 +357,9 @@ footer {
 .fondogeneral {
 	margin: 0px auto;
 	width: 800px;
-	border: 2px solid rgb(99,99,99);
+	border: 2px solid #094A72;
 	border-radius: 60px 30px;
-	background: -moz-linear-gradient(top, rgba(120, 120, 120, 0) 20%, rgb(99,99,99) 100%); /* firefox */
+	background: -moz-linear-gradient(top, rgba(95,154,192,0) 20%, rgb(36,99,138) 100%); /* firefox */
 	/*border-bottom-left-radius: 30px;
 	border-bottom-right-radius: 30px;
 	border-top-left-radius: 60px 30px;

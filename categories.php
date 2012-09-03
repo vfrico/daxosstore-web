@@ -23,7 +23,7 @@
  *      
  */
  session_start();
-include('lib/html5.php');
+include_once('lib/html5.php');
 $html5 = new htmlpage();
 ?>
 <!DOCTYPE HTML>
@@ -32,7 +32,7 @@ $html5 = new htmlpage();
 <body>
 	<? $html5->heading(); ?>
             <?
-include('lib/sqlite3db.php');
+include_once('lib/sqlite3db.php');
 $varget = $_GET["cat"];
 
 //~ switch ($varget) {

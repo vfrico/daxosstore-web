@@ -37,9 +37,9 @@ class dbinter {
 		return $db;
 	}
 
-	function abrirbasetxt () {
-		//Abre base de datos para info
-		$db = new SQLite3('lib/textos.db') or die ("NO se puede abrir la base de datos Textos");
+	function abrirbasesys () {
+		//Abre base de datos para almacenar datos del sistema
+		$db = new SQLite3('lib/system.db') or die ("NO se puede abrir la base de datos Textos");
 		return $db;
 	}
 	
@@ -59,14 +59,33 @@ class dbinter {
 		
 	}
 	
-	function createtextotable() {
+	function createsystemtable() {
 		//Crea tabla de usuarios en apps.db
-		$base = $this->abrirbasetxt();
-		$base->exec('CREATE TABLE users (id integer UNIQUE PRIMARY KEY, category VARCHAR(70), fecha VARCHAR(30), titulo VARCHAR(200), texto TEXT)');
+		$base = $this->abrirbasesys();
+		$base->exec('CREATE TABLE config (id integer UNIQUE PRIMARY KEY, propiedad VARCHAR(100), valor VARCHAR(170)');
 		$base->close();
 		
 	}
-
+	
+	function getcss(){
+		//Obtener el campo email del usuario seleccionado
+		$base = $this->abrirbasesys();
+		$resultado = $base->query("SELECT valor FROM config WHERE propiedad='css'");
+		$times = 0;
+		while ( $row = $resultado->fetchArray(SQLITE3_ASSOC)) { 
+			$last = $row['valor'];
+			$times++;
+		}
+		return $last;
+		$base->close();
+	}
+	function setcss($sheet){
+		$base = $this->abrirbasesys();
+		$Accion = $base->exec("INSERT INTO config VALUES (NULL,'css','".$sheet."')");
+		if ($Accion) return true;
+		else return false;
+		$base->close();
+	}
 	function anadirapp ($nombre, $category, $url, $pathimg, $tags, $info, $byuser,$active) {
 		//Añade a la tabla apps de apps.db una nueva aplicación		
 		// $active = 1;
