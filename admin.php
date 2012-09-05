@@ -37,7 +37,7 @@ $html5 = new htmlpage();
 <? // Comprueba si el usuario es administrador
 	
 if (isset($_SESSION['user'])) { //si ha iniciado sesión
-	echo '<div class=medio-inv style="width: 450px;">';
+	echo '<div class=medio-inv id="adminpage" style="width: 450px;">';
 	echo "<h2 style=\"text-align:center;\">Usuario: ".$_SESSION['user']."</h2>";
 	//Editar opciones usuario
 	if(@$_GET['opt']=="user"){

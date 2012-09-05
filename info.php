@@ -35,7 +35,7 @@ $version = "0.3.1 - beta";
 	<? $html5->headersection("");?>
 <body>
 	<? $html5->heading(); ?>
-	<div style="width: 600px; margin: 50px auto;">
+	<div class="medio" style="width: 600px; margin: 50px auto; padding: 20px;">
 		<? echo "<h1>La versión de DaxOs Store es: $version</h1>"; ?>
 		<h1>Cambios</h1>
 
@@ -43,6 +43,7 @@ $version = "0.3.1 - beta";
 		<ul>
 			<li>Renovando interfaz de algunos formularios</li>
 			<li>Poniendo bordes y fondos a muchos de los diálogos y mensajes del sistema</li>
+			<li>Se añade una hoja de estilo adicional, activable por el administrador</li>
 		</ul>
 		<h2>0.3 - beta</h2>
 		<ul>

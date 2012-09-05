@@ -113,7 +113,8 @@ footer {
 }
 #table td a:link {
 	text-decoration: none;
-	    color:#949494;
+	color:#949494;
+	text-shadow: 1px 1px 6px #aaa;
 }
 #table td a:visited {
 	text-decoration: none;
@@ -191,13 +192,14 @@ footer {
 .nameapp a:link{
 	color: #808080;
 	text-decoration: none;
+	text-shadow: 1px 1px 4px #aaa;
 }
 .nameapp a:visited{
 	color: #808080;
 	text-decoration: none;
 }
 .nameapp a:hover{
-	color: #656565;
+	color: #ddd;
 	text-decoration: none;
 }
 /* Ends links of the app*/
@@ -221,18 +223,6 @@ footer {
     border: 1px solid #6C6C6C;
     border-radius: 30px 15px;
 }
-/*.inputxt2 {
-	width: 100px; height: 60px; padding: 1px 10px 0px 10px; margin: 0 0 7px 0;
-	background: #6C6C6C;
-	background: -moz-linear-gradient(top, #393939 0%, #656565 20%); 
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#545454), color-stop(20%,#7E7E7E)); 
-	border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px;
-	-moz-box-shadow: 0px 1px 0px #6F6F6F;-webkit-box-shadow: 0px 1px 0px #6F6F6F;
-    font-size: 13px; color: #f2f2f2; text-shadow: 0px -1px 0px #A4A4A4;
-    font-family: antic;
-    border: 0px;
-    text-align: center;
-}*/
 .inputbut {
 	width: 90px; height: 24px; padding: 0px 0px 0px 0px; margin: 0 0 5px 0;
 	background: #6C6C6C;
@@ -254,10 +244,6 @@ footer {
 	border: 2px solid rgb(99,99,99);
 	border-radius: 60px 30px;
 	background: -moz-linear-gradient(top, rgba(120, 120, 120, 0) 40%, rgb(99,99,99) 100%); /* firefox */
-	/*border-bottom-left-radius: 30px;
-	border-bottom-right-radius: 30px;
-	border-top-left-radius: 60px 30px;
-	border-top-right-radius: 60px 30px;*/
 }
 .medio-inv {
 	margin: 100px auto;
@@ -265,10 +251,6 @@ footer {
 	border: 2px solid rgb(99,99,99);
 	border-radius: 60px 30px;
 	background: -moz-linear-gradient(top, rgb(99,99,99) 5%, rgba(120, 120, 120, 0.3) 40%, rgba(120,120,120,0) 80%); /* firefox */
-	/*border-bottom-left-radius: 30px;
-	border-bottom-right-radius: 30px;
-	border-top-left-radius: 60px 30px;
-	border-top-right-radius: 60px 30px;*/
 	padding:10px 20px;
 }
 #brand {
@@ -326,10 +308,7 @@ footer {
 	background: -moz-linear-gradient(top, rgba(120, 120, 120, 0) 20%, rgb(99,99,99) 100%); /* firefox */
 	width: 500px;
 	margin: 50px auto;
-	/*border-bottom-left-radius: 30px;
-	border-bottom-right-radius: 30px;
-	border-top-left-radius: 60px 30px;
-	border-top-right-radius: 60px 30px;*/
+	padding: 20px 50px;
 }
 .messystem2 {
 	border: 1px solid rgb(99,99,99);
@@ -338,19 +317,10 @@ footer {
 	width: 600px;
 	margin: 50px auto;
 	padding: 40px 30px;
-	/*border-bottom-left-radius: 30px;
-	border-bottom-right-radius: 30px;
-	border-top-left-radius: 60px 30px;
-	border-top-right-radius: 60px 30px;*/
 }
 .fondogeneral {
 	margin: 0px auto;
-	width: 800px;
 	border: 2px solid rgb(99,99,99);
-	border-radius: 60px 30px;
+	border-radius: 30px 15px;
 	background: -moz-linear-gradient(top, rgba(120, 120, 120, 0) 20%, rgb(99,99,99) 100%); /* firefox */
-	/*border-bottom-left-radius: 30px;
-	border-bottom-right-radius: 30px;
-	border-top-left-radius: 60px 30px;
-	border-top-right-radius: 60px 30px;*/
 }

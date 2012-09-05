@@ -34,7 +34,7 @@ class htmlpage {
 		<head>
 			<meta charset="UTF-8">
 			<title><? echo $title; ?></title>
-			<link href='			<? 
+			<link href='<? 
 			$dbuser = new dbinter();
 			echo $dbuser->getcss();
 			 ?>' rel="stylesheet" type="text/css" media="all">
@@ -55,7 +55,7 @@ class htmlpage {
 			<li><a href="admin.php"><img class="navigationimages" alt="Versión" src="images/header/manage.svg"></a></li>
 		</ul>
 		</nav>
-		<div id="login">
+		<div id="login" class="fondogeneral" style="padding: 10px 20px">
 			
 		<?
 		if (!isset($_SESSION['user'])){
