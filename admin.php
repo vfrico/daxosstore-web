@@ -69,6 +69,7 @@ if (isset($_SESSION['user'])) { //si ha iniciado sesión
 	elseif(@isset($_GET['css'])) {
 		if ($_SESSION['isadmin']){
 			?>
+			<section style="text-align:center; margin: 0px auto;">
 			<form action="admin.php?sheetcss" method="post">
 				<table>
 					             <tr>
@@ -83,15 +84,38 @@ if (isset($_SESSION['user'])) { //si ha iniciado sesión
             <tr><td colspan="2" align="center"><input style="margin-top: 20px" class=inputbut type="submit" value="Enviar datos"></td></tr>
 				</table>
 			</form>
+			</section>
 			<?
 		}
 		else {
 			messagereplace("No eres administrador.", "admin.php",3000);
 		}
 	}
+	elseif(@isset($_GET['owncss'])) { //Cambia el css predeterminado para la página mediante javascript
+		?>
+		<table border="0px" style="margin: 0px auto; text-align:center;">
+			<tr>
+				<td><div style="padding:4px 0 0px 0;height: 19px;width: 150px;" class=inputbut onclick="activarhoja()">Activar cambio de tema</div></td>
+				<td><div style="padding:4px 0 0px 0;height: 19px;width: 160px;" class=inputbut onclick="desactivarhoja()">Desactivar cambio de tema</div></td>
+			</tr>
+			<tr>
+				<td>Estilo Azul</td>
+				<td><div style="padding:4px 0 0px 0;height: 19px;" class=inputbut onclick="cambiaryguardarhoja('src/css/style-azul.css')">¡Cambiar!</div></td> <!--Azul-->
+				
+			</tr>
+			<tr>
+				<td>Estilo Clásico</td>
+				<td><div style="padding:4px 0 0px 0;height: 19px;" class=inputbut onclick="cambiaryguardarhoja('src/css/style.css')">¡Cambiar!</div></td> <!--Clásico-->
+			</tr>
+		</table>
+		<p>Si te funciona mal, puedes desactivar el cambio de tema y navegar por Dax OS store con el tema establecido por el administrador.</p>
+		<p>Cuando lo desactivas, necesitarás recargar la página para ver los cambios.</p>
+		<?
+	}
 	elseif(@isset($_GET['sheetcss'])) {
 		$dbuser = new dbinter();
-		echo "La hoja de estilo se ha cambiado a: ".$_POST['css'];
+		echo "<p>La hoja de estilo se ha cambiado a: ".$_POST['css']."</p>";
+		echo "<p>Si no ves los cambios es porque quizás tienes activado un tema distinto por javascript</p>";
 		$dbuser->setcss($_POST['css']);
 	}
 	else{
@@ -111,7 +135,8 @@ if (isset($_SESSION['user'])) { //si ha iniciado sesión
 				<li><a href="admin.php?opt=user">Cambiar datos de información</a></li>
 				
 				<h2>Opciones del sitio web</h2>
-				<li><a href="admin.php?css">Cambiar tema predeterminado</a></li>
+				<li><a href="admin.php?css">Cambiar tema predeterminado (para todo el sitio web)</a></li>
+				<li><a href="admin.php?owncss">Cambiar tema de DaxOs Store para mí</a></li>
 			</ul>
 			<?
 		}else{
@@ -124,8 +149,10 @@ if (isset($_SESSION['user'])) { //si ha iniciado sesión
 				
 				<h2>Información del usuario</h2>
 				<li><a href="admin.php?opt=user">Cambiar datos de información</a></li>
+				
+				<h2>Opciones del sitio web</h2>
+				<li><a href="admin.php?owncss">Cambiar tema de DaxOs Store para mí</a></li>
 			</ul>
-		
 		<?
 		}
 	}

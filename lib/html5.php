@@ -34,11 +34,9 @@ class htmlpage {
 		<head>
 			<meta charset="UTF-8">
 			<title><? echo $title; ?></title>
-			<link href='<? 
-			$dbuser = new dbinter();
-			echo $dbuser->getcss();
-			 ?>' rel="stylesheet" type="text/css" media="all">
+			<link href='<? $dbuser = new dbinter();	echo $dbuser->getcss(); ?>' id="hojaestilo" rel="stylesheet" type="text/css" media="all">
 			<link rel="shortcut icon" href="favicon.ico">
+			<script type="text/javascript" src="src/js/cambiarcss.js"></script>
 		</head>
 		<?
 	}
