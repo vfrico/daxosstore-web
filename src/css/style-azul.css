@@ -25,7 +25,9 @@
 @import url(checkbox.css);
 
 body {
+/*
 	background: transparent url(../img/fondoazul.png) no-repeat center center;
+*/
 	background-attachment: fixed;
 	background-color: #2977A7;
 	font-family: "antic","sans";
