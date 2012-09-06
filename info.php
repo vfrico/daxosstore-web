@@ -41,6 +41,7 @@ $version = "0.3.1 - beta";
 		<h2>0.3.1.1 - beta</h2>
 		<UL>
 			<li>Arreglado problema en appsubmit.php (include a include_once)</li>
+			<li>Cambiando el fondo a vectorial, reduciendo así el tamaño de descarga</li>
 		</UL>
 		<h2>0.3.1 - beta</h2>
 		<ul>

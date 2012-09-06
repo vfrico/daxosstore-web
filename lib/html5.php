@@ -70,7 +70,7 @@ class htmlpage {
 
 		<header id="brand">
 			<h1><a href="index.php"><img class="cabezal" alt="Dax OS Store" src="images/header/cabezal.svg"></a></h1>
-		</header> 
+		</header>
 		<?
 	}
 	
