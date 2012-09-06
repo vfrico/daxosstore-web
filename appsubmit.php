@@ -27,7 +27,7 @@ session_start();
 include_once('lib/html5.php');
 $html5 = new htmlpage();
 
-include('lib/sqlite3db.php');
+include_once('lib/sqlite3db.php');
 //Conectamos base de datos:
 $base = new dbinter;
 // Para la imagen //
@@ -36,13 +36,13 @@ if ($_FILES["imagefile"]["name"] != ''){
 	//~ echo $filename;
 	if (file_exists("uploadedimgs/" . $filename))
 	{
-		echo $filename . " already exists. ";
+		$paraimprimir = "Imagen: ".$filename . " already exists. ";
 	}
 	else
 	{
 		move_uploaded_file($_FILES["imagefile"]["tmp_name"],
 		"uploadedimgs/" . $filename);
-		echo "Imagen guardada en: " . "upload/" . $filename;
+		$paraimprimir = "Imagen: guardada en: " . "upload/" . $filename;
 	}
 }
 else {
@@ -75,8 +75,11 @@ if (isset($_GET['edit']))
 
 else {
 	if ($_SESSION['isadmin']){
-		if ($_POST['active'] == 'Yes' || $_POST['active'] == 'on' || $_POST['active'] == 'On'){
-			$active = 1;
+		if (isset($_POST['active'])){
+			if ($_POST['active'] == 'Yes' || $_POST['active'] == 'on' || $_POST['active'] == 'On'){
+				$active = 1;
+			}
+			else $active = 0;
 		}
 		else $active = 0;
 	}
@@ -96,6 +99,7 @@ else {
 		?>
             Aplicación: <? echo $_POST["appname"]; ?> <br>
             Categoría: <? echo $_POST["category"]; ?> <br>
+            <? echo $paraimprimir; ?> <br>
             Tags: <? echo $_POST["tags"]; ?> <br>
             Info: <? echo $_POST["info"]; ?> <br>
             Archivo: <? echo $_FILES["imagefile"]["name"]; ?> <br>

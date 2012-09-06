@@ -38,7 +38,10 @@ $version = "0.3.1 - beta";
 	<div class="medio" style="width: 600px; margin: 50px auto; padding: 20px;">
 		<? echo "<h1>La versión de DaxOs Store es: $version</h1>"; ?>
 		<h1>Cambios</h1>
-
+		<h2>0.3.1.1 - beta</h2>
+		<UL>
+			<li>Arreglado problema en appsubmit.php (include a include_once)</li>
+		</UL>
 		<h2>0.3.1 - beta</h2>
 		<ul>
 			<li>Renovando interfaz de algunos formularios</li>
@@ -97,7 +100,9 @@ $version = "0.3.1 - beta";
 			<li>Impedir el registro de un usuario que ya exista</li>
 			<li>Separar info(secciones: versión, información técnica, información para el usuario...)</li>
 			<li><strike>Separar las bases de datos de Usuarios y aplicaciones,</strike> así como la del sistema</li>
-			<li>Cambios en la tabla de apps: añadir campos: web del autor, información (corta y larga), ¿ppa? o repositorio principal, pantallazo del programa en dax OS, licencia</li>
+			<li>Cambios en la tabla de apps: añadir campos: web del autor, información (corta y larga), ¿ppa? o repositorio principal, Tamaño aproximado,pantallazo del programa en dax OS, licencia</li>
+			<li>Permitir que un usuario pueda cambiar el tema que ve el de la web(javascript)</li>
+			<li>Buscar aplicaciones, y hacer páginas (usar system.db)</li>
 		</ul>
 	</div>
 	<? $html5->pagfooter(); ?>
