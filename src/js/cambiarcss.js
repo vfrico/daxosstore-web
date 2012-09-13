@@ -18,12 +18,19 @@ function cambiaryguardarhoja(hoja) {
 }
 function activarhoja() {
 	window.localStorage.setItem('activo','yes');
+	window.localStorage.setItem('hojacss','src/css/style.css');
 }
 function desactivarhoja() {
 	window.localStorage.setItem('activo','no');
 }
 function hojaactiva() {
+	try {
 	var activo = window.localStorage.getItem('activo');
+	}
+	catch(err) {
+		window.localStorage.setItem('activo','no');
+		var activo = window.localStorage.getItem('activo');
+	}
 	if (activo == 'yes') {
 		return true;
 	}

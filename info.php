@@ -42,6 +42,7 @@ $version = "0.3.1 - beta";
 		<UL>
 			<li>Arreglado problema en appsubmit.php (include a include_once)</li>
 			<li>Cambiando el fondo a vectorial, reduciendo así el tamaño de descarga</li>
+			<li>Ahora puedes cambiar el tema css mediante javascript y HTML5 (localStorage)</li>
 		</UL>
 		<h2>0.3.1 - beta</h2>
 		<ul>

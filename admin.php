@@ -94,7 +94,7 @@ if (isset($_SESSION['user'])) { //si ha iniciado sesión
 	elseif(@isset($_GET['owncss'])) { //Cambia el css predeterminado para la página mediante javascript
 		?>
 		<table border="0px" style="margin: 0px auto; text-align:center;">
-			<tr>
+		<tr>
 				<td><div style="padding:4px 0 0px 0;height: 19px;width: 150px;" class=inputbut onclick="activarhoja()">Activar cambio de tema</div></td>
 				<td><div style="padding:4px 0 0px 0;height: 19px;width: 160px;" class=inputbut onclick="desactivarhoja()">Desactivar cambio de tema</div></td>
 			</tr>
