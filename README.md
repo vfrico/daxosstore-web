@@ -1,7 +1,7 @@
 DaxOS Store - Web
 ==================
 
-&copy; 2011 - 2012 - Víctor Fernández Rico <vfrico@gmail.com>
+&copy; 2011 - 2012 - Víctor Fernández <vfrico@gmail.com>
 
 (ES): Proyecto bajo licencia GPLv3, texto completo en COPYING o en <http://www.gnu.org/copyleft/gpl.html>
 
